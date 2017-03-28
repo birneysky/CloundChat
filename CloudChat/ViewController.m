@@ -34,8 +34,12 @@ static NSString* const token = @"Ig3lY+675yPP38oHrJeGwguQQ4rxOA/w86vdIdQOP2x4fs9
 
 - (IBAction)loginBtnClicked:(UIButton *)sender {
     
+    ///connectionWithToken 成功的回调不在主线程
     [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
         NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSegueWithIdentifier:@"segue_show_conversation_list" sender:sender];
+        });
     } error:^(RCConnectErrorCode status) {
         NSLog(@"登陆的错误码为:%ld", (long)status);
     } tokenIncorrect:^{
