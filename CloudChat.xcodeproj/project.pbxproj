@@ -17,6 +17,7 @@
 		B2092CF31E8A4EBE0014C0B9 /* CloudChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2092CF21E8A4EBE0014C0B9 /* CloudChatTests.m */; };
 		B2092CFE1E8A4EBF0014C0B9 /* CloudChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2092CFD1E8A4EBF0014C0B9 /* CloudChatUITests.m */; };
 		B2092D0D1E8A6C780014C0B9 /* CCChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2092D0C1E8A6C780014C0B9 /* CCChatListViewController.m */; };
+		B2D477F31E8B500B00A9D4D2 /* CCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D477F21E8B500B00A9D4D2 /* CCChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		B2092CFF1E8A4EBF0014C0B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2092D0B1E8A6C780014C0B9 /* CCChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCChatListViewController.h; sourceTree = "<group>"; };
 		B2092D0C1E8A6C780014C0B9 /* CCChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCChatListViewController.m; sourceTree = "<group>"; };
+		B2D477F11E8B500B00A9D4D2 /* CCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCChatViewController.h; sourceTree = "<group>"; };
+		B2D477F21E8B500B00A9D4D2 /* CCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				B2092CDF1E8A4EBE0014C0B9 /* ViewController.m */,
 				B2092D0B1E8A6C780014C0B9 /* CCChatListViewController.h */,
 				B2092D0C1E8A6C780014C0B9 /* CCChatListViewController.m */,
+				B2D477F11E8B500B00A9D4D2 /* CCChatViewController.h */,
+				B2D477F21E8B500B00A9D4D2 /* CCChatViewController.m */,
 				B2092CE11E8A4EBE0014C0B9 /* Main.storyboard */,
 				B2092CE41E8A4EBE0014C0B9 /* Assets.xcassets */,
 				B2092CE61E8A4EBE0014C0B9 /* LaunchScreen.storyboard */,
@@ -355,6 +360,7 @@
 			files = (
 				B2092CE01E8A4EBE0014C0B9 /* ViewController.m in Sources */,
 				B2092CDD1E8A4EBE0014C0B9 /* AppDelegate.m in Sources */,
+				B2D477F31E8B500B00A9D4D2 /* CCChatViewController.m in Sources */,
 				B2092D0D1E8A6C780014C0B9 /* CCChatListViewController.m in Sources */,
 				B2092CDA1E8A4EBE0014C0B9 /* main.m in Sources */,
 			);

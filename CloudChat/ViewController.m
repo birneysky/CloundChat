@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <RongIMKit/RongIMKit.h>
+#import "AppDelegate.h"
 
 @interface ViewController ()
 
@@ -37,6 +38,8 @@ static NSString* const token = @"Ig3lY+675yPP38oHrJeGwguQQ4rxOA/w86vdIdQOP2x4fs9
     ///connectionWithToken 成功的回调不在主线程
     [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
         NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+        [RCIM sharedRCIM].userInfoDataSource = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        [RCIM sharedRCIM].groupInfoDataSource = (AppDelegate*)[UIApplication sharedApplication].delegate;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self performSegueWithIdentifier:@"segue_show_conversation_list" sender:sender];
         });

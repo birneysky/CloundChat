@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import <RongIMKit/RongIMKit.h>
 
-@interface AppDelegate ()
+
+@interface AppDelegate () 
 
 @end
 
@@ -50,5 +50,32 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+#pragma mark - RCIMUserInfoDataSource
+
+- (void)getUserInfoWithUserId:(NSString *)userId
+                   completion:(void (^)(RCUserInfo *userInfo))completion
+{
+    NSLog(@"🍎🍎🍎 getUserInfoWithUserId %@",userId);
+    RCUserInfo* userInfo = [[RCUserInfo alloc] init];
+    userInfo.userId = userId;
+    userInfo.name = [NSString stringWithFormat:@"🍎 %@",userId];
+    userInfo.portraitUri = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490766912476&di=e000b985b4374e394793d99b34da8121&imgtype=0&src=http%3A%2F%2Fpic36.nipic.com%2F20131207%2F4499633_224151069363_2.jpg";
+    completion(userInfo);
+}
+
+
+#pragma mark - RCIMGroupInfoDataSource
+
+- (void)getGroupInfoWithGroupId:(NSString *)groupId
+                     completion:(void (^)(RCGroup *groupInfo))completion
+{
+    NSLog(@"🍏🍏🍏🍏🍏🍏🍏🍏 getGroupInfoWithGroupId  %@",groupId);
+    
+    RCGroup* group = [[RCGroup alloc] init];
+    group.groupId = groupId;
+    group.groupName = [NSString stringWithFormat:@"🍏 %@",groupId];
+    completion(group);
+}
 
 @end
