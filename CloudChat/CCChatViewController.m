@@ -7,6 +7,7 @@
 //
 
 #import "CCChatViewController.h"
+#import "RCDCustomerEmoticonTab.h"
 
 @interface CCChatViewController ()
 
@@ -25,13 +26,22 @@
     self.enableUnreadMessageIcon = YES;
     
     //[self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:[UIImage imageNamed:@"add"] title:@"title" tag:00001];
-    //self.chatSessionInputBarControl.emojiBoardView
+    
+    RCDCustomerEmoticonTab* addTab = [RCDCustomerEmoticonTab new];
+    addTab.identify = @"0";
+    addTab.image = [RCKitUtility imageNamed:@"add"
+                    
+                                   ofBundle:@"RongCloud.bundle"];;
+    addTab.pageCount = 2;
+    
+    [self.chatSessionInputBarControl.emojiBoardView addExtensionEmojiTab:addTab];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.defaultInputType = RCChatSessionInputBarInputExtention;
+    //self.defaultInputType = RCChatSessionInputBarInputExtention;
+    self.defaultInputType = RCChatSessionInputBarInputText;
     [self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
     
 }
