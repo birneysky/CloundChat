@@ -78,4 +78,25 @@
     completion(group);
 }
 
+
+#pragma mark - RCIMReceiveMessageDelegate
+- (void)onRCIMReceiveMessage:(RCMessage *)message
+                        left:(int)left
+{
+
+}
+
+
+-(BOOL)onRCIMCustomLocalNotification:(RCMessage*)message
+                      withSenderName:(NSString *)senderName
+{
+    return YES;
+}
+
+/// 返回YES 关闭消息提示音
+-(BOOL)onRCIMCustomAlertSound:(RCMessage*)message
+{
+    return  NO;
+}
+
 @end

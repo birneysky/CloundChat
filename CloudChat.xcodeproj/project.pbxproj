@@ -19,6 +19,7 @@
 		B2092CFE1E8A4EBF0014C0B9 /* CloudChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2092CFD1E8A4EBF0014C0B9 /* CloudChatUITests.m */; };
 		B2092D0D1E8A6C780014C0B9 /* CCChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2092D0C1E8A6C780014C0B9 /* CCChatListViewController.m */; };
 		B2D477F31E8B500B00A9D4D2 /* CCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D477F21E8B500B00A9D4D2 /* CCChatViewController.m */; };
+		B2D477F61E8CB5A400A9D4D2 /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D477F51E8CB5A400A9D4D2 /* CCBusinessCardMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		B2092D0C1E8A6C780014C0B9 /* CCChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCChatListViewController.m; sourceTree = "<group>"; };
 		B2D477F11E8B500B00A9D4D2 /* CCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCChatViewController.h; sourceTree = "<group>"; };
 		B2D477F21E8B500B00A9D4D2 /* CCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCChatViewController.m; sourceTree = "<group>"; };
+		B2D477F41E8CB5A400A9D4D2 /* CCBusinessCardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBusinessCardMessage.h; sourceTree = "<group>"; };
+		B2D477F51E8CB5A400A9D4D2 /* CCBusinessCardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBusinessCardMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				B2D477F21E8B500B00A9D4D2 /* CCChatViewController.m */,
 				748FF3A61E8C072F004AB3EB /* RCDCustomerEmoticonTab.h */,
 				748FF3A71E8C072F004AB3EB /* RCDCustomerEmoticonTab.m */,
+				B2D477F41E8CB5A400A9D4D2 /* CCBusinessCardMessage.h */,
+				B2D477F51E8CB5A400A9D4D2 /* CCBusinessCardMessage.m */,
 				B2092CE11E8A4EBE0014C0B9 /* Main.storyboard */,
 				B2092CE41E8A4EBE0014C0B9 /* Assets.xcassets */,
 				B2092CE61E8A4EBE0014C0B9 /* LaunchScreen.storyboard */,
@@ -369,6 +374,7 @@
 				B2D477F31E8B500B00A9D4D2 /* CCChatViewController.m in Sources */,
 				B2092D0D1E8A6C780014C0B9 /* CCChatListViewController.m in Sources */,
 				B2092CDA1E8A4EBE0014C0B9 /* main.m in Sources */,
+				B2D477F61E8CB5A400A9D4D2 /* CCBusinessCardMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

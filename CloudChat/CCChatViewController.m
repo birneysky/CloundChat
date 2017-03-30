@@ -9,6 +9,9 @@
 #import "CCChatViewController.h"
 #import "RCDCustomerEmoticonTab.h"
 
+
+///#define PLUGIN_BOARD_ITEM_FILE_TAG 20001
+
 @interface CCChatViewController ()
 
 @end
@@ -23,16 +26,21 @@
     ///self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BG"]];
     
     self.displayConversationTypeArray = @[@(ConversationType_PRIVATE)];
-    self.enableUnreadMessageIcon = YES;
+    ///self.enableUnreadMessageIcon = YES;
     
-    //[self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:[UIImage imageNamed:@"add"] title:@"title" tag:00001];
     
+    /// 添加扩展功能
+    UIImage* fileImage = [RCKitUtility imageNamed:@"actionbar_file_icon"
+                                         ofBundle:@"RongCloud.bundle"];
+    [self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:fileImage title:@"文件" tag:PLUGIN_BOARD_ITEM_FILE_TAG];
+    
+    /// 添加表情扩展
     RCDCustomerEmoticonTab* addTab = [RCDCustomerEmoticonTab new];
     addTab.identify = @"0";
     addTab.image = [RCKitUtility imageNamed:@"add"
                     
                                    ofBundle:@"RongCloud.bundle"];;
-    addTab.pageCount = 2;
+    addTab.pageCount = 1;
     
     [self.chatSessionInputBarControl.emojiBoardView addExtensionEmojiTab:addTab];
 }
@@ -42,7 +50,7 @@
     [super viewWillAppear:animated];
     //self.defaultInputType = RCChatSessionInputBarInputExtention;
     self.defaultInputType = RCChatSessionInputBarInputText;
-    [self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
+    [self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_SWITCH_CONTAINER_EXTENTION];
     
 }
 
