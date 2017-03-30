@@ -101,20 +101,26 @@
         CGFloat contentViewX  = self.baseContentView.bounds.size.width -  [RCIM sharedRCIM].globalMessagePortraitSize.width - HeadAndContentSpacing - 10 - bubbleSize.width;
         CGRect msgContentViewFrame = self.messageContentView.frame;
         msgContentViewFrame.origin.x = contentViewX;
+        msgContentViewFrame.size.width = bubbleSize.width;
+        msgContentViewFrame.size.height = bubbleSize.height;
         self.messageContentView.frame = msgContentViewFrame;
         //self.messageContentView.backgroundColor = [UIColor redColor];
-        self.backgroundView.frame = CGRectMake(msgContentViewFrame.size.width - bubbleSize.width , 0, bubbleSize.width, bubbleSize.height);
+        self.bubbleBGView.frame = CGRectMake(msgContentViewFrame.size.width - bubbleSize.width , 0, bubbleSize.width, bubbleSize.height);
         
         
         UIImage *image = [RCKitUtility imageNamed:@"chat_to_bg_normal"
                                          ofBundle:@"RongCloud.bundle"];
-        self.bubbleBGView.image = [image
-                                           resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height * 0.8,
+        self.bubbleBGView.image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height * 0.8,
                                                                                         image.size.width * 0.2,
                                                                                         image.size.height * 0.2,
                                                                                         image.size.width * 0.8)];
         
-        CGFloat maxX = CGRectGetMaxY(self.avatarView.frame);
+        
+        CGFloat minX = CGRectGetMinX(self.bubbleBGView.frame);
+        CGFloat avatarHeight = bubbleSize.height - 8 * 2;
+        self.avatarView.frame = CGRectMake(minX + 8, 8, avatarHeight, avatarHeight);
+        
+        CGFloat maxX = CGRectGetMaxX(self.avatarView.frame);
         CGFloat maxY = CGRectGetMaxY(self.avatarView.frame);
         self.nickNameLabel.frame = CGRectMake(maxX + 10, 8, 100, 21);
         //self.nickNameLabel.backgroundColor = [UIColor blueColor];
