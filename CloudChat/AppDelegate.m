@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "CCBusinessCardMessage.h"
 
 @interface AppDelegate () 
 
@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[RCIM sharedRCIM] initWithAppKey:@"lmxuhwaglck9d"];
-    
+    [[RCIM sharedRCIM] registerMessageType:[CCBusinessCardMessage class]];
     return YES;
 }
 

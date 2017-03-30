@@ -8,7 +8,7 @@
 
 #import <RongIMLib/RongIMLib.h>
 
-#define RCDTestMessageTypeIdentifier @"RCD:BusinessCardMsg"
+#define CCBusinessCardMessageTypeIdentifier @"RCD:BusinessCardMsg"
 
 @interface CCBusinessCardMessage : RCMessageContent
 

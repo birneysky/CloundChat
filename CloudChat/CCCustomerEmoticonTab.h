@@ -11,7 +11,7 @@
 #import <RongIMKit/RongIMKit.h>
 
 
-@interface RCDCustomerEmoticonTab : NSObject <RCEmoticonTabSource>
+@interface CCCustomerEmoticonTab : NSObject <RCEmoticonTabSource>
 
 
 @property(nonatomic,copy) NSString* identify;

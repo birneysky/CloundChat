@@ -7,10 +7,14 @@
 //
 
 #import "CCChatViewController.h"
-#import "RCDCustomerEmoticonTab.h"
-
+#import "CCCustomerEmoticonTab.h"
+#import "CCBusinessCardMessage.h"
+#import "CCBusinessCardCell.h"
+#import "CCUserTableViewController.h"
 
 ///#define PLUGIN_BOARD_ITEM_FILE_TAG 20001
+
+static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
 
 @interface CCChatViewController ()
 
@@ -34,8 +38,13 @@
                                          ofBundle:@"RongCloud.bundle"];
     [self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:fileImage title:@"文件" tag:PLUGIN_BOARD_ITEM_FILE_TAG];
     
+    
+    
+    UIImage* commnetImage= [RCKitUtility imageNamed:@"Comment" ofBundle:@"RongCloud.bundle"];
+    [self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:commnetImage title:@"名片" tag:PLUGIN_BOARD_ITEM_CARD_TAG];
+    
     /// 添加表情扩展
-    RCDCustomerEmoticonTab* addTab = [RCDCustomerEmoticonTab new];
+    CCCustomerEmoticonTab* addTab = [CCCustomerEmoticonTab new];
     addTab.identify = @"0";
     addTab.image = [RCKitUtility imageNamed:@"add"
                     
@@ -43,6 +52,11 @@
     addTab.pageCount = 1;
     
     [self.chatSessionInputBarControl.emojiBoardView addExtensionEmojiTab:addTab];
+    
+    
+    
+    ///注册地定义消息于cell
+    [self registerClass:[CCBusinessCardCell class] forMessageClass:[CCBusinessCardMessage class]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -59,15 +73,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if([segue.identifier isEqualToString:@"segue_show_user_list"]){
+        UINavigationController* navc = (UINavigationController*)segue.destinationViewController;
+        CCUserTableViewController* utc = (CCUserTableViewController*)navc.viewControllers.firstObject;
+        __weak typeof(self)  weakSelf = self;
+        utc.selectBlock = ^(NSString *nickName, NSString *title, NSString *url) {
+            CCBusinessCardMessage* cardMessage = [CCBusinessCardMessage new];
+            cardMessage.nickName = nickName;
+            cardMessage.title = title;
+            cardMessage.avatarURL = url;
+            
+            [weakSelf sendMessage:cardMessage pushContent:nil];
+        };
+    }
 }
-*/
+
 
 #pragma mark - OVerride
 
@@ -132,17 +160,17 @@
     NSLog(@"didSendMessage");
     
     
-    ///消息发送完成后，追加一条信息
-    
-    bool saveToDB = NO;
-    RCMessage* rcMessage = nil;
-    RCInformationNotificationMessage* wariningMessage = [RCInformationNotificationMessage notificationWithMessage:@"May i have your attention please! I have a very important announcement make" extra:nil];
-    if (saveToDB) {
-        rcMessage = [[RCIMClient sharedRCIMClient] insertOutgoingMessage:self.conversationType targetId:self.targetId sentStatus:SentStatus_SENT content:wariningMessage];
-    }else{
-        rcMessage = [[RCMessage alloc] initWithType:self.conversationType targetId:self.targetId direction:MessageDirection_SEND messageId:-1 content:wariningMessage];
-    }
-    [self appendAndDisplayMessage:rcMessage];
+//    ///消息发送完成后，追加一条信息
+//    
+//    bool saveToDB = NO;
+//    RCMessage* rcMessage = nil;
+//    RCInformationNotificationMessage* wariningMessage = [RCInformationNotificationMessage notificationWithMessage:@"May i have your attention please! I have a very important announcement make" extra:nil];
+//    if (saveToDB) {
+//        rcMessage = [[RCIMClient sharedRCIMClient] insertOutgoingMessage:self.conversationType targetId:self.targetId sentStatus:SentStatus_SENT content:wariningMessage];
+//    }else{
+//        rcMessage = [[RCMessage alloc] initWithType:self.conversationType targetId:self.targetId direction:MessageDirection_SEND messageId:-1 content:wariningMessage];
+//    }
+//    [self appendAndDisplayMessage:rcMessage];
 }
 
 
@@ -150,5 +178,14 @@
 //    NSLog(@"%@",NSStringFromSelector(_cmd));
 //    return nil;
 //}
+
+#pragma mark - 
+
+- (void)pluginBoardView:(RCPluginBoardView *)pluginBoardView clickedItemWithTag:(NSInteger)tag
+{
+    if(PLUGIN_BOARD_ITEM_CARD_TAG == tag){
+        [self performSegueWithIdentifier:@"segue_show_user_list" sender:nil];
+    }
+}
 
 @end

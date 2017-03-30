@@ -6,9 +6,9 @@
 //  Copyright © 2017年 birney. All rights reserved.
 //
 
-#import "RCDCustomerEmoticonTab.h"
+#import "CCCustomerEmoticonTab.h"
 
-@implementation RCDCustomerEmoticonTab
+@implementation CCCustomerEmoticonTab
 
 
 -(UIView *)loadEmoticonView:(NSString *)identify index:(int)index;
