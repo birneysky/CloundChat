@@ -23,6 +23,7 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
 @implementation CCChatViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -57,14 +58,18 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
     
     ///注册地定义消息于cell
     [self registerClass:[CCBusinessCardCell class] forMessageClass:[CCBusinessCardMessage class]];
+    
+    ///修改输入工具条 布局
+    ///[self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     //self.defaultInputType = RCChatSessionInputBarInputExtention;
+    /// 进入聊天界面时显示的默认输入模式
     self.defaultInputType = RCChatSessionInputBarInputText;
-    [self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_SWITCH_CONTAINER_EXTENTION];
     
 }
 
@@ -179,13 +184,22 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
 //    return nil;
 //}
 
-#pragma mark - 
 
 - (void)pluginBoardView:(RCPluginBoardView *)pluginBoardView clickedItemWithTag:(NSInteger)tag
 {
     if(PLUGIN_BOARD_ITEM_CARD_TAG == tag){
         [self performSegueWithIdentifier:@"segue_show_user_list" sender:nil];
     }
+    else{
+        [super pluginBoardView:pluginBoardView clickedItemWithTag:tag];
+    }
 }
+
+
+//- (void)showChooseUserViewController:(void (^)(RCUserInfo *selectedUserInfo))selectedBlock
+//                              cancel:(void (^)())cancelBlock
+//{
+//    
+//}
 
 @end

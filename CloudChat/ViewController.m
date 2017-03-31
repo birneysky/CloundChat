@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <RongIMKit/RongIMKit.h>
 #import "AppDelegate.h"
+#import "CCGroupAndUserDataSet.h"
 
 @interface ViewController ()
 
@@ -36,11 +37,14 @@ static NSString* const token = @"Ig3lY+675yPP38oHrJeGwguQQ4rxOA/w86vdIdQOP2x4fs9
 - (IBAction)loginBtnClicked:(UIButton *)sender {
     
     ///connectionWithToken 成功的回调不在主线程
+    CCGroupAndUserDataSet* defaultSet = [CCGroupAndUserDataSet defalutSet];
     [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
         NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
         /// 设置用户或者组信息上报代理
-        [RCIM sharedRCIM].userInfoDataSource = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        [RCIM sharedRCIM].groupInfoDataSource = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        [RCIM sharedRCIM].userInfoDataSource = defaultSet;
+        [RCIM sharedRCIM].groupInfoDataSource = defaultSet;
+        [RCIM sharedRCIM].groupUserInfoDataSource = defaultSet;
+        [RCIM sharedRCIM].groupMemberDataSource = defaultSet;
         ///设置消息监听代理
         [RCIM sharedRCIM].receiveMessageDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
         dispatch_async(dispatch_get_main_queue(), ^{

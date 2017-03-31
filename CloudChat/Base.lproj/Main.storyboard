@@ -45,7 +45,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddd-lq-Uf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-526" y="-1365"/>
+            <point key="canvasLocation" x="798" y="-1376"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1394" y="-615"/>
+            <point key="canvasLocation" x="-1489" y="-656"/>
         </scene>
         <!--会话-->
         <scene sceneID="pLu-Op-rwM">
@@ -112,11 +112,34 @@
                     </navigationItem>
                     <connections>
                         <segue destination="uWg-SI-HMs" kind="show" identifier="segue_show_conversation_detail" id="GQr-iZ-HhG"/>
+                        <segue destination="0D7-bO-Vn5" kind="show" identifier="segue_show_sub_conversation" id="K04-ts-KJD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPB-1Q-CUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="-1365"/>
+            <point key="canvasLocation" x="1553" y="-1377"/>
+        </scene>
+        <!--Chat List View Controller-->
+        <scene sceneID="HWq-W4-MKS">
+            <objects>
+                <viewController id="0D7-bO-Vn5" customClass="CCChatListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eao-Qj-5xu"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bz0-mK-8zZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fGV-yq-F0s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5IM-zg-P6P"/>
+                    <connections>
+                        <segue destination="uWg-SI-HMs" kind="push" identifier="segue_show_group_conversation" id="LF2-nn-sAS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WOW-sf-BLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2572" y="-2167"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="yDq-X7-Na3">
@@ -164,7 +187,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAb-9G-k3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482" y="-656"/>
+            <point key="canvasLocation" x="1553" y="-656"/>
         </scene>
         <!--发现-->
         <scene sceneID="omw-J6-tAi">
@@ -227,7 +250,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQi-f6-wSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-482" y="730"/>
+            <point key="canvasLocation" x="798" y="895"/>
         </scene>
         <!--我-->
         <scene sceneID="DLf-TX-BWq">
@@ -256,7 +279,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pht-NT-9F8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="745"/>
+            <point key="canvasLocation" x="1553" y="895"/>
         </scene>
         <!--User Table View Controller-->
         <scene sceneID="yBJ-fz-itX">
@@ -331,7 +354,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewX-fO-fIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2988" y="-2020.8395802098953"/>
+            <point key="canvasLocation" x="4911" y="-2167"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="kTS-nW-F2B">
@@ -354,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQH-Iy-NdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2060" y="-1365"/>
+            <point key="canvasLocation" x="2572" y="-1377"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wjp-K2-eVC">
@@ -399,7 +422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fkO-vr-djZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3836" y="-1375.8620689655174"/>
+            <point key="canvasLocation" x="3665" y="-1377"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qb2-Ks-kVD">
@@ -417,7 +440,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRu-zH-aOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2048.8000000000002" y="-2020.8395802098953"/>
+            <point key="canvasLocation" x="3665" y="-2166"/>
         </scene>
     </scenes>
     <resources>
@@ -428,4 +451,7 @@
         <image name="icon_me" width="26" height="26"/>
         <image name="square" width="26" height="26"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LF2-nn-sAS"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -16,40 +16,45 @@
 @implementation CCChatListViewController
 
 
-
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
+        //设置需要显示哪些类型的会话
+        [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),
+                                            @(ConversationType_DISCUSSION),
+                                            @(ConversationType_CHATROOM),
+                                            @(ConversationType_GROUP),
+                                            @(ConversationType_APPSERVICE),
+                                            @(ConversationType_SYSTEM)]];
+        
+        //    //设置需要将哪些类型的会话在会话列表中聚合显示
+        [self setCollectionConversationType:@[@(ConversationType_DISCUSSION),
+                                              @(ConversationType_GROUP)]];
+        
+        
+        self.cellBackgroundColor = [UIColor colorWithRed:220/255.0f green:220/255.0f blue:220/255.0f alpha:1];
+        self.topCellBackgroundColor = [UIColor greenColor];
+        
 
     }
     return self;
 }
 
 
+- (instancetype)init
+{
+    if (self = [super init]){
+        
+    }
+    return self;
+}
+
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //设置需要显示哪些类型的会话
-    [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),
-                                        @(ConversationType_DISCUSSION),
-                                        @(ConversationType_CHATROOM),
-                                        @(ConversationType_GROUP),
-                                        @(ConversationType_APPSERVICE),
-                                        @(ConversationType_SYSTEM)]];
-    
-    //设置需要将哪些类型的会话在会话列表中聚合显示
-    [self setCollectionConversationType:@[@(ConversationType_DISCUSSION),
-                                          @(ConversationType_GROUP)]];
-    
-    
-    self.cellBackgroundColor = [UIColor colorWithRed:220/255.0f green:220/255.0f blue:220/255.0f alpha:1];
-    self.topCellBackgroundColor = [UIColor greenColor];
- 
-    //
     [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
-    
     
 }
 
@@ -74,13 +79,29 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"segue_show_conversation_detail"]) {
-        RCConversationModel* model = sender;
+    RCConversationModel* model = sender;
+    if ([segue.identifier isEqualToString:@"segue_show_conversation_detail"] ||
+        [segue.identifier isEqualToString:@"segue_show_group_conversation"]) {
         CCChatViewController* cccvc = (CCChatViewController*)segue.destinationViewController;
         cccvc.conversationType = model.conversationType;
         cccvc.targetId = model.targetId;
-        RCUserInfo* userInfo = [[RCIM sharedRCIM] getUserInfoCache:model.targetId];
-        cccvc.title = userInfo.name;
+        if( ConversationType_GROUP == model.conversationType)
+        {
+            RCGroup* groupInfo = [[RCIM sharedRCIM] getGroupInfoCache:model.targetId];
+            cccvc.title = groupInfo.groupName;
+        }
+        else if(ConversationType_PRIVATE == model.conversationType){
+            RCUserInfo* userInfo = [[RCIM sharedRCIM] getUserInfoCache:model.targetId];
+            cccvc.title = userInfo.name;
+        }
+    }
+    else if ([segue.identifier isEqualToString:@"segue_show_sub_conversation"]){
+        CCChatListViewController* cclvc = (CCChatListViewController*)segue.destinationViewController;
+        cclvc.displayConversationTypeArray = @[@(ConversationType_GROUP)];
+        if (ConversationType_GROUP == model.conversationType) {
+            cclvc.title = @"群组";
+        }
+        cclvc.collectionConversationTypeArray = nil;
     }
 }
 
@@ -90,7 +111,15 @@
          conversationModel:(RCConversationModel *)model
                atIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"segue_show_conversation_detail" sender:model];
+    if ( RC_CONVERSATION_MODEL_TYPE_COLLECTION == conversationModelType) {
+        [self performSegueWithIdentifier:@"segue_show_sub_conversation" sender:model];
+    }else if(self.collectionConversationTypeArray){
+        
+        [self performSegueWithIdentifier:@"segue_show_conversation_detail" sender:model];
+    }
+    else{
+        [self performSegueWithIdentifier:@"segue_show_group_conversation" sender:model];
+    }
 }
 
 - (void)willDisplayConversationTableCell:(RCConversationBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath

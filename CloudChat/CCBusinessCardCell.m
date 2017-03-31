@@ -56,12 +56,19 @@
     self.nickNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleLabel.font = [UIFont systemFontOfSize:10.0f];
-    self.avatarView.userInteractionEnabled = YES;
+    self.bubbleBGView.userInteractionEnabled = YES;
     
     [self.messageContentView addSubview:self.bubbleBGView];
     [self.messageContentView addSubview:self.avatarView];
     [self.messageContentView addSubview:self.nickNameLabel];
     [self.messageContentView addSubview:self.titleLabel];
+    
+    
+    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [self.bubbleBGView addGestureRecognizer:tapGesture];
+    
+    UILongPressGestureRecognizer* longPrewwGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    [self.bubbleBGView addGestureRecognizer:longPrewwGesture];
 }
 
 - (void)setDataModel:(RCMessageModel *)model
@@ -104,7 +111,7 @@
         msgContentViewFrame.size.width = bubbleSize.width;
         msgContentViewFrame.size.height = bubbleSize.height;
         self.messageContentView.frame = msgContentViewFrame;
-        //self.messageContentView.backgroundColor = [UIColor redColor];
+        //self.messageContentView.backgroundColor  = [UIColor redColor];
         self.bubbleBGView.frame = CGRectMake(msgContentViewFrame.size.width - bubbleSize.width , 0, bubbleSize.width, bubbleSize.height);
         
         
@@ -148,6 +155,27 @@
 
 + (CGSize)getBubbleSize{
     return  CGSizeMake(180, 60);
+}
+
+
+#pragma mark - Target Action
+- (void)tapAction:(UITapGestureRecognizer*)tap
+{
+    [self.delegate didTapMessageCell:self.model];
+    ///NSLog(@"%@ %@",NSStringFromClass([self class]),NSStringFromSelector(_cmd));
+    UIMenuController* mc = [UIMenuController sharedMenuController];
+    mc.menuItems = @[[[UIMenuItem alloc] initWithTitle:@"hehe" action:@selector(hehe)]];
+    mc.menuVisible = YES;
+}
+
+
+- (void)longPress:(UILongPressGestureRecognizer*)longGesture
+{
+    [self.delegate didLongTouchMessageCell:self.model inView:self];
+}
+
+- (void)hehe{
+    
 }
 
 @end

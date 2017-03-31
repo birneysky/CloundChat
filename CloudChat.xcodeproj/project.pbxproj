@@ -20,6 +20,7 @@
 		B2092D0D1E8A6C780014C0B9 /* CCChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2092D0C1E8A6C780014C0B9 /* CCChatListViewController.m */; };
 		B23E5D5E1E8CFD6400EB2262 /* CCUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B23E5D5D1E8CFD6400EB2262 /* CCUserTableViewController.m */; };
 		B23E5D611E8D00AA00EB2262 /* CCUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B23E5D601E8D00AA00EB2262 /* CCUserCell.m */; };
+		B23E5D641E8E062F00EB2262 /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B23E5D631E8E062F00EB2262 /* CCGroupAndUserDataSet.m */; };
 		B2D477F31E8B500B00A9D4D2 /* CCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D477F21E8B500B00A9D4D2 /* CCChatViewController.m */; };
 		B2D477F61E8CB5A400A9D4D2 /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D477F51E8CB5A400A9D4D2 /* CCBusinessCardMessage.m */; };
 		B2D477F91E8CD5CE00A9D4D2 /* CCBusinessCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D477F81E8CD5CE00A9D4D2 /* CCBusinessCardCell.m */; };
@@ -70,6 +71,8 @@
 		B23E5D5D1E8CFD6400EB2262 /* CCUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUserTableViewController.m; sourceTree = "<group>"; };
 		B23E5D5F1E8D00AA00EB2262 /* CCUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUserCell.h; sourceTree = "<group>"; };
 		B23E5D601E8D00AA00EB2262 /* CCUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUserCell.m; sourceTree = "<group>"; };
+		B23E5D621E8E062F00EB2262 /* CCGroupAndUserDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGroupAndUserDataSet.h; sourceTree = "<group>"; };
+		B23E5D631E8E062F00EB2262 /* CCGroupAndUserDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCGroupAndUserDataSet.m; sourceTree = "<group>"; };
 		B2D477F11E8B500B00A9D4D2 /* CCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCChatViewController.h; sourceTree = "<group>"; };
 		B2D477F21E8B500B00A9D4D2 /* CCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCChatViewController.m; sourceTree = "<group>"; };
 		B2D477F41E8CB5A400A9D4D2 /* CCBusinessCardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBusinessCardMessage.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				B2D477F81E8CD5CE00A9D4D2 /* CCBusinessCardCell.m */,
 				B23E5D5F1E8D00AA00EB2262 /* CCUserCell.h */,
 				B23E5D601E8D00AA00EB2262 /* CCUserCell.m */,
+				B23E5D621E8E062F00EB2262 /* CCGroupAndUserDataSet.h */,
+				B23E5D631E8E062F00EB2262 /* CCGroupAndUserDataSet.m */,
 				B2092CE11E8A4EBE0014C0B9 /* Main.storyboard */,
 				B2092CE41E8A4EBE0014C0B9 /* Assets.xcassets */,
 				B2092CE61E8A4EBE0014C0B9 /* LaunchScreen.storyboard */,
@@ -390,6 +395,7 @@
 				B2092D0D1E8A6C780014C0B9 /* CCChatListViewController.m in Sources */,
 				B23E5D5E1E8CFD6400EB2262 /* CCUserTableViewController.m in Sources */,
 				B23E5D611E8D00AA00EB2262 /* CCUserCell.m in Sources */,
+				B23E5D641E8E062F00EB2262 /* CCGroupAndUserDataSet.m in Sources */,
 				B2092CDA1E8A4EBE0014C0B9 /* main.m in Sources */,
 				B2D477F61E8CB5A400A9D4D2 /* CCBusinessCardMessage.m in Sources */,
 				B2D477F91E8CD5CE00A9D4D2 /* CCBusinessCardCell.m in Sources */,
