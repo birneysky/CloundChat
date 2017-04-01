@@ -31,6 +31,8 @@ static NSString* const token = @"Ig3lY+675yPP38oHrJeGwguQQ4rxOA/w86vdIdQOP2x4fs9
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)loginBtnAction:(UIButton *)sender {
+}
 
 #pragma mark - Target Action
 
@@ -56,6 +58,7 @@ static NSString* const token = @"Ig3lY+675yPP38oHrJeGwguQQ4rxOA/w86vdIdQOP2x4fs9
          NSLog(@"token错误");
     }];
 }
+
 
 
 @end

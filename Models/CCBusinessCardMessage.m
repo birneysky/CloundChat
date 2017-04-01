@@ -11,6 +11,19 @@
 @implementation CCBusinessCardMessage
 
 
+#pragma mark - Init
++ (instancetype) messageWithName:(NSString*)nickName
+                           title:(NSString*)title
+                       avatarUrl:(NSString*)url
+{
+    CCBusinessCardMessage* msg = [CCBusinessCardMessage new];
+    msg.nickName = nickName;
+    msg.title = title;
+    msg.avatarURL = url;
+    return msg;
+}
+
+#pragma mark -  RCMessageCoding
 - (void)decodeWithData:(NSData *)data
 {
     if (data) {

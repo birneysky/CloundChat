@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0566E23251EF976762EB433A /* libPods-CloudChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A047BBFBE3F9A9C15372ACB /* libPods-CloudChat.a */; };
+		B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */; };
+		B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */; };
 		B2BC84771E8F4AB8001A89BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84761E8F4AB8001A89BE /* main.m */; };
 		B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84791E8F4AB8001A89BE /* AppDelegate.m */; };
 		B2BC847D1E8F4AB8001A89BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC847C1E8F4AB8001A89BE /* ViewController.m */; };
@@ -17,11 +19,9 @@
 		B2BC84901E8F4AB9001A89BE /* CloudChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC848F1E8F4AB9001A89BE /* CloudChatTests.m */; };
 		B2BC849B1E8F4AB9001A89BE /* CloudChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC849A1E8F4AB9001A89BE /* CloudChatUITests.m */; };
 		B2BC84B81E8F4B88001A89BE /* CCBusinessCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84A91E8F4B88001A89BE /* CCBusinessCardCell.m */; };
-		B2BC84B91E8F4B88001A89BE /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84AB1E8F4B88001A89BE /* CCBusinessCardMessage.m */; };
 		B2BC84BA1E8F4B88001A89BE /* CCChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84AD1E8F4B88001A89BE /* CCChatListViewController.m */; };
 		B2BC84BB1E8F4B88001A89BE /* CCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84AF1E8F4B88001A89BE /* CCChatViewController.m */; };
 		B2BC84BC1E8F4B88001A89BE /* CCCustomerEmoticonTab.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84B11E8F4B88001A89BE /* CCCustomerEmoticonTab.m */; };
-		B2BC84BD1E8F4B88001A89BE /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84B31E8F4B88001A89BE /* CCGroupAndUserDataSet.m */; };
 		B2BC84BE1E8F4B88001A89BE /* CCUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84B51E8F4B88001A89BE /* CCUserCell.m */; };
 		B2BC84BF1E8F4B88001A89BE /* CCUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84B71E8F4B88001A89BE /* CCUserTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -47,6 +47,10 @@
 		7A047BBFBE3F9A9C15372ACB /* libPods-CloudChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CloudChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D19B4DD16BDA9B42F20E9AD /* Pods-CloudChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudChat.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CloudChat/Pods-CloudChat.debug.xcconfig"; sourceTree = "<group>"; };
 		AFDEEEE974E3CA597D0B8512 /* Pods-CloudChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudChat.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CloudChat/Pods-CloudChat.release.xcconfig"; sourceTree = "<group>"; };
+		B21310D41E8F730800C86822 /* CCBusinessCardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBusinessCardMessage.h; path = ../../Models/CCBusinessCardMessage.h; sourceTree = "<group>"; };
+		B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCBusinessCardMessage.m; path = ../../Models/CCBusinessCardMessage.m; sourceTree = "<group>"; };
+		B21310D61E8F730800C86822 /* CCGroupAndUserDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCGroupAndUserDataSet.h; path = ../../Models/CCGroupAndUserDataSet.h; sourceTree = "<group>"; };
+		B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCGroupAndUserDataSet.m; path = ../../Models/CCGroupAndUserDataSet.m; sourceTree = "<group>"; };
 		B2BC84721E8F4AB8001A89BE /* CloudChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2BC84761E8F4AB8001A89BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B2BC84781E8F4AB8001A89BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,16 +69,12 @@
 		B2BC849C1E8F4AB9001A89BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2BC84A81E8F4B88001A89BE /* CCBusinessCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBusinessCardCell.h; sourceTree = "<group>"; };
 		B2BC84A91E8F4B88001A89BE /* CCBusinessCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBusinessCardCell.m; sourceTree = "<group>"; };
-		B2BC84AA1E8F4B88001A89BE /* CCBusinessCardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBusinessCardMessage.h; sourceTree = "<group>"; };
-		B2BC84AB1E8F4B88001A89BE /* CCBusinessCardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBusinessCardMessage.m; sourceTree = "<group>"; };
 		B2BC84AC1E8F4B88001A89BE /* CCChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCChatListViewController.h; sourceTree = "<group>"; };
 		B2BC84AD1E8F4B88001A89BE /* CCChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCChatListViewController.m; sourceTree = "<group>"; };
 		B2BC84AE1E8F4B88001A89BE /* CCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCChatViewController.h; sourceTree = "<group>"; };
 		B2BC84AF1E8F4B88001A89BE /* CCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCChatViewController.m; sourceTree = "<group>"; };
 		B2BC84B01E8F4B88001A89BE /* CCCustomerEmoticonTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCustomerEmoticonTab.h; sourceTree = "<group>"; };
 		B2BC84B11E8F4B88001A89BE /* CCCustomerEmoticonTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCustomerEmoticonTab.m; sourceTree = "<group>"; };
-		B2BC84B21E8F4B88001A89BE /* CCGroupAndUserDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGroupAndUserDataSet.h; sourceTree = "<group>"; };
-		B2BC84B31E8F4B88001A89BE /* CCGroupAndUserDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCGroupAndUserDataSet.m; sourceTree = "<group>"; };
 		B2BC84B41E8F4B88001A89BE /* CCUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUserCell.h; sourceTree = "<group>"; };
 		B2BC84B51E8F4B88001A89BE /* CCUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUserCell.m; sourceTree = "<group>"; };
 		B2BC84B61E8F4B88001A89BE /* CCUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUserTableViewController.h; sourceTree = "<group>"; };
@@ -124,6 +124,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B21310D11E8F72EC00C86822 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B21310D41E8F730800C86822 /* CCBusinessCardMessage.h */,
+				B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */,
+				B21310D61E8F730800C86822 /* CCGroupAndUserDataSet.h */,
+				B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		B2BC84691E8F4AB8001A89BE = {
 			isa = PBXGroup;
 			children = (
@@ -149,18 +160,15 @@
 		B2BC84741E8F4AB8001A89BE /* CloudChat */ = {
 			isa = PBXGroup;
 			children = (
+				B21310D11E8F72EC00C86822 /* Models */,
 				B2BC84A81E8F4B88001A89BE /* CCBusinessCardCell.h */,
 				B2BC84A91E8F4B88001A89BE /* CCBusinessCardCell.m */,
-				B2BC84AA1E8F4B88001A89BE /* CCBusinessCardMessage.h */,
-				B2BC84AB1E8F4B88001A89BE /* CCBusinessCardMessage.m */,
 				B2BC84AC1E8F4B88001A89BE /* CCChatListViewController.h */,
 				B2BC84AD1E8F4B88001A89BE /* CCChatListViewController.m */,
 				B2BC84AE1E8F4B88001A89BE /* CCChatViewController.h */,
 				B2BC84AF1E8F4B88001A89BE /* CCChatViewController.m */,
 				B2BC84B01E8F4B88001A89BE /* CCCustomerEmoticonTab.h */,
 				B2BC84B11E8F4B88001A89BE /* CCCustomerEmoticonTab.m */,
-				B2BC84B21E8F4B88001A89BE /* CCGroupAndUserDataSet.h */,
-				B2BC84B31E8F4B88001A89BE /* CCGroupAndUserDataSet.m */,
 				B2BC84B41E8F4B88001A89BE /* CCUserCell.h */,
 				B2BC84B51E8F4B88001A89BE /* CCUserCell.m */,
 				B2BC84B61E8F4B88001A89BE /* CCUserTableViewController.h */,
@@ -388,13 +396,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2BC84BD1E8F4B88001A89BE /* CCGroupAndUserDataSet.m in Sources */,
 				B2BC84BA1E8F4B88001A89BE /* CCChatListViewController.m in Sources */,
-				B2BC84B91E8F4B88001A89BE /* CCBusinessCardMessage.m in Sources */,
 				B2BC847D1E8F4AB8001A89BE /* ViewController.m in Sources */,
 				B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */,
+				B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */,
 				B2BC84BF1E8F4B88001A89BE /* CCUserTableViewController.m in Sources */,
 				B2BC84771E8F4AB8001A89BE /* main.m in Sources */,
+				B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */,
 				B2BC84BE1E8F4B88001A89BE /* CCUserCell.m in Sources */,
 				B2BC84BB1E8F4B88001A89BE /* CCChatViewController.m in Sources */,
 				B2BC84B81E8F4B88001A89BE /* CCBusinessCardCell.m in Sources */,

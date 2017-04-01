@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CustomerService/CustomerService.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:CloudChat/CloudChat.xcodeproj">
    </FileRef>
    <FileRef
