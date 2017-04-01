@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2092CD41E8A4EBE0014C0B9"
+               BlueprintIdentifier = "B2BC84711E8F4AB8001A89BE"
                BuildableName = "CloudChat.app"
                BlueprintName = "CloudChat"
                ReferencedContainer = "container:CloudChat.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2092CED1E8A4EBE0014C0B9"
+               BlueprintIdentifier = "B2BC848A1E8F4AB9001A89BE"
                BuildableName = "CloudChatTests.xctest"
                BlueprintName = "CloudChatTests"
                ReferencedContainer = "container:CloudChat.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2092CF81E8A4EBF0014C0B9"
+               BlueprintIdentifier = "B2BC84951E8F4AB9001A89BE"
                BuildableName = "CloudChatUITests.xctest"
                BlueprintName = "CloudChatUITests"
                ReferencedContainer = "container:CloudChat.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2092CD41E8A4EBE0014C0B9"
+            BlueprintIdentifier = "B2BC84711E8F4AB8001A89BE"
             BuildableName = "CloudChat.app"
             BlueprintName = "CloudChat"
             ReferencedContainer = "container:CloudChat.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2092CD41E8A4EBE0014C0B9"
+            BlueprintIdentifier = "B2BC84711E8F4AB8001A89BE"
             BuildableName = "CloudChat.app"
             BlueprintName = "CloudChat"
             ReferencedContainer = "container:CloudChat.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2092CD41E8A4EBE0014C0B9"
+            BlueprintIdentifier = "B2BC84711E8F4AB8001A89BE"
             BuildableName = "CloudChat.app"
             BlueprintName = "CloudChat"
             ReferencedContainer = "container:CloudChat.xcodeproj">
