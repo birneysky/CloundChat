@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0566E23251EF976762EB433A /* libPods-CloudChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A047BBFBE3F9A9C15372ACB /* libPods-CloudChat.a */; };
+		749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */; };
+		749AFDA21E952CC70090A2CF /* CCActiveWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFDA11E952CC70090A2CF /* CCActiveWheel.m */; };
 		B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */; };
 		B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */; };
 		B2BC84771E8F4AB8001A89BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84761E8F4AB8001A89BE /* main.m */; };
@@ -48,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		749AFD9C1E9527390090A2CF /* CCAccountSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAccountSettingTableViewController.h; sourceTree = "<group>"; };
+		749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAccountSettingTableViewController.m; sourceTree = "<group>"; };
+		749AFDA01E952CC70090A2CF /* CCActiveWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCActiveWheel.h; path = ../../GeneralView/CCActiveWheel.h; sourceTree = "<group>"; };
+		749AFDA11E952CC70090A2CF /* CCActiveWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCActiveWheel.m; path = ../../GeneralView/CCActiveWheel.m; sourceTree = "<group>"; };
 		7A047BBFBE3F9A9C15372ACB /* libPods-CloudChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CloudChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D19B4DD16BDA9B42F20E9AD /* Pods-CloudChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudChat.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CloudChat/Pods-CloudChat.debug.xcconfig"; sourceTree = "<group>"; };
 		AFDEEEE974E3CA597D0B8512 /* Pods-CloudChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudChat.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CloudChat/Pods-CloudChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +142,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		749AFD9F1E952C6B0090A2CF /* GeneralView */ = {
+			isa = PBXGroup;
+			children = (
+				749AFDA01E952CC70090A2CF /* CCActiveWheel.h */,
+				749AFDA11E952CC70090A2CF /* CCActiveWheel.m */,
+			);
+			name = GeneralView;
+			sourceTree = "<group>";
+		};
 		B21310D11E8F72EC00C86822 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +187,7 @@
 		B2BC84741E8F4AB8001A89BE /* CloudChat */ = {
 			isa = PBXGroup;
 			children = (
+				749AFD9F1E952C6B0090A2CF /* GeneralView */,
 				B2C3BF881E9500DE0044C181 /* Helpers */,
 				B21310D11E8F72EC00C86822 /* Models */,
 				B2BC84A81E8F4B88001A89BE /* CCBusinessCardCell.h */,
@@ -196,6 +212,8 @@
 				B2BC84791E8F4AB8001A89BE /* AppDelegate.m */,
 				B2BC847B1E8F4AB8001A89BE /* CCLoginViewController.h */,
 				B2BC847C1E8F4AB8001A89BE /* CCLoginViewController.m */,
+				749AFD9C1E9527390090A2CF /* CCAccountSettingTableViewController.h */,
+				749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */,
 				B2BC847E1E8F4AB8001A89BE /* Main.storyboard */,
 				B2BC84811E8F4AB8001A89BE /* Assets.xcassets */,
 				B2BC84831E8F4AB8001A89BE /* LaunchScreen.storyboard */,
@@ -426,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2C3BF771E9484E20044C181 /* CCSettingSelfInfoCell.m in Sources */,
+				749AFDA21E952CC70090A2CF /* CCActiveWheel.m in Sources */,
 				B2BC84BA1E8F4B88001A89BE /* CCChatListViewController.m in Sources */,
 				B2C3BF7D1E9490220044C181 /* RCDCustomerServiceViewController.m in Sources */,
 				B2BC847D1E8F4AB8001A89BE /* CCLoginViewController.m in Sources */,
@@ -433,6 +452,7 @@
 				B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */,
 				B2C3BF8B1E9500FF0044C181 /* CCNetwokKit.m in Sources */,
 				B2BC84BF1E8F4B88001A89BE /* CCUserTableViewController.m in Sources */,
+				749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */,
 				B2BC84771E8F4AB8001A89BE /* main.m in Sources */,
 				B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */,
 				B2BC84BE1E8F4B88001A89BE /* CCUserCell.m in Sources */,

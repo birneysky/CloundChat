@@ -5,6 +5,7 @@ target 'CloudChat' do
 	pod 'RongCloudIM/IMKit','~>2.8.3'
 	pod 'AFNetworking', '~> 3.1.0'
 	pod 'YYWebImage','~>1.0.4'
+	pod 'MBProgressHUD','~>1.0.0'
 end
 
 

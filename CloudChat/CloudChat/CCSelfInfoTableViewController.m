@@ -103,6 +103,9 @@
     if([titileItem isEqualToString:@"意见反馈"]){
         [self performSegueWithIdentifier:@"segue_show_customer_service" sender:indexPath];
     }
+    else if([titileItem isEqualToString:@"账号设置"]){
+        [self performSegueWithIdentifier:@"segue_show_account_setting" sender:indexPath];
+    }
     
 }
 

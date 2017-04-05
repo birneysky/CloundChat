@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -241,7 +241,7 @@
             <objects>
                 <navigationController id="oeu-do-xtM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我" image="icon_me" id="vN9-i2-qrl"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="h9e-ph-luR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h9e-ph-luR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -316,6 +316,7 @@
                     <navigationItem key="navigationItem" title="我" id="uhZ-lq-xh1"/>
                     <connections>
                         <segue destination="9YH-Jb-8zC" kind="show" identifier="segue_show_customer_service" id="lRf-EH-NKH"/>
+                        <segue destination="XBb-Hb-SsW" kind="push" identifier="segue_show_account_setting" id="c2V-OJ-T0j"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pht-NT-9F8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -340,6 +341,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hh6-2p-1a2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2514" y="895"/>
+        </scene>
+        <!--账号设置-->
+        <scene sceneID="pVA-aI-cqY">
+            <objects>
+                <tableViewController id="XBb-Hb-SsW" customClass="CCAccountSettingTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="4tu-WT-XXp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountSettingCell" id="0yA-ix-Nbx">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0yA-ix-Nbx" id="B7z-Pv-fd8">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XBb-Hb-SsW" id="N92-tt-abX"/>
+                            <outlet property="delegate" destination="XBb-Hb-SsW" id="Zxe-0V-KFm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="账号设置" id="YGF-Uw-6Xk">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="Tt1-x0-5c8"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJ1-bW-NjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2492" y="1677"/>
         </scene>
         <!--User Table View Controller-->
         <scene sceneID="yBJ-fz-itX">

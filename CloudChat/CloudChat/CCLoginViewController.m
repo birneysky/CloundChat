@@ -12,6 +12,8 @@
 #import "CCGroupAndUserDataSet.h"
 #import "CCNetwokKit.h"
 
+#import "CCActiveWheel.h"
+
 @interface CCLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextfield;
 
@@ -38,7 +40,7 @@
 
 - (IBAction)loginBtnClicked:(UIButton *)sender {
     
-    
+    [CCActiveWheel showHUDAddedTo:self.view].processString = @"正在登录";
     [[CCNetwokKit defaultKit] fetchTokenWithUserId:self.userNameTextfield.text name:self.userNameTextfield.text success:^(NSString *token) {
         ///connectionWithToken 成功的回调不在主线程
         CCGroupAndUserDataSet* defaultSet = [CCGroupAndUserDataSet defalutSet];
@@ -52,20 +54,29 @@
             ///设置消息监听代理
             [RCIM sharedRCIM].receiveMessageDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
             dispatch_async(dispatch_get_main_queue(), ^{
+                [CCActiveWheel dismissForView:self.view];
                 [self performSegueWithIdentifier:@"segue_show_conversation_list" sender:sender];
             });
         } error:^(RCConnectErrorCode status) {
             NSLog(@"登陆的错误码为:%ld", (long)status);
+            [self dismissHUDWithWarningText:[NSString stringWithFormat:@"登录失败，错误码：%ld",(long)status]];
         } tokenIncorrect:^{
             NSLog(@"token错误");
+            [self dismissHUDWithWarningText:@"token错误"];
         }];
     } error:^(NSError *error) {
-        
+        [self dismissHUDWithWarningText:@"请求token失败"];
     }];
     
 
 }
 
+
+#pragma mark - helpers
+
+- (void)dismissHUDWithWarningText:(NSString*)text{
+    [CCActiveWheel dismissViewDelay:3 forView:self.view warningText:text];
+}
 
 
 @end
