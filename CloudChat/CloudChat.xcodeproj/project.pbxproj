@@ -12,7 +12,7 @@
 		B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */; };
 		B2BC84771E8F4AB8001A89BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84761E8F4AB8001A89BE /* main.m */; };
 		B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84791E8F4AB8001A89BE /* AppDelegate.m */; };
-		B2BC847D1E8F4AB8001A89BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC847C1E8F4AB8001A89BE /* ViewController.m */; };
+		B2BC847D1E8F4AB8001A89BE /* CCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC847C1E8F4AB8001A89BE /* CCLoginViewController.m */; };
 		B2BC84801E8F4AB8001A89BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2BC847E1E8F4AB8001A89BE /* Main.storyboard */; };
 		B2BC84821E8F4AB8001A89BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2BC84811E8F4AB8001A89BE /* Assets.xcassets */; };
 		B2BC84851E8F4AB8001A89BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2BC84831E8F4AB8001A89BE /* LaunchScreen.storyboard */; };
@@ -24,6 +24,10 @@
 		B2BC84BC1E8F4B88001A89BE /* CCCustomerEmoticonTab.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84B11E8F4B88001A89BE /* CCCustomerEmoticonTab.m */; };
 		B2BC84BE1E8F4B88001A89BE /* CCUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84B51E8F4B88001A89BE /* CCUserCell.m */; };
 		B2BC84BF1E8F4B88001A89BE /* CCUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84B71E8F4B88001A89BE /* CCUserTableViewController.m */; };
+		B2C3BF771E9484E20044C181 /* CCSettingSelfInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C3BF761E9484E20044C181 /* CCSettingSelfInfoCell.m */; };
+		B2C3BF7A1E9486320044C181 /* CCSelfInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C3BF791E9486320044C181 /* CCSelfInfoTableViewController.m */; };
+		B2C3BF7D1E9490220044C181 /* RCDCustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C3BF7C1E9490220044C181 /* RCDCustomerServiceViewController.m */; };
+		B2C3BF8B1E9500FF0044C181 /* CCNetwokKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C3BF8A1E9500FF0044C181 /* CCNetwokKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +59,8 @@
 		B2BC84761E8F4AB8001A89BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B2BC84781E8F4AB8001A89BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B2BC84791E8F4AB8001A89BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B2BC847B1E8F4AB8001A89BE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B2BC847C1E8F4AB8001A89BE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B2BC847B1E8F4AB8001A89BE /* CCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCLoginViewController.h; sourceTree = "<group>"; };
+		B2BC847C1E8F4AB8001A89BE /* CCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCLoginViewController.m; sourceTree = "<group>"; };
 		B2BC847F1E8F4AB8001A89BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2BC84811E8F4AB8001A89BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2BC84841E8F4AB8001A89BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +83,14 @@
 		B2BC84B51E8F4B88001A89BE /* CCUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUserCell.m; sourceTree = "<group>"; };
 		B2BC84B61E8F4B88001A89BE /* CCUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUserTableViewController.h; sourceTree = "<group>"; };
 		B2BC84B71E8F4B88001A89BE /* CCUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUserTableViewController.m; sourceTree = "<group>"; };
+		B2C3BF751E9484E20044C181 /* CCSettingSelfInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSettingSelfInfoCell.h; sourceTree = "<group>"; };
+		B2C3BF761E9484E20044C181 /* CCSettingSelfInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSettingSelfInfoCell.m; sourceTree = "<group>"; };
+		B2C3BF781E9486320044C181 /* CCSelfInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSelfInfoTableViewController.h; sourceTree = "<group>"; };
+		B2C3BF791E9486320044C181 /* CCSelfInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSelfInfoTableViewController.m; sourceTree = "<group>"; };
+		B2C3BF7B1E9490220044C181 /* RCDCustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDCustomerServiceViewController.h; sourceTree = "<group>"; };
+		B2C3BF7C1E9490220044C181 /* RCDCustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDCustomerServiceViewController.m; sourceTree = "<group>"; };
+		B2C3BF891E9500FF0044C181 /* CCNetwokKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCNetwokKit.h; path = ../../Helpers/CCNetwokKit.h; sourceTree = "<group>"; };
+		B2C3BF8A1E9500FF0044C181 /* CCNetwokKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCNetwokKit.m; path = ../../Helpers/CCNetwokKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +172,7 @@
 		B2BC84741E8F4AB8001A89BE /* CloudChat */ = {
 			isa = PBXGroup;
 			children = (
+				B2C3BF881E9500DE0044C181 /* Helpers */,
 				B21310D11E8F72EC00C86822 /* Models */,
 				B2BC84A81E8F4B88001A89BE /* CCBusinessCardCell.h */,
 				B2BC84A91E8F4B88001A89BE /* CCBusinessCardCell.m */,
@@ -171,12 +184,18 @@
 				B2BC84B11E8F4B88001A89BE /* CCCustomerEmoticonTab.m */,
 				B2BC84B41E8F4B88001A89BE /* CCUserCell.h */,
 				B2BC84B51E8F4B88001A89BE /* CCUserCell.m */,
+				B2C3BF751E9484E20044C181 /* CCSettingSelfInfoCell.h */,
+				B2C3BF761E9484E20044C181 /* CCSettingSelfInfoCell.m */,
 				B2BC84B61E8F4B88001A89BE /* CCUserTableViewController.h */,
 				B2BC84B71E8F4B88001A89BE /* CCUserTableViewController.m */,
+				B2C3BF781E9486320044C181 /* CCSelfInfoTableViewController.h */,
+				B2C3BF791E9486320044C181 /* CCSelfInfoTableViewController.m */,
+				B2C3BF7B1E9490220044C181 /* RCDCustomerServiceViewController.h */,
+				B2C3BF7C1E9490220044C181 /* RCDCustomerServiceViewController.m */,
 				B2BC84781E8F4AB8001A89BE /* AppDelegate.h */,
 				B2BC84791E8F4AB8001A89BE /* AppDelegate.m */,
-				B2BC847B1E8F4AB8001A89BE /* ViewController.h */,
-				B2BC847C1E8F4AB8001A89BE /* ViewController.m */,
+				B2BC847B1E8F4AB8001A89BE /* CCLoginViewController.h */,
+				B2BC847C1E8F4AB8001A89BE /* CCLoginViewController.m */,
 				B2BC847E1E8F4AB8001A89BE /* Main.storyboard */,
 				B2BC84811E8F4AB8001A89BE /* Assets.xcassets */,
 				B2BC84831E8F4AB8001A89BE /* LaunchScreen.storyboard */,
@@ -210,6 +229,15 @@
 				B2BC849C1E8F4AB9001A89BE /* Info.plist */,
 			);
 			path = CloudChatUITests;
+			sourceTree = "<group>";
+		};
+		B2C3BF881E9500DE0044C181 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B2C3BF891E9500FF0044C181 /* CCNetwokKit.h */,
+				B2C3BF8A1E9500FF0044C181 /* CCNetwokKit.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +310,7 @@
 				TargetAttributes = {
 					B2BC84711E8F4AB8001A89BE = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 6K45GAZW62;
 						ProvisioningStyle = Automatic;
 					};
 					B2BC848A1E8F4AB9001A89BE = {
@@ -396,14 +425,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C3BF771E9484E20044C181 /* CCSettingSelfInfoCell.m in Sources */,
 				B2BC84BA1E8F4B88001A89BE /* CCChatListViewController.m in Sources */,
-				B2BC847D1E8F4AB8001A89BE /* ViewController.m in Sources */,
+				B2C3BF7D1E9490220044C181 /* RCDCustomerServiceViewController.m in Sources */,
+				B2BC847D1E8F4AB8001A89BE /* CCLoginViewController.m in Sources */,
 				B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */,
 				B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */,
+				B2C3BF8B1E9500FF0044C181 /* CCNetwokKit.m in Sources */,
 				B2BC84BF1E8F4B88001A89BE /* CCUserTableViewController.m in Sources */,
 				B2BC84771E8F4AB8001A89BE /* main.m in Sources */,
 				B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */,
 				B2BC84BE1E8F4B88001A89BE /* CCUserCell.m in Sources */,
+				B2C3BF7A1E9486320044C181 /* CCSelfInfoTableViewController.m in Sources */,
 				B2BC84BB1E8F4B88001A89BE /* CCChatViewController.m in Sources */,
 				B2BC84B81E8F4B88001A89BE /* CCBusinessCardCell.m in Sources */,
 				B2BC84BC1E8F4B88001A89BE /* CCCustomerEmoticonTab.m in Sources */,
@@ -558,6 +591,7 @@
 			baseConfigurationReference = 8D19B4DD16BDA9B42F20E9AD /* Pods-CloudChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6K45GAZW62;
 				INFOPLIST_FILE = CloudChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -571,6 +605,7 @@
 			baseConfigurationReference = AFDEEEE974E3CA597D0B8512 /* Pods-CloudChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6K45GAZW62;
 				INFOPLIST_FILE = CloudChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

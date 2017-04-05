@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <RongIMLib/RongIMLib.h>
 #import "CCBusinessCardMessage.h"
+#import "CCNetwokKit.h"
 
 @interface ViewController () <RCIMClientReceiveMessageDelegate>
 
@@ -26,6 +27,10 @@
     /// 
     //[[RCIM sharedRCIM] registerMessageType:[CCBusinessCardMessage class]];
     [[RCIMClient sharedRCIMClient] registerMessageType:[CCBusinessCardMessage class]];
+
+    
+    
+   
 }
 
 
@@ -38,18 +43,22 @@
 #pragma mark - target action
 
 - (IBAction)loginBtnAction:(UIButton *)sender {
-    
     if ([sender.currentTitle isEqualToString:@"Login"]) {
-        ////与RongCloudServer  建立连接
-        [[RCIMClient sharedRCIMClient] connectWithToken:@"LB00zAhji5uSDj/4i5g59QuQQ4rxOA/w86vdIdQOP2x4fs9Pm6C0JaHXx2ZFDa9ltt2eWwXTpZ9atnzWxe83MQ==" success:^(NSString *userId) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [sender setTitle:@"Logout" forState:UIControlStateNormal];
-            });
-            NSLog(@"登陆成功啦，我的用户id是 %@",userId);
-        } error:^(RCConnectErrorCode status) {
-            NSLog(@"登陆失败");
-        } tokenIncorrect:^{
-            NSLog(@"登陆失败访问令牌不正确");
+        [[CCNetwokKit defaultKit] fetchTokenWithUserId:@"user1" name:@"user1" success:^(NSString *token) {
+            ////与RongCloudServer  建立连接
+            [[RCIMClient sharedRCIMClient] connectWithToken:token success:^(NSString *userId) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [sender setTitle:@"Logout" forState:UIControlStateNormal];
+                });
+                NSLog(@"登陆成功啦，我的用户id是 %@",userId);
+            } error:^(RCConnectErrorCode status) {
+                NSLog(@"登陆失败");
+            } tokenIncorrect:^{
+                NSLog(@"登陆失败访问令牌不正确");
+            }];
+            
+        } error:^(NSError *error) {
+            NSLog(@"获取token 失败 %@",error);
         }];
     }
     else{
@@ -112,6 +121,23 @@
         }];
     }
     
+    /// 插入消息
+    
+    CCBusinessCardMessage* message = [CCBusinessCardMessage messageWithName:@"Toney" title:@"Developer" avatarUrl:@"https://d13yacurqjgara.cloudfront.net/users/288987/screenshots/1855350/r_nin.gif"];
+    [[RCIMClient sharedRCIMClient] insertOutgoingMessage:ConversationType_PRIVATE targetId:@"user1" sentStatus:SentStatus_SENT content:message];
+    NSLog(@"插入一条消息");
+    
+    
+    ///读取本地存储
+    
+    NSArray<RCMessage*>* messageList = [[RCIMClient sharedRCIMClient] getLatestMessages:ConversationType_PRIVATE targetId:@"user1" count:100];
+    [messageList enumerateObjectsUsingBlock:^(RCMessage * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        //NSData* data = obj.content.rawJSONData;
+        NSLog(@"📩📩📩📩  messageId: %ld",obj.messageId);
+//        if (data ) {
+//            NSDictionary* dict =  [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+//        }
+    }];
 }
 
 

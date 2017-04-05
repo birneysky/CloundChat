@@ -12,4 +12,5 @@ target 'CustomerService' do
     workspace 'CloudChat.xcworkspace'
     project 'CustomerService/CustomerService.xcodeproj'
     pod 'RongCloudIM/IMLib','~>2.8.3'
+    pod 'AFNetworking', '~> 3.1.0'
 end

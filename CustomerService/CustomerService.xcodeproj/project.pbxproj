@@ -18,6 +18,7 @@
 		B2BC84DC1E8F4CA0001A89BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2BC84DA1E8F4CA0001A89BE /* LaunchScreen.storyboard */; };
 		B2BC84E71E8F4CA0001A89BE /* CustomerServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84E61E8F4CA0001A89BE /* CustomerServiceTests.m */; };
 		B2BC84F21E8F4CA0001A89BE /* CustomerServiceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84F11E8F4CA0001A89BE /* CustomerServiceUITests.m */; };
+		B2C3BF871E94CAC60044C181 /* CCNetwokKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C3BF861E94CAC60044C181 /* CCNetwokKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		B2BC84ED1E8F4CA0001A89BE /* CustomerServiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomerServiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2BC84F11E8F4CA0001A89BE /* CustomerServiceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomerServiceUITests.m; sourceTree = "<group>"; };
 		B2BC84F31E8F4CA0001A89BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2C3BF851E94CAC60044C181 /* CCNetwokKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCNetwokKit.h; path = ../../Helpers/CCNetwokKit.h; sourceTree = "<group>"; };
+		B2C3BF861E94CAC60044C181 /* CCNetwokKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCNetwokKit.m; path = ../../Helpers/CCNetwokKit.m; sourceTree = "<group>"; };
 		DA9014965773BBC8F9E72FC3 /* Pods-CustomerService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerService.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CustomerService/Pods-CustomerService.release.xcconfig"; sourceTree = "<group>"; };
 		E9A34FE1FD68607E64708294 /* Pods-CustomerService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerService.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CustomerService/Pods-CustomerService.debug.xcconfig"; sourceTree = "<group>"; };
 		F46A1F9CFE0B8A7B170CF8CC /* libPods-CustomerService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CustomerService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +145,7 @@
 		B2BC84CB1E8F4CA0001A89BE /* CustomerService */ = {
 			isa = PBXGroup;
 			children = (
+				B2C3BF811E94CA5F0044C181 /* Helpers */,
 				B21310DA1E8F735A00C86822 /* Models */,
 				B2BC84CF1E8F4CA0001A89BE /* AppDelegate.h */,
 				B2BC84D01E8F4CA0001A89BE /* AppDelegate.m */,
@@ -180,6 +184,15 @@
 				B2BC84F31E8F4CA0001A89BE /* Info.plist */,
 			);
 			path = CustomerServiceUITests;
+			sourceTree = "<group>";
+		};
+		B2C3BF811E94CA5F0044C181 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B2C3BF851E94CAC60044C181 /* CCNetwokKit.h */,
+				B2C3BF861E94CAC60044C181 /* CCNetwokKit.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C3BF871E94CAC60044C181 /* CCNetwokKit.m in Sources */,
 				B2BC84D41E8F4CA0001A89BE /* ViewController.m in Sources */,
 				B21310E01E8F738000C86822 /* CCGroupAndUserDataSet.m in Sources */,
 				B2BC84D11E8F4CA0001A89BE /* AppDelegate.m in Sources */,
@@ -523,6 +537,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CustomerService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RongCloud.tech.CustomerService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -535,6 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CustomerService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RongCloud.tech.CustomerService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
