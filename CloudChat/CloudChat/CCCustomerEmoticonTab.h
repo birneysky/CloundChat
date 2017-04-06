@@ -11,8 +11,15 @@
 #import <RongIMKit/RongIMKit.h>
 
 
+@protocol CCCustomerEmoticionTabDelegate <NSObject>
+
+- (void)factButtonClickedAtIndex:(NSUInteger)index;
+
+@end
+
 @interface CCCustomerEmoticonTab : NSObject <RCEmoticonTabSource>
 
+@property (nonatomic,weak) id<CCCustomerEmoticionTabDelegate> delegate;
 
 @property(nonatomic,copy) NSString* identify;
 @property(nonatomic,strong) UIImage* image;

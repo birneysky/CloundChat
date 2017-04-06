@@ -171,7 +171,7 @@
 
 - (void)longPress:(UILongPressGestureRecognizer*)longGesture
 {
-    [self.delegate didLongTouchMessageCell:self.model inView:self];
+    [self.delegate didLongTouchMessageCell:self.model inView:self.bubbleBGView];
 }
 
 - (void)hehe{

@@ -22,7 +22,16 @@
     [[RCIM sharedRCIM] registerMessageType:[CCBusinessCardMessage class]];
     /// 开启@功能
     [RCIM sharedRCIM].enableMessageMentioned = YES;
+    /// 开启消息撤回功能
+    [RCIM sharedRCIM].enableMessageRecall =YES;
+    /// 正在输入的状态其实开启
+    [RCIM sharedRCIM].enableTypingStatus = YES;
+    /// 开启已读回执功能的的会话类型
+    [RCIM sharedRCIM].enabledReadReceiptConversationTypeList = @[@(ConversationType_PRIVATE),@""];
     
+    
+    [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
+    [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
     
     self.window.backgroundColor = [UIColor whiteColor];
     

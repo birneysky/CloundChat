@@ -37,9 +37,48 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8P-No-Cxa">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aGm-D8-eDS"/>
                                     <barButtonItem title="sendMessage" id="Ayi-Sk-d3N">
                                         <connections>
                                             <action selector="sendMsgAction:" destination="BYZ-38-t0r" id="kuC-1G-CXx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="LatestMessages" id="KzM-dw-0Md">
+                                        <connections>
+                                            <action selector="lastestMessageAction:" destination="BYZ-38-t0r" id="yLB-0r-1vf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="UnreadCount" id="VCo-XE-flz">
+                                        <connections>
+                                            <action selector="unreadCountAction:" destination="BYZ-38-t0r" id="zDx-na-aki"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="abu-sc-l9P"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55Z-j0-Apk">
+                                <rect key="frame" x="0.0" y="579" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DCy-BA-HhG"/>
+                                    <barButtonItem title="ConversationList" id="1OT-6X-0uN">
+                                        <connections>
+                                            <action selector="converstationListAction:" destination="BYZ-38-t0r" id="uDR-ok-raJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="SpecificConversation" id="qxm-G0-GA5">
+                                        <connections>
+                                            <action selector="specificConversationAction:" destination="BYZ-38-t0r" id="gpy-58-Oc5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ERC-BY-YT5"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKO-lJ-sP7">
+                                <rect key="frame" x="0.0" y="535" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="ClearUnread" id="B8b-iM-0BO">
+                                        <connections>
+                                            <action selector="clearUnreadAction:" destination="BYZ-38-t0r" id="mLa-3I-frw"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -48,11 +87,17 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="b8P-No-Cxa" secondAttribute="bottom" id="7F1-Bd-dBf"/>
+                            <constraint firstAttribute="trailing" secondItem="55Z-j0-Apk" secondAttribute="trailing" id="BO9-Bm-TMm"/>
                             <constraint firstItem="KlD-hn-WZ2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GHo-CI-FIZ"/>
+                            <constraint firstItem="55Z-j0-Apk" firstAttribute="top" secondItem="EKO-lJ-sP7" secondAttribute="bottom" id="R11-TD-PvY"/>
                             <constraint firstAttribute="trailing" secondItem="b8P-No-Cxa" secondAttribute="trailing" id="Y1l-DI-zIB"/>
+                            <constraint firstItem="55Z-j0-Apk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YMv-PN-53N"/>
                             <constraint firstItem="b8P-No-Cxa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dCO-7l-F52"/>
+                            <constraint firstItem="EKO-lJ-sP7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="epV-cW-lf9"/>
+                            <constraint firstItem="b8P-No-Cxa" firstAttribute="top" secondItem="55Z-j0-Apk" secondAttribute="bottom" id="hfg-Ua-TDB"/>
                             <constraint firstItem="KlD-hn-WZ2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="onB-n4-Jzb"/>
                             <constraint firstAttribute="trailing" secondItem="KlD-hn-WZ2" secondAttribute="trailing" constant="16" id="waU-nP-ISx"/>
+                            <constraint firstAttribute="trailing" secondItem="EKO-lJ-sP7" secondAttribute="trailing" id="xzY-JL-McJ"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -53,9 +53,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
-    
 }
 
 - (void)didReceiveMemoryWarning {

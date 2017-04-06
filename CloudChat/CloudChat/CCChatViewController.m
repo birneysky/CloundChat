@@ -11,12 +11,13 @@
 #import "CCBusinessCardMessage.h"
 #import "CCBusinessCardCell.h"
 #import "CCUserTableViewController.h"
-
+#import "CCUserInfoViewController.h"
+#import "CCEmojiNameManager.h"
 ///#define PLUGIN_BOARD_ITEM_FILE_TAG 20001
 
 static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
 
-@interface CCChatViewController ()
+@interface CCChatViewController () <CCCustomerEmoticionTabDelegate>
 
 @end
 
@@ -30,7 +31,7 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
     self.conversationMessageCollectionView.backgroundColor = [UIColor clearColor];
     ///self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BG"]];
     
-    self.displayConversationTypeArray = @[@(ConversationType_PRIVATE)];
+    ///self.displayConversationTypeArray = @[@(ConversationType_PRIVATE)];
     ///self.enableUnreadMessageIcon = YES;
     
     
@@ -46,21 +47,22 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
     
     /// 添加表情扩展
     CCCustomerEmoticonTab* addTab = [CCCustomerEmoticonTab new];
+    addTab.delegate = self;
     addTab.identify = @"0";
     addTab.image = [RCKitUtility imageNamed:@"add"
                     
                                    ofBundle:@"RongCloud.bundle"];;
-    addTab.pageCount = 1;
+    addTab.pageCount = 4;
     
     [self.chatSessionInputBarControl.emojiBoardView addExtensionEmojiTab:addTab];
-    
+    [self.chatSessionInputBarControl.emojiBoardView enableSendButton:YES];
     
     
     ///注册地定义消息于cell
     [self registerClass:[CCBusinessCardCell class] forMessageClass:[CCBusinessCardMessage class]];
     
     ///修改输入工具条 布局
-    ///[self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
+    [self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
     
 }
 
@@ -99,6 +101,13 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
             [weakSelf sendMessage:cardMessage pushContent:nil];
         };
     }
+    else if([segue.identifier isEqualToString:@"segue_show_user_info"]){
+        CCUserInfoViewController* cic = (CCUserInfoViewController*)segue.destinationViewController;
+        NSString* userid = sender;
+        RCUserInfo* userInfo = [[RCIM sharedRCIM] getUserInfoCache:userid];
+        cic.portraitUrl = userInfo.portraitUri;
+    }
+    
 }
 
 
@@ -131,7 +140,7 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
 - (void)didTapCellPortrait:(NSString *)userId
 {
     ///[super didTapCellPortrait:userId];
-    [self performSegueWithIdentifier:@"segue_show_user_info" sender:nil];
+    [self performSegueWithIdentifier:@"segue_show_user_info" sender:userId];
 }
 
 - (void)didLongPressCellPortrait:(NSString *)userId
@@ -195,11 +204,27 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
     }
 }
 
+- (void)notifyUpdateUnreadMessageCount
+{
+    
+}
+
+
 
 //- (void)showChooseUserViewController:(void (^)(RCUserInfo *selectedUserInfo))selectedBlock
 //                              cancel:(void (^)())cancelBlock
 //{
 //    
 //}
+
+#pragma mark - CCCustomerEmoticionTabDelegate
+
+- (void)factButtonClickedAtIndex:(NSUInteger)index
+{
+    CCEmojiNameManager* manager = [CCEmojiNameManager defaultManager];
+    
+    NSString* expresssionName =  [manager nameAtIndex:index];
+    self.chatSessionInputBarControl.inputTextView.text = [self.chatSessionInputBarControl.inputTextView.text  stringByAppendingFormat:@"[%@]",expresssionName];
+}
 
 @end

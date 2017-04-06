@@ -12,6 +12,9 @@
 		749AFDA21E952CC70090A2CF /* CCActiveWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFDA11E952CC70090A2CF /* CCActiveWheel.m */; };
 		B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */; };
 		B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */; };
+		B22BF5671E95C9F000CD355A /* CCUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22BF5661E95C9F000CD355A /* CCUserInfoViewController.m */; };
+		B22BF56B1E95EC6A00CD355A /* CCEmoji.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B22BF5691E95EC6A00CD355A /* CCEmoji.bundle */; };
+		B22BF56C1E95EC6A00CD355A /* CCEmojiNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = B22BF56A1E95EC6A00CD355A /* CCEmojiNames.plist */; };
 		B2BC84771E8F4AB8001A89BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84761E8F4AB8001A89BE /* main.m */; };
 		B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84791E8F4AB8001A89BE /* AppDelegate.m */; };
 		B2BC847D1E8F4AB8001A89BE /* CCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC847C1E8F4AB8001A89BE /* CCLoginViewController.m */; };
@@ -30,6 +33,11 @@
 		B2C3BF7A1E9486320044C181 /* CCSelfInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C3BF791E9486320044C181 /* CCSelfInfoTableViewController.m */; };
 		B2C3BF7D1E9490220044C181 /* RCDCustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C3BF7C1E9490220044C181 /* RCDCustomerServiceViewController.m */; };
 		B2C3BF8B1E9500FF0044C181 /* CCNetwokKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C3BF8A1E9500FF0044C181 /* CCNetwokKit.m */; };
+		B2FF55071E95EE8A00ECFB51 /* CCEmojiNameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF55061E95EE8A00ECFB51 /* CCEmojiNameManager.m */; };
+		B2FF550A1E95F8F900ECFB51 /* CCEmojiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF55091E95F8F900ECFB51 /* CCEmojiButton.m */; };
+		B2FF550D1E96078500ECFB51 /* UIScrollView+Touch.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF550C1E96078500ECFB51 /* UIScrollView+Touch.m */; };
+		B2FF55111E960BA200ECFB51 /* CCEmojiPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF550F1E960BA200ECFB51 /* CCEmojiPreview.m */; };
+		B2FF55121E960BA200ECFB51 /* CCEmojiPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2FF55101E960BA200ECFB51 /* CCEmojiPreview.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +69,10 @@
 		B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCBusinessCardMessage.m; path = ../../Models/CCBusinessCardMessage.m; sourceTree = "<group>"; };
 		B21310D61E8F730800C86822 /* CCGroupAndUserDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCGroupAndUserDataSet.h; path = ../../Models/CCGroupAndUserDataSet.h; sourceTree = "<group>"; };
 		B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCGroupAndUserDataSet.m; path = ../../Models/CCGroupAndUserDataSet.m; sourceTree = "<group>"; };
+		B22BF5651E95C9F000CD355A /* CCUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUserInfoViewController.h; sourceTree = "<group>"; };
+		B22BF5661E95C9F000CD355A /* CCUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUserInfoViewController.m; sourceTree = "<group>"; };
+		B22BF5691E95EC6A00CD355A /* CCEmoji.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CCEmoji.bundle; sourceTree = "<group>"; };
+		B22BF56A1E95EC6A00CD355A /* CCEmojiNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCEmojiNames.plist; sourceTree = "<group>"; };
 		B2BC84721E8F4AB8001A89BE /* CloudChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2BC84761E8F4AB8001A89BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B2BC84781E8F4AB8001A89BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +109,15 @@
 		B2C3BF7C1E9490220044C181 /* RCDCustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDCustomerServiceViewController.m; sourceTree = "<group>"; };
 		B2C3BF891E9500FF0044C181 /* CCNetwokKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCNetwokKit.h; path = ../../Helpers/CCNetwokKit.h; sourceTree = "<group>"; };
 		B2C3BF8A1E9500FF0044C181 /* CCNetwokKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCNetwokKit.m; path = ../../Helpers/CCNetwokKit.m; sourceTree = "<group>"; };
+		B2FF55051E95EE8A00ECFB51 /* CCEmojiNameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEmojiNameManager.h; sourceTree = "<group>"; };
+		B2FF55061E95EE8A00ECFB51 /* CCEmojiNameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEmojiNameManager.m; sourceTree = "<group>"; };
+		B2FF55081E95F8F900ECFB51 /* CCEmojiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEmojiButton.h; sourceTree = "<group>"; };
+		B2FF55091E95F8F900ECFB51 /* CCEmojiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEmojiButton.m; sourceTree = "<group>"; };
+		B2FF550B1E96078500ECFB51 /* UIScrollView+Touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Touch.h"; sourceTree = "<group>"; };
+		B2FF550C1E96078500ECFB51 /* UIScrollView+Touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Touch.m"; sourceTree = "<group>"; };
+		B2FF550E1E960BA200ECFB51 /* CCEmojiPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEmojiPreview.h; sourceTree = "<group>"; };
+		B2FF550F1E960BA200ECFB51 /* CCEmojiPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEmojiPreview.m; sourceTree = "<group>"; };
+		B2FF55101E960BA200ECFB51 /* CCEmojiPreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCEmojiPreview.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +217,12 @@
 				B2BC84AD1E8F4B88001A89BE /* CCChatListViewController.m */,
 				B2BC84AE1E8F4B88001A89BE /* CCChatViewController.h */,
 				B2BC84AF1E8F4B88001A89BE /* CCChatViewController.m */,
+				B22BF5651E95C9F000CD355A /* CCUserInfoViewController.h */,
+				B22BF5661E95C9F000CD355A /* CCUserInfoViewController.m */,
 				B2BC84B01E8F4B88001A89BE /* CCCustomerEmoticonTab.h */,
 				B2BC84B11E8F4B88001A89BE /* CCCustomerEmoticonTab.m */,
+				B2FF550B1E96078500ECFB51 /* UIScrollView+Touch.h */,
+				B2FF550C1E96078500ECFB51 /* UIScrollView+Touch.m */,
 				B2BC84B41E8F4B88001A89BE /* CCUserCell.h */,
 				B2BC84B51E8F4B88001A89BE /* CCUserCell.m */,
 				B2C3BF751E9484E20044C181 /* CCSettingSelfInfoCell.h */,
@@ -214,10 +239,19 @@
 				B2BC847C1E8F4AB8001A89BE /* CCLoginViewController.m */,
 				749AFD9C1E9527390090A2CF /* CCAccountSettingTableViewController.h */,
 				749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */,
+				B2FF55051E95EE8A00ECFB51 /* CCEmojiNameManager.h */,
+				B2FF55061E95EE8A00ECFB51 /* CCEmojiNameManager.m */,
+				B2FF55081E95F8F900ECFB51 /* CCEmojiButton.h */,
+				B2FF55091E95F8F900ECFB51 /* CCEmojiButton.m */,
+				B2FF550E1E960BA200ECFB51 /* CCEmojiPreview.h */,
+				B2FF550F1E960BA200ECFB51 /* CCEmojiPreview.m */,
+				B2FF55101E960BA200ECFB51 /* CCEmojiPreview.xib */,
 				B2BC847E1E8F4AB8001A89BE /* Main.storyboard */,
 				B2BC84811E8F4AB8001A89BE /* Assets.xcassets */,
 				B2BC84831E8F4AB8001A89BE /* LaunchScreen.storyboard */,
 				B2BC84861E8F4AB8001A89BE /* Info.plist */,
+				B22BF5691E95EC6A00CD355A /* CCEmoji.bundle */,
+				B22BF56A1E95EC6A00CD355A /* CCEmojiNames.plist */,
 				B2BC84751E8F4AB8001A89BE /* Supporting Files */,
 			);
 			path = CloudChat;
@@ -330,6 +364,11 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 6K45GAZW62;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					B2BC848A1E8F4AB9001A89BE = {
 						CreatedOnToolsVersion = 8.3;
@@ -368,8 +407,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B22BF56B1E95EC6A00CD355A /* CCEmoji.bundle in Resources */,
+				B22BF56C1E95EC6A00CD355A /* CCEmojiNames.plist in Resources */,
 				B2BC84851E8F4AB8001A89BE /* LaunchScreen.storyboard in Resources */,
 				B2BC84821E8F4AB8001A89BE /* Assets.xcassets in Resources */,
+				B2FF55121E960BA200ECFB51 /* CCEmojiPreview.xib in Resources */,
 				B2BC84801E8F4AB8001A89BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +487,9 @@
 			files = (
 				B2C3BF771E9484E20044C181 /* CCSettingSelfInfoCell.m in Sources */,
 				749AFDA21E952CC70090A2CF /* CCActiveWheel.m in Sources */,
+				B2FF55111E960BA200ECFB51 /* CCEmojiPreview.m in Sources */,
 				B2BC84BA1E8F4B88001A89BE /* CCChatListViewController.m in Sources */,
+				B2FF550A1E95F8F900ECFB51 /* CCEmojiButton.m in Sources */,
 				B2C3BF7D1E9490220044C181 /* RCDCustomerServiceViewController.m in Sources */,
 				B2BC847D1E8F4AB8001A89BE /* CCLoginViewController.m in Sources */,
 				B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */,
@@ -454,10 +498,13 @@
 				B2BC84BF1E8F4B88001A89BE /* CCUserTableViewController.m in Sources */,
 				749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */,
 				B2BC84771E8F4AB8001A89BE /* main.m in Sources */,
+				B2FF55071E95EE8A00ECFB51 /* CCEmojiNameManager.m in Sources */,
 				B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */,
+				B2FF550D1E96078500ECFB51 /* UIScrollView+Touch.m in Sources */,
 				B2BC84BE1E8F4B88001A89BE /* CCUserCell.m in Sources */,
 				B2C3BF7A1E9486320044C181 /* CCSelfInfoTableViewController.m in Sources */,
 				B2BC84BB1E8F4B88001A89BE /* CCChatViewController.m in Sources */,
+				B22BF5671E95C9F000CD355A /* CCUserInfoViewController.m in Sources */,
 				B2BC84B81E8F4B88001A89BE /* CCBusinessCardCell.m in Sources */,
 				B2BC84BC1E8F4B88001A89BE /* CCCustomerEmoticonTab.m in Sources */,
 			);

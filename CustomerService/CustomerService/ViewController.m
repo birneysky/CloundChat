@@ -44,7 +44,7 @@
 
 - (IBAction)loginBtnAction:(UIButton *)sender {
     if ([sender.currentTitle isEqualToString:@"Login"]) {
-        [[CCNetwokKit defaultKit] fetchTokenWithUserId:@"user1" name:@"user1" success:^(NSString *token) {
+        [[CCNetwokKit defaultKit] fetchTokenWithUserId:@"user2" name:@"user2" success:^(NSString *token) {
             ////与RongCloudServer  建立连接
             [[RCIMClient sharedRCIMClient] connectWithToken:token success:^(NSString *userId) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -126,21 +126,60 @@
     CCBusinessCardMessage* message = [CCBusinessCardMessage messageWithName:@"Toney" title:@"Developer" avatarUrl:@"https://d13yacurqjgara.cloudfront.net/users/288987/screenshots/1855350/r_nin.gif"];
     [[RCIMClient sharedRCIMClient] insertOutgoingMessage:ConversationType_PRIVATE targetId:@"user1" sentStatus:SentStatus_SENT content:message];
     NSLog(@"插入一条消息");
+
+}
+
+- (IBAction)lastestMessageAction:(UIBarButtonItem *)sender {
     
-    
-    ///读取本地存储
-    
+     ///读取本地存储
     NSArray<RCMessage*>* messageList = [[RCIMClient sharedRCIMClient] getLatestMessages:ConversationType_PRIVATE targetId:@"user1" count:100];
     [messageList enumerateObjectsUsingBlock:^(RCMessage * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         //NSData* data = obj.content.rawJSONData;
-        NSLog(@"📩📩📩📩  messageId: %ld",obj.messageId);
-//        if (data ) {
-//            NSDictionary* dict =  [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-//        }
+        NSString* content = nil;
+        if ([obj.content isMemberOfClass:[RCTextMessage class]]) {
+            RCTextMessage* textMessage = (RCTextMessage*)obj.content;
+            content = textMessage.content;
+        }
+        else if([obj.content isMemberOfClass:[RCImageMessage class]]){
+            content = @"图片消息";
+        }
+        else if([obj.content isMemberOfClass:[RCRichContentMessage class]]){
+            RCRichContentMessage* richMessage = (RCRichContentMessage*)obj.content;
+            content = [NSString stringWithFormat:@"{title:%@,digest:%@,imageURL:%@}",richMessage.title,richMessage.digest,richMessage.imageURL];
+        }
+        else if([obj.content isMemberOfClass:[CCBusinessCardMessage class]]){
+            CCBusinessCardMessage* cardMessage = (CCBusinessCardMessage*)obj.content;
+            content = [NSString stringWithFormat:@"{nickName:%@,title:%@,avatarURL:%@}",cardMessage.nickName,cardMessage.title,cardMessage.avatarURL];
+        }
+        NSLog(@"📩📩📩📩  messageId: %ld sendtime: %lld recvtime: %lld content: %@",obj.messageId,obj.sentTime,obj.receivedTime,content);
+    }];
+}
+- (IBAction)unreadCountAction:(UIBarButtonItem *)sender {
+    
+    int totoalCount = [[RCIMClient sharedRCIMClient] getTotalUnreadCount];
+    NSLog(@"所有未读消息数 %d",totoalCount);
+}
+
+- (IBAction)converstationListAction:(id)sender {
+    
+    NSArray<RCConversation*>* array =  [[RCIMClient sharedRCIMClient] getConversationList:@[@(ConversationType_PRIVATE),@(ConversationType_GROUP),@(ConversationType_CHATROOM),@(ConversationType_SYSTEM),@(ConversationType_DISCUSSION)]];
+    [array enumerateObjectsUsingBlock:^(RCConversation * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"会话类型：%lu，目标会话ID：%@",obj.conversationType,obj.targetId);
     }];
 }
 
+- (IBAction)clearUnreadAction:(id)sender {
+    NSArray<RCConversation*>* array =  [[RCIMClient sharedRCIMClient] getConversationList:@[@(ConversationType_PRIVATE),@(ConversationType_GROUP),@(ConversationType_CHATROOM),@(ConversationType_SYSTEM),@(ConversationType_DISCUSSION)]];
+    [array enumerateObjectsUsingBlock:^(RCConversation * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [[RCIMClient sharedRCIMClient] clearMessages:obj.conversationType targetId:obj.targetId];
+    }];
 
+    NSLog(@"清除消息未读数");
+}
+- (IBAction)specificConversationAction:(id)sender {
+    RCConversation* conversation =  [[RCIMClient sharedRCIMClient] getConversation:ConversationType_GROUP targetId:@"group10"];
+    NSLog(@"获取特定的会话 %p",conversation);
+}
 #pragma mark - RCIMClientReceiveMessageDelegate 
 
 - (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object

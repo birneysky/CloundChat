@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -471,10 +471,10 @@
             </objects>
             <point key="canvasLocation" x="2572" y="-1377"/>
         </scene>
-        <!--View Controller-->
+        <!--User Info View Controller-->
         <scene sceneID="wjp-K2-eVC">
             <objects>
-                <viewController id="WTe-20-tbi" sceneMemberID="viewController">
+                <viewController id="WTe-20-tbi" customClass="CCUserInfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zEx-h2-joA"/>
                         <viewControllerLayoutGuide type="bottom" id="ogb-ba-rNm"/>
@@ -483,7 +483,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contact" translatesAutoresizingMaskIntoConstraints="NO" id="S0I-rr-vEt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contact" translatesAutoresizingMaskIntoConstraints="NO" id="S0I-rr-vEt" customClass="YYAnimatedImageView">
                                 <rect key="frame" x="16" y="72" width="56" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="4wK-4R-qIu"/>
@@ -511,6 +511,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u27-6g-vcu"/>
+                    <connections>
+                        <outlet property="portraitView" destination="S0I-rr-vEt" id="jUJ-bn-OLn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fkO-vr-djZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
