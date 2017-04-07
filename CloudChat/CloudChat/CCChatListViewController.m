@@ -32,7 +32,7 @@
                                               @(ConversationType_GROUP)]];
         
         
-        self.cellBackgroundColor = [UIColor colorWithRed:220/255.0f green:220/255.0f blue:220/255.0f alpha:1];
+        //self.cellBackgroundColor = [UIColor colorWithRed:220/255.0f green:220/255.0f blue:220/255.0f alpha:1];
         self.topCellBackgroundColor = [UIColor greenColor];
         
 
@@ -53,6 +53,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /// 设置会话置顶
+   // [[RCIMClient sharedRCIMClient] setConversationToTop:ConversationType_GROUP targetId:@"group1" isTop:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,7 +113,6 @@
     if ( RC_CONVERSATION_MODEL_TYPE_COLLECTION == conversationModelType) {
         [self performSegueWithIdentifier:@"segue_show_sub_conversation" sender:model];
     }else if(self.collectionConversationTypeArray){
-        
         [self performSegueWithIdentifier:@"segue_show_conversation_detail" sender:model];
     }
     else{

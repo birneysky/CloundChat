@@ -151,7 +151,7 @@
             CCBusinessCardMessage* cardMessage = (CCBusinessCardMessage*)obj.content;
             content = [NSString stringWithFormat:@"{nickName:%@,title:%@,avatarURL:%@}",cardMessage.nickName,cardMessage.title,cardMessage.avatarURL];
         }
-        NSLog(@"📩📩📩📩  messageId: %ld sendtime: %lld recvtime: %lld content: %@",obj.messageId,obj.sentTime,obj.receivedTime,content);
+        NSLog(@"📩📩📩📩  messageId: %ld sendtime: %lld recvtime: %lld type: %@ content: %@",obj.messageId,obj.sentTime,obj.receivedTime,NSStringFromClass([obj.content class]),content);
     }];
 }
 - (IBAction)unreadCountAction:(UIBarButtonItem *)sender {
@@ -177,10 +177,116 @@
     NSLog(@"清除消息未读数");
 }
 - (IBAction)specificConversationAction:(id)sender {
-    RCConversation* conversation =  [[RCIMClient sharedRCIMClient] getConversation:ConversationType_GROUP targetId:@"group10"];
+    RCConversation* conversation =  [[RCIMClient sharedRCIMClient] getConversation:ConversationType_GROUP targetId:@"group1"];
     NSLog(@"获取特定的会话 %p",conversation);
 }
-#pragma mark - RCIMClientReceiveMessageDelegate 
+
+
+- (IBAction)searchMsgAction:(id)sender {
+    NSLog(@"通过关键词查找消息 keyword: \"1\"");
+    NSArray <RCMessage *>* array = [[RCIMClient sharedRCIMClient] searchMessages:ConversationType_PRIVATE targetId:@"user1" keyword:@"1" count:1000 startTime:0];
+    [array enumerateObjectsUsingBlock:^(RCMessage * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString* content = nil;
+        if ([obj.content isMemberOfClass:[RCTextMessage class]]) {
+            RCTextMessage* textMessage = (RCTextMessage*)obj.content;
+            content = textMessage.content;
+        }
+        else if([obj.content isMemberOfClass:[RCImageMessage class]]){
+            content = @"图片消息";
+        }
+        else if([obj.content isMemberOfClass:[RCRichContentMessage class]]){
+            RCRichContentMessage* richMessage = (RCRichContentMessage*)obj.content;
+            content = [NSString stringWithFormat:@"{title:%@,digest:%@,imageURL:%@}",richMessage.title,richMessage.digest,richMessage.imageURL];
+        }
+        else if([obj.content isMemberOfClass:[CCBusinessCardMessage class]]){
+            CCBusinessCardMessage* cardMessage = (CCBusinessCardMessage*)obj.content;
+            content = [NSString stringWithFormat:@"{nickName:%@,title:%@,avatarURL:%@}",cardMessage.nickName,cardMessage.title,cardMessage.avatarURL];
+        }
+        NSLog(@"📩📩📩📩  messageId: %ld sendtime: %lld recvtime: %lld type: %@ content: %@",obj.messageId,obj.sentTime,obj.receivedTime,NSStringFromClass([obj.content class]),content);
+        
+    }];
+}
+
+
+- (IBAction)searchConverstationAction:(id)sender {
+    NSArray<RCSearchConversationResult *> * array = [[RCIMClient sharedRCIMClient]
+                                                        searchConversations:@[@(ConversationType_PRIVATE),@(ConversationType_GROUP),@(ConversationType_CHATROOM)]
+                                                                messageType:@[@"RCTextMessage",@"RCImageMessage",@"RCRichContentMessage",@"RCRichContentMessage"] keyword:@"1"];
+    [array enumerateObjectsUsingBlock:^(RCSearchConversationResult * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"会话类型：%lu，目标会话ID：%@ 匹配条数: %d",obj.conversation.conversationType,obj.conversation.targetId,obj.matchCount);
+    }];
+}
+
+#pragma mark - ClearConversation
+- (IBAction)clearConversationAction:(id)sender {
+    NSLog(@"删除指定类型的会话");
+    BOOL result = [[RCIMClient sharedRCIMClient] clearConversations:@[@(ConversationType_PRIVATE),@(ConversationType_GROUP),@(ConversationType_CHATROOM),@(ConversationType_DISCUSSION)]];
+    if (result) {
+        NSLog(@"删除会话成功");
+    }
+    else{
+        NSLog(@"删除会话失败");
+    }
+}
+
+- (IBAction)removeSpecificConversationAction:(id)sender {
+    NSLog(@"删除制定类型的会话");
+    
+   BOOL result =  [[RCIMClient sharedRCIMClient] removeConversation:ConversationType_GROUP targetId:@"group1"];
+    if (result) {
+        NSLog(@"删除会话成功");
+    }
+    else{
+        NSLog(@"删除会话失败");
+    }
+
+}
+
+
+- (IBAction)saveDraftAction:(id)sender {
+    
+    BOOL result = [[RCIMClient sharedRCIMClient] saveTextMessageDraft:ConversationType_GROUP targetId:@"group1" content:@"Test Draft"];
+    if (result) {
+        NSLog(@"草稿保存成功");
+    }
+    else{
+        NSLog(@"草稿保存失败");
+    }
+}
+- (IBAction)getDraftAction:(id)sender {
+    NSString* draftString = [[RCIMClient sharedRCIMClient] getTextMessageDraft:ConversationType_GROUP targetId:@"group1"];
+    NSLog(@"group1's Draft is %@",draftString);
+}
+- (IBAction)clearDraftAction:(id)sender {
+    BOOL result = [[RCIMClient sharedRCIMClient] clearTextMessageDraft:ConversationType_GROUP targetId:@"group1"];
+    if (result) {
+        NSLog(@"删除会话草稿成功");
+    }
+    else{
+        NSLog(@"删除会话草稿失败");
+    }
+}
+- (IBAction)All:(id)sender {
+    RCTextMessage* textMesage = [RCTextMessage messageWithContent:@"@all test test"];
+    
+    textMesage.mentionedInfo = [[RCMentionedInfo alloc] initWithMentionedType:RC_Mentioned_All userIdList:nil mentionedContent:@"@all"];
+    
+    RCMessage* rcmsg = [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP targetId:@"group1" content:textMesage pushContent:nil pushData:nil success:^(long messageId) {
+        NSLog(@"@all success");
+    } error:^(RCErrorCode nErrorCode, long messageId) {
+        NSLog(@"@all error");
+    }];
+    
+    sleep(1);
+    
+    [[RCIMClient sharedRCIMClient] recallMessage:rcmsg success:^(long messageId) {
+        NSLog(@"撤回消息成功");
+    } error:^(RCErrorCode errorcode) {
+        NSLog(@"撤回消息失败 %zi",errorcode);
+    }];
+}
+
+#pragma mark - RCIMClientReceiveMessageDelegate
 
 - (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object
 {

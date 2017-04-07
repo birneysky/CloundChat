@@ -38,12 +38,12 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="aGm-D8-eDS"/>
-                                    <barButtonItem title="sendMessage" id="Ayi-Sk-d3N">
+                                    <barButtonItem title="SendMsg" id="Ayi-Sk-d3N">
                                         <connections>
                                             <action selector="sendMsgAction:" destination="BYZ-38-t0r" id="kuC-1G-CXx"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="LatestMessages" id="KzM-dw-0Md">
+                                    <barButtonItem title="LatestMsg" id="KzM-dw-0Md">
                                         <connections>
                                             <action selector="lastestMessageAction:" destination="BYZ-38-t0r" id="yLB-0r-1vf"/>
                                         </connections>
@@ -76,19 +76,79 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKO-lJ-sP7">
                                 <rect key="frame" x="0.0" y="535" width="375" height="44"/>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="URu-Hc-Mym"/>
                                     <barButtonItem title="ClearUnread" id="B8b-iM-0BO">
                                         <connections>
                                             <action selector="clearUnreadAction:" destination="BYZ-38-t0r" id="mLa-3I-frw"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="SearchMsg" id="n1v-vX-3YD">
+                                        <connections>
+                                            <action selector="searchMsgAction:" destination="BYZ-38-t0r" id="fCm-vX-Uz6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="SearchConverstation" id="7HN-Id-eLb">
+                                        <connections>
+                                            <action selector="searchConverstationAction:" destination="BYZ-38-t0r" id="bkS-OC-oQv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="scz-Aw-Wuf"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfU-rr-YXr">
+                                <rect key="frame" x="0.0" y="491" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="97Q-fN-VhW"/>
+                                    <barButtonItem title="ClearConversations" id="LLF-oM-dWS">
+                                        <connections>
+                                            <action selector="clearConversationAction:" destination="BYZ-38-t0r" id="1Wz-9M-FEL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="RemoveSpecificConversation" id="c1k-NK-0dB">
+                                        <connections>
+                                            <action selector="removeSpecificConversationAction:" destination="BYZ-38-t0r" id="fQb-pw-Rbs"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uKw-vr-inM"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sZT-TQ-7Eu">
+                                <rect key="frame" x="0.0" y="447" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cKn-WV-bUD"/>
+                                    <barButtonItem title="SaveDraft" id="Gu0-lh-5wD">
+                                        <connections>
+                                            <action selector="saveDraftAction:" destination="BYZ-38-t0r" id="KNN-pK-pGR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="GetDraft" id="MAa-VT-WGM">
+                                        <connections>
+                                            <action selector="getDraftAction:" destination="BYZ-38-t0r" id="zNi-G0-BEQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="ClearDraft" id="FaF-47-zxp">
+                                        <connections>
+                                            <action selector="clearDraftAction:" destination="BYZ-38-t0r" id="FgO-9V-RZ9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="@all&amp;Recall" id="2Gf-ex-g4A">
+                                        <connections>
+                                            <action selector="All:" destination="BYZ-38-t0r" id="L4C-Cp-zzU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sB6-oI-zEH"/>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="b8P-No-Cxa" secondAttribute="bottom" id="7F1-Bd-dBf"/>
+                            <constraint firstItem="zfU-rr-YXr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8jB-0q-mqb"/>
+                            <constraint firstItem="EKO-lJ-sP7" firstAttribute="top" secondItem="zfU-rr-YXr" secondAttribute="bottom" id="9be-eH-RkV"/>
                             <constraint firstAttribute="trailing" secondItem="55Z-j0-Apk" secondAttribute="trailing" id="BO9-Bm-TMm"/>
                             <constraint firstItem="KlD-hn-WZ2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GHo-CI-FIZ"/>
+                            <constraint firstAttribute="trailing" secondItem="zfU-rr-YXr" secondAttribute="trailing" id="GLo-u9-QYY"/>
                             <constraint firstItem="55Z-j0-Apk" firstAttribute="top" secondItem="EKO-lJ-sP7" secondAttribute="bottom" id="R11-TD-PvY"/>
                             <constraint firstAttribute="trailing" secondItem="b8P-No-Cxa" secondAttribute="trailing" id="Y1l-DI-zIB"/>
                             <constraint firstItem="55Z-j0-Apk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YMv-PN-53N"/>

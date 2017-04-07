@@ -13,11 +13,14 @@
 #import "CCUserTableViewController.h"
 #import "CCUserInfoViewController.h"
 #import "CCEmojiNameManager.h"
+#import "CCConversationSettingTableViewController.h"
 ///#define PLUGIN_BOARD_ITEM_FILE_TAG 20001
 
 static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
 
 @interface CCChatViewController () <CCCustomerEmoticionTabDelegate>
+
+@property (nonatomic,assign) RCConversationNotificationStatus notificationStatus;
 
 @end
 
@@ -64,6 +67,21 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
     ///修改输入工具条 布局
     [self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
     
+    
+    if (ConversationType_GROUP == self.conversationType) {
+        self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"creategroup_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClicked:)];
+    }
+    else{
+        self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_me_hover"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClicked:)];
+        
+    }
+    
+    [[RCIMClient sharedRCIMClient] getConversationNotificationStatus:self.conversationType targetId:self.targetId success:^(RCConversationNotificationStatus nStatus) {
+        self.notificationStatus = nStatus;
+    } error:^(RCErrorCode status) {
+        
+    }];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -106,6 +124,14 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
         NSString* userid = sender;
         RCUserInfo* userInfo = [[RCIM sharedRCIM] getUserInfoCache:userid];
         cic.portraitUrl = userInfo.portraitUri;
+    }
+    else if([segue.identifier isEqualToString:@"segue_show_conversation_setting"]){
+        CCConversationSettingTableViewController* cstc = (CCConversationSettingTableViewController*)segue.destinationViewController;
+        RCConversation* conversation = [[RCIMClient sharedRCIMClient] getConversation:self.conversationType targetId:self.targetId];
+        cstc.conversationType = self.conversationType;
+        cstc.targetId = self.targetId;
+        cstc.isTop = conversation.isTop;
+        cstc.isDisturb = self.notificationStatus == DO_NOT_DISTURB;
     }
     
 }
@@ -225,6 +251,13 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
     
     NSString* expresssionName =  [manager nameAtIndex:index];
     self.chatSessionInputBarControl.inputTextView.text = [self.chatSessionInputBarControl.inputTextView.text  stringByAppendingFormat:@"[%@]",expresssionName];
+}
+
+
+#pragma mark - Target action
+- (void)rightBtnClicked:(UIBarButtonItem*)sender
+{
+    [self performSegueWithIdentifier:@"segue_show_conversation_setting" sender:sender];
 }
 
 @end

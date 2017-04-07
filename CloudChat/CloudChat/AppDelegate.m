@@ -27,7 +27,7 @@
     /// 正在输入的状态其实开启
     [RCIM sharedRCIM].enableTypingStatus = YES;
     /// 开启已读回执功能的的会话类型
-    [RCIM sharedRCIM].enabledReadReceiptConversationTypeList = @[@(ConversationType_PRIVATE),@""];
+    [RCIM sharedRCIM].enabledReadReceiptConversationTypeList = @[@(ConversationType_PRIVATE)];
     
     
     [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
