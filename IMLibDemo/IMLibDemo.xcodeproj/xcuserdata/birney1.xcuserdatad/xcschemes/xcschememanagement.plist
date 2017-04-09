@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CustomerService.xcscheme</key>
+		<key>IMLibDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>B2BC84C81E8F4CA0001A89BE</key>
+		<key>7483D1DF1E9A567A00E26FA2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B2BC84E11E8F4CA0001A89BE</key>
+		<key>7483D1F81E9A567A00E26FA2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B2BC84EC1E8F4CA0001A89BE</key>
+		<key>7483D2031E9A567A00E26FA2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

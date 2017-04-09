@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2BC84C81E8F4CA0001A89BE"
-               BuildableName = "CustomerService.app"
-               BlueprintName = "CustomerService"
-               ReferencedContainer = "container:CustomerService.xcodeproj">
+               BlueprintIdentifier = "7483D1DF1E9A567A00E26FA2"
+               BuildableName = "IMLibDemo.app"
+               BlueprintName = "IMLibDemo"
+               ReferencedContainer = "container:IMLibDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2BC84E11E8F4CA0001A89BE"
-               BuildableName = "CustomerServiceTests.xctest"
-               BlueprintName = "CustomerServiceTests"
-               ReferencedContainer = "container:CustomerService.xcodeproj">
+               BlueprintIdentifier = "7483D1F81E9A567A00E26FA2"
+               BuildableName = "IMLibDemoTests.xctest"
+               BlueprintName = "IMLibDemoTests"
+               ReferencedContainer = "container:IMLibDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2BC84EC1E8F4CA0001A89BE"
-               BuildableName = "CustomerServiceUITests.xctest"
-               BlueprintName = "CustomerServiceUITests"
-               ReferencedContainer = "container:CustomerService.xcodeproj">
+               BlueprintIdentifier = "7483D2031E9A567A00E26FA2"
+               BuildableName = "IMLibDemoUITests.xctest"
+               BlueprintName = "IMLibDemoUITests"
+               ReferencedContainer = "container:IMLibDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2BC84C81E8F4CA0001A89BE"
-            BuildableName = "CustomerService.app"
-            BlueprintName = "CustomerService"
-            ReferencedContainer = "container:CustomerService.xcodeproj">
+            BlueprintIdentifier = "7483D1DF1E9A567A00E26FA2"
+            BuildableName = "IMLibDemo.app"
+            BlueprintName = "IMLibDemo"
+            ReferencedContainer = "container:IMLibDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2BC84C81E8F4CA0001A89BE"
-            BuildableName = "CustomerService.app"
-            BlueprintName = "CustomerService"
-            ReferencedContainer = "container:CustomerService.xcodeproj">
+            BlueprintIdentifier = "7483D1DF1E9A567A00E26FA2"
+            BuildableName = "IMLibDemo.app"
+            BlueprintName = "IMLibDemo"
+            ReferencedContainer = "container:IMLibDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2BC84C81E8F4CA0001A89BE"
-            BuildableName = "CustomerService.app"
-            BlueprintName = "CustomerService"
-            ReferencedContainer = "container:CustomerService.xcodeproj">
+            BlueprintIdentifier = "7483D1DF1E9A567A00E26FA2"
+            BuildableName = "IMLibDemo.app"
+            BlueprintName = "IMLibDemo"
+            ReferencedContainer = "container:IMLibDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

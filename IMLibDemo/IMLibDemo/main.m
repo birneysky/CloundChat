@@ -1,9 +1,9 @@
 //
 //  main.m
-//  CustomerService
+//  IMLibDemo
 //
-//  Created by birney on 2017/4/1.
-//  Copyright © 2017年 birney. All rights reserved.
+//  Created by birneysky on 2017/4/9.
+//  Copyright © 2017年 RongCloud. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
