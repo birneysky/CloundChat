@@ -66,7 +66,7 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
     [self registerClass:[CCBusinessCardCell class] forMessageClass:[CCBusinessCardMessage class]];
     
     ///修改输入工具条 布局
-    ///[self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
+    //[self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
     
     
     if (ConversationType_GROUP == self.conversationType) {
@@ -83,7 +83,6 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
         
     }];
 
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
