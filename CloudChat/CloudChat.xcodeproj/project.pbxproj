@@ -13,9 +13,11 @@
 		B20484621E9766EF0062C6B7 /* CCConversationSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20484611E9766EF0062C6B7 /* CCConversationSettingTableViewController.m */; };
 		B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */; };
 		B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */; };
+		B213F9911E9CD34900553981 /* CCChatRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B213F9901E9CD34900553981 /* CCChatRoomTableViewController.m */; };
 		B22BF5671E95C9F000CD355A /* CCUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22BF5661E95C9F000CD355A /* CCUserInfoViewController.m */; };
 		B22BF56B1E95EC6A00CD355A /* CCEmoji.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B22BF5691E95EC6A00CD355A /* CCEmoji.bundle */; };
 		B22BF56C1E95EC6A00CD355A /* CCEmojiNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = B22BF56A1E95EC6A00CD355A /* CCEmojiNames.plist */; };
+		B28FE17B1E9C98BD007677C4 /* CCContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28FE17A1E9C98BD007677C4 /* CCContactTableViewController.m */; };
 		B2BC84771E8F4AB8001A89BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84761E8F4AB8001A89BE /* main.m */; };
 		B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84791E8F4AB8001A89BE /* AppDelegate.m */; };
 		B2BC847D1E8F4AB8001A89BE /* CCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC847C1E8F4AB8001A89BE /* CCLoginViewController.m */; };
@@ -72,10 +74,14 @@
 		B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCBusinessCardMessage.m; path = ../../Models/CCBusinessCardMessage.m; sourceTree = "<group>"; };
 		B21310D61E8F730800C86822 /* CCGroupAndUserDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCGroupAndUserDataSet.h; path = ../../Models/CCGroupAndUserDataSet.h; sourceTree = "<group>"; };
 		B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCGroupAndUserDataSet.m; path = ../../Models/CCGroupAndUserDataSet.m; sourceTree = "<group>"; };
+		B213F98F1E9CD34900553981 /* CCChatRoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCChatRoomTableViewController.h; sourceTree = "<group>"; };
+		B213F9901E9CD34900553981 /* CCChatRoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCChatRoomTableViewController.m; sourceTree = "<group>"; };
 		B22BF5651E95C9F000CD355A /* CCUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUserInfoViewController.h; sourceTree = "<group>"; };
 		B22BF5661E95C9F000CD355A /* CCUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUserInfoViewController.m; sourceTree = "<group>"; };
 		B22BF5691E95EC6A00CD355A /* CCEmoji.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CCEmoji.bundle; sourceTree = "<group>"; };
 		B22BF56A1E95EC6A00CD355A /* CCEmojiNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCEmojiNames.plist; sourceTree = "<group>"; };
+		B28FE1791E9C98BD007677C4 /* CCContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCContactTableViewController.h; sourceTree = "<group>"; };
+		B28FE17A1E9C98BD007677C4 /* CCContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCContactTableViewController.m; sourceTree = "<group>"; };
 		B2BC84721E8F4AB8001A89BE /* CloudChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2BC84761E8F4AB8001A89BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B2BC84781E8F4AB8001A89BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -244,6 +250,10 @@
 				749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */,
 				B20484601E9766EF0062C6B7 /* CCConversationSettingTableViewController.h */,
 				B20484611E9766EF0062C6B7 /* CCConversationSettingTableViewController.m */,
+				B28FE1791E9C98BD007677C4 /* CCContactTableViewController.h */,
+				B28FE17A1E9C98BD007677C4 /* CCContactTableViewController.m */,
+				B213F98F1E9CD34900553981 /* CCChatRoomTableViewController.h */,
+				B213F9901E9CD34900553981 /* CCChatRoomTableViewController.m */,
 				B2FF55051E95EE8A00ECFB51 /* CCEmojiNameManager.h */,
 				B2FF55061E95EE8A00ECFB51 /* CCEmojiNameManager.m */,
 				B2FF55081E95F8F900ECFB51 /* CCEmojiButton.h */,
@@ -498,8 +508,10 @@
 				B2FF550A1E95F8F900ECFB51 /* CCEmojiButton.m in Sources */,
 				B2C3BF7D1E9490220044C181 /* RCDCustomerServiceViewController.m in Sources */,
 				B2BC847D1E8F4AB8001A89BE /* CCLoginViewController.m in Sources */,
+				B213F9911E9CD34900553981 /* CCChatRoomTableViewController.m in Sources */,
 				B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */,
 				B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */,
+				B28FE17B1E9C98BD007677C4 /* CCContactTableViewController.m in Sources */,
 				B2C3BF8B1E9500FF0044C181 /* CCNetwokKit.m in Sources */,
 				B2BC84BF1E8F4B88001A89BE /* CCUserTableViewController.m in Sources */,
 				749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */,
@@ -664,12 +676,14 @@
 			baseConfigurationReference = 8D19B4DD16BDA9B42F20E9AD /* Pods-CloudChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6K45GAZW62;
 				INFOPLIST_FILE = CloudChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RongCloud.tech.CloudChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -678,12 +692,14 @@
 			baseConfigurationReference = AFDEEEE974E3CA597D0B8512 /* Pods-CloudChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6K45GAZW62;
 				INFOPLIST_FILE = CloudChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RongCloud.tech.CloudChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

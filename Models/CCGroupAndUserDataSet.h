@@ -16,4 +16,8 @@
 
 + (instancetype)defalutSet;
 
+@property (nonatomic,readonly) NSString* currentUserID;
+@property (nonatomic,retain) NSArray<NSString*>* allUserIds;
+
+
 @end

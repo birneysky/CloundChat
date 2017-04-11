@@ -107,7 +107,7 @@
 #pragma mark - Helper
 
 - (void)configureView:(UIView*)view  index:(NSInteger)index{
-    NSString * filePath = [[NSBundle mainBundle] pathForResource:@"CCEmojiNames" ofType:@"plist"];
+    ///NSString * filePath = [[NSBundle mainBundle] pathForResource:@"CCEmojiNames" ofType:@"plist"];
     ///NSArray*  emojiStringArray = [NSArray arrayWithContentsOfFile:filePath];
     
     CGFloat panelWith = view.bounds.size.width;

@@ -34,8 +34,49 @@ static CCGroupAndUserDataSet* _defalutSet = nil;
 {
     if(!_defalutSet){
         _defalutSet = [[CCGroupAndUserDataSet alloc] init];
+        [_defalutSet refreshUserInfo];
+        [_defalutSet refreshGroupInfo];
     }
     return _defalutSet;
+}
+
+- (NSString*)currentUserID
+{
+    return [RCIMClient sharedRCIMClient].currentUserInfo.userId;
+}
+
+
+- (NSArray<NSString*>*)allUserIds
+{
+    return self.userDic.allKeys;
+}
+
+#pragma mark - Helper
+- (void)refreshUserInfo
+{
+    __weak typeof(self) weakSelf = self;
+    [self.userDic enumerateKeysAndObjectsUsingBlock:^(NSString*  _Nonnull key, NSArray*  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSArray* infos = weakSelf.userDic[key];
+        RCUserInfo* userInfo = [[RCUserInfo alloc] init];
+        userInfo.userId = key;
+        userInfo.name = infos[0];
+        userInfo.portraitUri = infos[1];
+        [[RCIM sharedRCIM] refreshUserInfoCache:userInfo withUserId:key];
+    }];
+}
+
+
+- (void)refreshGroupInfo
+{
+    ///segue_show_conversation_detail__weak typeof(self) weakSelf = self;
+    [self.groupDic enumerateKeysAndObjectsUsingBlock:^(NSString*  _Nonnull groupId, NSDictionary*  _Nonnull obj, BOOL * _Nonnull stop) {
+       /// NSDictionary* groupInfo = self.groupDic[groupId];
+        
+        RCGroup* group = [[RCGroup alloc] init];
+        group.groupId = groupId;
+        group.groupName = obj[@"name"];
+        [[RCIM sharedRCIM] refreshGroupInfoCache:group withGroupId:groupId];
+    }];
 }
 
 #pragma mark - Properties
@@ -123,7 +164,7 @@ static CCGroupAndUserDataSet* _defalutSet = nil;
 - (void)getAllMembersOfGroup:(NSString *)groupId
                       result:(void (^)(NSArray<NSString *> *userIdList))resultBlock
 {
-     NSDictionary* groupInfo = self.groupDic[groupId];
+    NSDictionary* groupInfo = self.groupDic[groupId];
     NSArray* users = groupInfo[@"users"];
     resultBlock(users);
 }

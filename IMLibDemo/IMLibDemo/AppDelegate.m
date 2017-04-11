@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <RongIMLib/RongIMLib.h>
+#import "CCNetwokKit.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     ///初始化 SDK
-    [[RCIMClient sharedRCIMClient] initWithAppKey:@"lmxuhwaglck9d"];
+    [[RCIMClient sharedRCIMClient] initWithAppKey:APPKEY];
     return YES;
 }
 

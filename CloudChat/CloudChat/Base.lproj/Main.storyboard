@@ -59,7 +59,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFg-Cm-pEH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="user1" borderStyle="roundedRect" placeholder="请输入用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFg-Cm-pEH">
                                 <rect key="frame" x="87" y="160" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -135,7 +135,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5IM-zg-P6P"/>
                     <connections>
-                        <segue destination="uWg-SI-HMs" kind="push" identifier="segue_show_group_conversation" id="LF2-nn-sAS"/>
+                        <segue destination="uWg-SI-HMs" kind="show" identifier="segue_show_group_conversation" id="LF2-nn-sAS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOW-sf-BLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -162,14 +162,14 @@
         <!--通讯录-->
         <scene sceneID="es6-Ei-gBv">
             <objects>
-                <tableViewController id="Ecp-YE-bMe" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="k62-yK-d6H">
+                <tableViewController id="Ecp-YE-bMe" customClass="CCContactTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="k62-yK-d6H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="63d-s7-M52">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" id="63d-s7-M52">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="63d-s7-M52" id="5Kt-vH-Uod">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -185,6 +185,9 @@
                     <navigationItem key="navigationItem" title="通讯录" id="DNl-Os-ppW">
                         <barButtonItem key="rightBarButtonItem" image="addfriend_icon" id="2iM-WB-DDi"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="uWg-SI-HMs" kind="show" identifier="segue_show_conversation_detail" id="3M6-cn-ywi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAb-9G-k3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,14 +213,14 @@
         <!--发现-->
         <scene sceneID="zpZ-ZF-siQ">
             <objects>
-                <tableViewController id="nRb-aR-Kp3" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="btf-Ws-HX4">
+                <tableViewController id="nRb-aR-Kp3" customClass="CCChatRoomTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="btf-Ws-HX4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Mw8-os-KLp">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverCell" id="Mw8-os-KLp">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mw8-os-KLp" id="xZO-nR-4l0">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -231,6 +234,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="发现" id="2fd-ED-bJh"/>
+                    <connections>
+                        <segue destination="uWg-SI-HMs" kind="show" identifier="segue_show_conversation_detail" id="ylz-BP-I6X"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9A-yl-58v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -316,7 +322,7 @@
                     <navigationItem key="navigationItem" title="我" id="uhZ-lq-xh1"/>
                     <connections>
                         <segue destination="9YH-Jb-8zC" kind="show" identifier="segue_show_customer_service" id="lRf-EH-NKH"/>
-                        <segue destination="XBb-Hb-SsW" kind="push" identifier="segue_show_account_setting" id="c2V-OJ-T0j"/>
+                        <segue destination="XBb-Hb-SsW" kind="show" identifier="segue_show_account_setting" id="c2V-OJ-T0j"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pht-NT-9F8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -547,7 +553,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bh-bg-0ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3665" y="-685"/>
+            <point key="canvasLocation" x="3665" y="-484"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qb2-Ks-kVD">
@@ -577,6 +583,6 @@
         <image name="square" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LF2-nn-sAS"/>
+        <segue reference="ylz-BP-I6X"/>
     </inferredMetricsTieBreakers>
 </document>

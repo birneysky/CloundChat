@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CCBusinessCardMessage.h"
+#import "CCNetwokKit.h"
 
 @interface AppDelegate () 
 
@@ -18,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[RCIM sharedRCIM] initWithAppKey:@"lmxuhwaglck9d"];
+    [[RCIM sharedRCIM] initWithAppKey:APPKEY];
     [[RCIM sharedRCIM] registerMessageType:[CCBusinessCardMessage class]];
     /// 开启@功能
     [RCIM sharedRCIM].enableMessageMentioned = YES;
@@ -29,6 +30,8 @@
     /// 开启已读回执功能的的会话类型
     [RCIM sharedRCIM].enabledReadReceiptConversationTypeList = @[@(ConversationType_PRIVATE)];
     
+    /// 是否将用户信息和群组信息在本地持久化存储
+    [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
     
     [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
     [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;

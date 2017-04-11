@@ -96,7 +96,7 @@ static CCNetwokKit* defaultKit;
     uint32_t random = arc4random();
     time_t timeStamp = time(NULL);
     uint8_t digest[CC_SHA1_DIGEST_LENGTH] = {};
-    NSString* sumString  = [NSString stringWithFormat:@"%@%u%ld",@"t6ZKDZnULwLuC",random,timeStamp];
+    NSString* sumString  = [NSString stringWithFormat:@"%@%u%ld",APPSECRET,random,timeStamp];
     CC_SHA1(sumString.UTF8String,(CC_LONG)sumString.length,digest);
     
     NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
@@ -106,7 +106,7 @@ static CCNetwokKit* defaultKit;
     NSString* strTimeStamp = [NSString stringWithFormat:@"%ld",timeStamp];
     NSString* strRandom = [NSString stringWithFormat:@"%u",random];
     
-    NSDictionary* parms = @{@"App-Key":@"lmxuhwaglck9d",@"Nonce":strRandom,@"Timestamp":strTimeStamp,@"Signature":[output copy]};
+    NSDictionary* parms = @{@"App-Key":APPKEY,@"Nonce":strRandom,@"Timestamp":strTimeStamp,@"Signature":[output copy]};
     return parms;
 
 }

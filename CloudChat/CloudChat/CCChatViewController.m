@@ -14,9 +14,13 @@
 #import "CCUserInfoViewController.h"
 #import "CCEmojiNameManager.h"
 #import "CCConversationSettingTableViewController.h"
+#import <RongCallKit/RongCallKit.h>
+
 ///#define PLUGIN_BOARD_ITEM_FILE_TAG 20001
 
 static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
+static const NSInteger PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG = 30001;
+static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
 
 @interface CCChatViewController () <CCCustomerEmoticionTabDelegate>
 
@@ -47,6 +51,15 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
     
     UIImage* commnetImage= [RCKitUtility imageNamed:@"Comment" ofBundle:@"RongCloud.bundle"];
     [self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:commnetImage title:@"名片" tag:PLUGIN_BOARD_ITEM_CARD_TAG];
+    
+    
+    UIImage* videoCall = [UIImage imageNamed:@"video_call"];
+    [self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:videoCall title:@"视频通话" tag:PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG];
+    
+    
+    UIImage* audioCall = [UIImage imageNamed:@"audio_call"];
+    [self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:audioCall title:@"语音通话" tag:PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG];
+    
     
     /// 添加表情扩展
     CCCustomerEmoticonTab* addTab = [CCCustomerEmoticonTab new];
@@ -225,6 +238,15 @@ static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
 {
     if(PLUGIN_BOARD_ITEM_CARD_TAG == tag){
         [self performSegueWithIdentifier:@"segue_show_user_list" sender:nil];
+    }
+    else if(PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG == tag &&
+            [[RCCall sharedRCCall] isAudioCallEnabled:self.conversationType] &&
+            [[RCCall sharedRCCall] isVideoCallEnabled:self.conversationType] ){
+        [[RCCall sharedRCCall] startSingleCall:self.targetId mediaType:RCCallMediaVideo];
+    }
+    else if(PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG == tag &&
+            [[RCCall sharedRCCall] isAudioCallEnabled:self.conversationType]){
+        [[RCCall sharedRCCall] startSingleCall:self.targetId mediaType:RCCallMediaAudio];
     }
     else{
         [super pluginBoardView:pluginBoardView clickedItemWithTag:tag];

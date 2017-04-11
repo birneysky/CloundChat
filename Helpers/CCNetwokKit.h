@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+
+//#define APPKEY @"n19jmcy59ocx9"
+//#define APPSECRET @"PblLNSx3hSkW"
+
+
+#define APPKEY @"lmxuhwaglck9d"
+#define APPSECRET @"t6ZKDZnULwLuC"
+
 @interface CCNetwokKit : NSObject
 
 + (instancetype)defaultKit;
