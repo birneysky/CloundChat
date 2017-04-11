@@ -70,6 +70,7 @@
     
     // Configure the cell...
     NSDictionary* chatRoom = self.dataSource[indexPath.row];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cell.imageView.image = [UIImage imageNamed:chatRoom[@"imgName"]];
     cell.textLabel.text = chatRoom[@"name"];
     

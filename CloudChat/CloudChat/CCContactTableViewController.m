@@ -9,6 +9,7 @@
 #import "CCContactTableViewController.h"
 #import "CCGroupAndUserDataSet.h"
 #import "CCChatViewController.h"
+#import <UIImageView+YYWebImage.h>
 
 @interface CCContactTableViewController ()
 
@@ -72,6 +73,7 @@
         NSString* userId = self.dataSource[indexPath.section][indexPath.row];
         RCUserInfo* userInfo = [[RCIM sharedRCIM] getUserInfoCache:userId];
         cell.textLabel.text = userInfo.name;
+        cell.imageView.yy_imageURL = [NSURL URLWithString:userInfo.portraitUri];
     }
     return cell;
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0566E23251EF976762EB433A /* libPods-CloudChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A047BBFBE3F9A9C15372ACB /* libPods-CloudChat.a */; };
+		7483D2231E9D0D4A00E26FA2 /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7483D2221E9D0D4A00E26FA2 /* CCTableViewCell.m */; };
 		749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */; };
 		749AFDA21E952CC70090A2CF /* CCActiveWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFDA11E952CC70090A2CF /* CCActiveWheel.m */; };
 		B20484621E9766EF0062C6B7 /* CCConversationSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20484611E9766EF0062C6B7 /* CCConversationSettingTableViewController.m */; };
@@ -61,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7483D2211E9D0D4A00E26FA2 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
+		7483D2221E9D0D4A00E26FA2 /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
 		749AFD9C1E9527390090A2CF /* CCAccountSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAccountSettingTableViewController.h; sourceTree = "<group>"; };
 		749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAccountSettingTableViewController.m; sourceTree = "<group>"; };
 		749AFDA01E952CC70090A2CF /* CCActiveWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCActiveWheel.h; path = ../../GeneralView/CCActiveWheel.h; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 				B213F9901E9CD34900553981 /* CCChatRoomTableViewController.m */,
 				B2FF55051E95EE8A00ECFB51 /* CCEmojiNameManager.h */,
 				B2FF55061E95EE8A00ECFB51 /* CCEmojiNameManager.m */,
+				7483D2211E9D0D4A00E26FA2 /* CCTableViewCell.h */,
+				7483D2221E9D0D4A00E26FA2 /* CCTableViewCell.m */,
 				B2FF55081E95F8F900ECFB51 /* CCEmojiButton.h */,
 				B2FF55091E95F8F900ECFB51 /* CCEmojiButton.m */,
 				B2FF550E1E960BA200ECFB51 /* CCEmojiPreview.h */,
@@ -506,6 +511,7 @@
 				B20484621E9766EF0062C6B7 /* CCConversationSettingTableViewController.m in Sources */,
 				B2BC84BA1E8F4B88001A89BE /* CCChatListViewController.m in Sources */,
 				B2FF550A1E95F8F900ECFB51 /* CCEmojiButton.m in Sources */,
+				7483D2231E9D0D4A00E26FA2 /* CCTableViewCell.m in Sources */,
 				B2C3BF7D1E9490220044C181 /* RCDCustomerServiceViewController.m in Sources */,
 				B2BC847D1E8F4AB8001A89BE /* CCLoginViewController.m in Sources */,
 				B213F9911E9CD34900553981 /* CCChatRoomTableViewController.m in Sources */,

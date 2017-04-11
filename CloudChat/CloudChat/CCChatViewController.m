@@ -30,6 +30,15 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
 
 @implementation CCChatViewController
 
+- (void)dealloc
+{
+    if (ConversationType_CHATROOM == self.conversationType) {
+        [[RCIMClient sharedRCIMClient] quitChatRoom:self.targetId success:^{
+        } error:^(RCErrorCode status) {
+        }];        
+    }
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
