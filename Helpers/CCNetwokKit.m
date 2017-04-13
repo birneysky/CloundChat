@@ -108,7 +108,7 @@ static CCNetwokKit* defaultKit;
     
     NSDictionary* parms = @{@"App-Key":APPKEY,@"Nonce":strRandom,@"Timestamp":strTimeStamp,@"Signature":[output copy]};
     return parms;
-
+    ///test
 }
 
 @end
