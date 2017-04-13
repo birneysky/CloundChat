@@ -73,7 +73,7 @@
         NSString* userId = self.dataSource[indexPath.section][indexPath.row];
         RCUserInfo* userInfo = [[RCIM sharedRCIM] getUserInfoCache:userId];
         cell.textLabel.text = userInfo.name;
-        cell.imageView.yy_imageURL = [NSURL URLWithString:userInfo.portraitUri];
+        //cell.imageView.yy_imageURL = [NSURL URLWithString:userInfo.portraitUri];
     }
     return cell;
 }
