@@ -139,7 +139,7 @@
         self.titleLabel.text = bussionCardMessage.title;
         self.avatarView.yy_imageURL = [NSURL URLWithString:bussionCardMessage.avatarURL];
     }
-    /////test //test
+    /////test
 
 }
 
