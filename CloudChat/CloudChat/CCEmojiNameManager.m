@@ -1,9 +1,9 @@
 //
-//  TEFaceInfoManager.m
-//  Telescope
+//  CCEmojiNameManager.m
+//  CloudChat
 //
-//  Created by zhangguang on 16/12/12.
-//  Copyright © 2016年 com.v2tech.Telescope. All rights reserved.
+//  Created by birneysky on 2017/4/5.
+//  Copyright © 2017年 birney. All rights reserved.
 //
 
 #import "CCEmojiNameManager.h"

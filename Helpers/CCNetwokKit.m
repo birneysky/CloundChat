@@ -19,7 +19,6 @@ static CCNetwokKit* defaultKit;
 {
     if (!defaultKit) {
         defaultKit = [[CCNetwokKit alloc] init];
-        //[defaultKit networkEngine];
     }
     return defaultKit;
 }
@@ -108,7 +107,6 @@ static CCNetwokKit* defaultKit;
     
     NSDictionary* parms = @{@"App-Key":APPKEY,@"Nonce":strRandom,@"Timestamp":strTimeStamp,@"Signature":[output copy]};
     return parms;
-    ///test
 }
 
 @end
