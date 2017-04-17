@@ -1,9 +1,9 @@
 //
 //  TEEmojiPreview.m
-//  Telescope
+//  CloudChat
 //
-//  Created by zhangguang on 17/1/9.
-//  Copyright © 2017年 com.v2tech.Telescope. All rights reserved.
+//  Created by birneysky on 2017/4/5.
+//  Copyright © 2017年 birney. All rights reserved.
 //
 
 #import "CCEmojiPreview.h"
@@ -38,7 +38,6 @@
     
     CGRect frameInWindow =  [view convertRect:view.bounds toView:nil];
 
-    NSLog(@"frame in window %@",NSStringFromCGRect(frameInWindow));
     self.center = (CGPoint){frameInWindow.origin.x + frameInWindow.size.width / 2, frameInWindow.origin.y - frameInWindow.size.height / 2};
 }
 

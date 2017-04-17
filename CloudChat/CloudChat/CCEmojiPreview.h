@@ -1,9 +1,9 @@
 //
-//  TEEmojiPreview.h
-//  Telescope
+//  CCEmojiPreview.h
+//  CloudChat
 //
-//  Created by zhangguang on 17/1/9.
-//  Copyright © 2017年 com.v2tech.Telescope. All rights reserved.
+//  Created by birneysky on 2017/4/11.
+//  Copyright © 2017年 binrey. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
