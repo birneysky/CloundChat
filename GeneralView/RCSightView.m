@@ -18,6 +18,19 @@
 
 @implementation RCSightView
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        [self setUp];
+    }
+    return self;
+}
+
+
+#pragma mark - Helper
+- (void)setUp{
+    self.backgroundColor = [UIColor redColor];
+}
 #pragma mark - Properties
 - (RCSightCapturer*)capturer
 {

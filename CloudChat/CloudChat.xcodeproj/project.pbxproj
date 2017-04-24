@@ -12,6 +12,7 @@
 		748D57521EA3622100B3FF91 /* CCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 748D57511EA3622100B3FF91 /* CCTextField.m */; };
 		749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */; };
 		749AFDA21E952CC70090A2CF /* CCActiveWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFDA11E952CC70090A2CF /* CCActiveWheel.m */; };
+		74CC06F81EAE26B800BEE919 /* RCSightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CC06F71EAE26B800BEE919 /* RCSightViewController.m */; };
 		B20484621E9766EF0062C6B7 /* CCConversationSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20484611E9766EF0062C6B7 /* CCConversationSettingTableViewController.m */; };
 		B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */; };
 		B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */; };
@@ -81,6 +82,8 @@
 		749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAccountSettingTableViewController.m; sourceTree = "<group>"; };
 		749AFDA01E952CC70090A2CF /* CCActiveWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCActiveWheel.h; path = ../../GeneralView/CCActiveWheel.h; sourceTree = "<group>"; };
 		749AFDA11E952CC70090A2CF /* CCActiveWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCActiveWheel.m; path = ../../GeneralView/CCActiveWheel.m; sourceTree = "<group>"; };
+		74CC06F61EAE26B800BEE919 /* RCSightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSightViewController.h; sourceTree = "<group>"; };
+		74CC06F71EAE26B800BEE919 /* RCSightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightViewController.m; sourceTree = "<group>"; };
 		B20484601E9766EF0062C6B7 /* CCConversationSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCConversationSettingTableViewController.h; sourceTree = "<group>"; };
 		B20484611E9766EF0062C6B7 /* CCConversationSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCConversationSettingTableViewController.m; sourceTree = "<group>"; };
 		B21310D41E8F730800C86822 /* CCBusinessCardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBusinessCardMessage.h; path = ../../Models/CCBusinessCardMessage.h; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				749AFDA11E952CC70090A2CF /* CCActiveWheel.m */,
 				748D57501EA3622100B3FF91 /* CCTextField.h */,
 				748D57511EA3622100B3FF91 /* CCTextField.m */,
+				74CC06F61EAE26B800BEE919 /* RCSightViewController.h */,
+				74CC06F71EAE26B800BEE919 /* RCSightViewController.m */,
 			);
 			name = GeneralView;
 			sourceTree = "<group>";
@@ -559,6 +564,7 @@
 				B282A4241EA75D45007E6238 /* WLDMessageCell.m in Sources */,
 				749AFDA21E952CC70090A2CF /* CCActiveWheel.m in Sources */,
 				B2FF55111E960BA200ECFB51 /* CCEmojiPreview.m in Sources */,
+				74CC06F81EAE26B800BEE919 /* RCSightViewController.m in Sources */,
 				B20484621E9766EF0062C6B7 /* CCConversationSettingTableViewController.m in Sources */,
 				B2BC84BA1E8F4B88001A89BE /* CCChatListViewController.m in Sources */,
 				B2FF550A1E95F8F900ECFB51 /* CCEmojiButton.m in Sources */,
