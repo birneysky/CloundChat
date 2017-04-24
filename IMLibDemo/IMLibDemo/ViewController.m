@@ -81,10 +81,19 @@
             NSLog(@"文本消息发送失败 errorcode: %ld, messageId: %ld",(long)nErrorCode,messageId);
         }];
     }
-    
-    sleep(1);
+  
+///   sleep(1);
+//   for (int i = 0; i < 5; i ++) {
+//    RCTextMessage* textMsg = [RCTextMessage messageWithContent:[NSString stringWithFormat:@"test: %ld %i",(long)time(NULL),i]];
+//     [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_DISCUSSION targetId:@"99a2504f-9858-43aa-80c3-2289de7ab174" content:textMsg pushContent:nil pushData:nil success:^(long messageId) {
+//       NSLog(@"文本消息发送成功 imessageId: %ld",messageId);
+//     } error:^(RCErrorCode nErrorCode, long messageId) {
+//       NSLog(@"文本消息发送失败 errorcode: %ld, messageId: %ld",(long)nErrorCode,messageId);
+//     }];
+//   }
+///    sleep(1);
     /// 发送图片消息 群聊
-    
+
     for (int i = 0; i < 5; i++) {
         RCImageMessage* imgMessage = [RCImageMessage messageWithImage:[UIImage imageNamed:@"jobs"]];
         [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP targetId:@"group1" content:imgMessage pushContent:nil pushData:nil success:^(long messageId) {
@@ -120,6 +129,8 @@
              NSLog(@"自定义消息发送成功 imessageId: %ld",messageId);
         }];
     }
+  
+  
     
     /// 插入消息
     

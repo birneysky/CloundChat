@@ -8,6 +8,7 @@
 
 #import "CCChatListViewController.h"
 #import "CCChatViewController.h"
+#import <RongCallKit/RongCallKit.h>
 
 @interface CCChatListViewController ()
 
@@ -54,7 +55,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     /// 设置会话置顶
-   // [[RCIMClient sharedRCIMClient] setConversationToTop:ConversationType_GROUP targetId:@"group1" isTop:YES];
+   [[RCIMClient sharedRCIMClient] setConversationToTop:ConversationType_GROUP targetId:@"group1" isTop:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,14 +63,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  [self.conversationListTableView reloadData];
+  
+}
 
 #pragma mark - Target Action
 - (IBAction)addButtonClicked:(id)sender {
     
-    CCChatViewController* cvc = [[CCChatViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"user2"];
-    cvc.title = @"user2";
-    [self.navigationController pushViewController:cvc animated:YES];
-    
+//    CCChatViewController* cvc = [[CCChatViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"user2"];
+//    cvc.title = @"user2";
+//    [self.navigationController pushViewController:cvc animated:YES];
+  
+
+  //// 创建讨论组
+  /// @[@"user0",@"user1",@"user2",@"user3",@"user4"]
+  [[RCIMClient sharedRCIMClient] createDiscussion:@"dicussion1" userIdList:@[@"user1",@"user2"] success:^(RCDiscussion *discussion) {
+    NSLog(@"创建讨论组成功 %@",discussion.discussionId);
+  } error:^(RCErrorCode status) {
+    NSLog(@"创建讨论组失败");
+  }];
 }
 
 #pragma mark - Navigation
@@ -96,9 +111,14 @@
     }
     else if ([segue.identifier isEqualToString:@"segue_show_sub_conversation"]){
         CCChatListViewController* cclvc = (CCChatListViewController*)segue.destinationViewController;
-        cclvc.displayConversationTypeArray = @[@(ConversationType_GROUP)];
+      
         if (ConversationType_GROUP == model.conversationType) {
             cclvc.title = @"群组";
+            cclvc.displayConversationTypeArray = @[@(ConversationType_GROUP)];
+        }
+        else if(ConversationType_DISCUSSION == model.conversationType ){
+             cclvc.title = @"讨论组";
+             cclvc.displayConversationTypeArray = @[@(ConversationType_DISCUSSION)];
         }
         cclvc.collectionConversationTypeArray = nil;
     }
@@ -113,7 +133,14 @@
     if ( RC_CONVERSATION_MODEL_TYPE_COLLECTION == conversationModelType) {
         [self performSegueWithIdentifier:@"segue_show_sub_conversation" sender:model];
     }else if(self.collectionConversationTypeArray){
-        [self performSegueWithIdentifier:@"segue_show_conversation_detail" sender:model];
+         [self performSegueWithIdentifier:@"segue_show_conversation_detail" sender:model];
+      
+//      CCChatViewController* cccvc = [[CCChatViewController alloc] init];
+//      cccvc.conversationType = model.conversationType;
+//      cccvc.targetId = model.targetId;
+//      [self.navigationController pushViewController:cccvc animated:YES];
+//      
+//      [[RCCall sharedRCCall] startSingleCall:model.targetId mediaType:RCCallMediaVideo];
     }
     else{
         [self performSegueWithIdentifier:@"segue_show_group_conversation" sender:model];

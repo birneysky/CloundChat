@@ -23,6 +23,11 @@
     return msg;
 }
 
++ (RCMessagePersistent)persistentFlag
+{
+  return (MessagePersistent_ISPERSISTED | MessagePersistent_ISCOUNTED);
+}
+
 #pragma mark -  RCMessageCoding
 - (void)decodeWithData:(NSData *)data
 {

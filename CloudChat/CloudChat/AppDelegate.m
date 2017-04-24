@@ -37,7 +37,16 @@
     [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
     
     self.window.backgroundColor = [UIColor whiteColor];
-    
+  
+  
+  UIUserNotificationSettings *settings = [UIUserNotificationSettings
+                                          settingsForTypes:(UIUserNotificationTypeBadge |
+                                                            UIUserNotificationTypeSound |
+                                                            UIUserNotificationTypeAlert)
+                                          categories:nil];
+  [application registerUserNotificationSettings:settings];
+  
+  
     return YES;
 }
 
@@ -81,7 +90,7 @@
 -(BOOL)onRCIMCustomLocalNotification:(RCMessage*)message
                       withSenderName:(NSString *)senderName
 {
-    return YES;
+    return NO;
 }
 
 /// 返回YES 关闭消息提示音

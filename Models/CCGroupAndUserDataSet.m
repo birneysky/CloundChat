@@ -168,4 +168,6 @@ static CCGroupAndUserDataSet* _defalutSet = nil;
     NSArray* users = groupInfo[@"users"];
     resultBlock(users);
 }
+
+
 @end

@@ -16,7 +16,6 @@
 		7483D1FE1E9A567A00E26FA2 /* IMLibDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7483D1FD1E9A567A00E26FA2 /* IMLibDemoTests.m */; };
 		7483D2091E9A567A00E26FA2 /* IMLibDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7483D2081E9A567A00E26FA2 /* IMLibDemoUITests.m */; };
 		7483D21C1E9A580E00E26FA2 /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7483D2191E9A580E00E26FA2 /* CCBusinessCardMessage.m */; };
-		7483D21D1E9A580E00E26FA2 /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7483D21B1E9A580E00E26FA2 /* CCGroupAndUserDataSet.m */; };
 		7483D2201E9A581D00E26FA2 /* CCNetwokKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7483D21F1E9A581D00E26FA2 /* CCNetwokKit.m */; };
 		D5BEA16E5BE4692E1077C6CE /* libPods-IMLibDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E5F8BABD36EEB707A1BD2E /* libPods-IMLibDemo.a */; };
 /* End PBXBuildFile section */
@@ -58,8 +57,6 @@
 		7483D20A1E9A567A00E26FA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7483D2181E9A580E00E26FA2 /* CCBusinessCardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBusinessCardMessage.h; path = ../../Models/CCBusinessCardMessage.h; sourceTree = "<group>"; };
 		7483D2191E9A580E00E26FA2 /* CCBusinessCardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCBusinessCardMessage.m; path = ../../Models/CCBusinessCardMessage.m; sourceTree = "<group>"; };
-		7483D21A1E9A580E00E26FA2 /* CCGroupAndUserDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCGroupAndUserDataSet.h; path = ../../Models/CCGroupAndUserDataSet.h; sourceTree = "<group>"; };
-		7483D21B1E9A580E00E26FA2 /* CCGroupAndUserDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCGroupAndUserDataSet.m; path = ../../Models/CCGroupAndUserDataSet.m; sourceTree = "<group>"; };
 		7483D21E1E9A581D00E26FA2 /* CCNetwokKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCNetwokKit.h; path = ../../Helpers/CCNetwokKit.h; sourceTree = "<group>"; };
 		7483D21F1E9A581D00E26FA2 /* CCNetwokKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCNetwokKit.m; path = ../../Helpers/CCNetwokKit.m; sourceTree = "<group>"; };
 		80ECCF3AA60877594FF962CD /* Pods-IMLibDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMLibDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-IMLibDemo/Pods-IMLibDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,8 +178,6 @@
 			children = (
 				7483D2181E9A580E00E26FA2 /* CCBusinessCardMessage.h */,
 				7483D2191E9A580E00E26FA2 /* CCBusinessCardMessage.m */,
-				7483D21A1E9A580E00E26FA2 /* CCGroupAndUserDataSet.h */,
-				7483D21B1E9A580E00E26FA2 /* CCGroupAndUserDataSet.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -381,7 +376,6 @@
 			files = (
 				7483D2201E9A581D00E26FA2 /* CCNetwokKit.m in Sources */,
 				7483D1EB1E9A567A00E26FA2 /* ViewController.m in Sources */,
-				7483D21D1E9A580E00E26FA2 /* CCGroupAndUserDataSet.m in Sources */,
 				7483D1E81E9A567A00E26FA2 /* AppDelegate.m in Sources */,
 				7483D1E51E9A567A00E26FA2 /* main.m in Sources */,
 				7483D21C1E9A580E00E26FA2 /* CCBusinessCardMessage.m in Sources */,
@@ -535,6 +529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IMLibDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RongCloud.tech.IMLibDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -547,6 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IMLibDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RongCloud.tech.IMLibDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

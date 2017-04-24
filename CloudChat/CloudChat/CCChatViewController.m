@@ -15,14 +15,15 @@
 #import "CCEmojiNameManager.h"
 #import "CCConversationSettingTableViewController.h"
 #import <RongCallKit/RongCallKit.h>
+#import "WLDMessageCell.h"
 
 ///#define PLUGIN_BOARD_ITEM_FILE_TAG 20001
 
-static const NSInteger PLUGIN_BOARD_ITEM_CARD_TAG =  3000;
+static const NSInteger PLUGIN_BOARD_ITEM_BUSSINESS_CARD_TAG =  3000;
 static const NSInteger PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG = 30001;
 static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
 
-@interface CCChatViewController () <CCCustomerEmoticionTabDelegate>
+@interface CCChatViewController () <CCCustomerEmoticionTabDelegate,RCIMReceiveMessageDelegate>
 
 @property (nonatomic,assign) RCConversationNotificationStatus notificationStatus;
 
@@ -49,8 +50,7 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
     
     ///self.displayConversationTypeArray = @[@(ConversationType_PRIVATE)];
     ///self.enableUnreadMessageIcon = YES;
-    
-    
+  
     /// 添加扩展功能
     UIImage* fileImage = [RCKitUtility imageNamed:@"actionbar_file_icon"
                                          ofBundle:@"RongCloud.bundle"];
@@ -59,7 +59,7 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
     
     
     UIImage* commnetImage= [RCKitUtility imageNamed:@"Comment" ofBundle:@"RongCloud.bundle"];
-    [self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:commnetImage title:@"名片" tag:PLUGIN_BOARD_ITEM_CARD_TAG];
+    [self.chatSessionInputBarControl.pluginBoardView insertItemWithImage:commnetImage title:@"名片" tag:PLUGIN_BOARD_ITEM_BUSSINESS_CARD_TAG];
     
     
     UIImage* videoCall = [UIImage imageNamed:@"video_call"];
@@ -105,7 +105,17 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
         
     }];
 
+  
+  [RCIM sharedRCIM].receiveMessageDelegate = self;
 }
+
+
+- (void)onRCIMReceiveMessage:(RCMessage *)message
+                        left:(int)left
+{
+  ///[self.conversationMessageCollectionView reloadData];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -245,14 +255,18 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
 
 - (void)pluginBoardView:(RCPluginBoardView *)pluginBoardView clickedItemWithTag:(NSInteger)tag
 {
-    if(PLUGIN_BOARD_ITEM_CARD_TAG == tag){
+    if(PLUGIN_BOARD_ITEM_BUSSINESS_CARD_TAG == tag){
         [self performSegueWithIdentifier:@"segue_show_user_list" sender:nil];
     }
-    else if(PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG == tag &&
-            [[RCCall sharedRCCall] isAudioCallEnabled:self.conversationType] &&
-            [[RCCall sharedRCCall] isVideoCallEnabled:self.conversationType] ){
-        [[RCCall sharedRCCall] startSingleCall:self.targetId mediaType:RCCallMediaVideo];
+    else if(PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG == tag){
+      //[[RCCall sharedRCCall] startSingleCall:self.targetId mediaType:RCCallMediaVideo];
+      
     }
+//    else if(PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG == tag &&
+//            [[RCCall sharedRCCall] isAudioCallEnabled:self.conversationType] &&
+//            [[RCCall sharedRCCall] isVideoCallEnabled:self.conversationType] ){
+//        [[RCCall sharedRCCall] startSingleCall:self.targetId mediaType:RCCallMediaVideo];
+//    }
     else if(PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG == tag &&
             [[RCCall sharedRCCall] isAudioCallEnabled:self.conversationType]){
         [[RCCall sharedRCCall] startSingleCall:self.targetId mediaType:RCCallMediaAudio];
@@ -291,5 +305,6 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
 {
     [self performSegueWithIdentifier:@"segue_show_conversation_setting" sender:sender];
 }
+
 
 @end

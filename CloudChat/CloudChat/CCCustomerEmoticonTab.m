@@ -64,40 +64,7 @@
     
     UILongPressGestureRecognizer* longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressView:)];
     [view addGestureRecognizer:longPressGesture];
-    
-//    switch (index) {
-//            
-//        case 1:
-//            
-//            view.backgroundColor = [UIColor yellowColor];
-//            
-//            break;
-//            
-//        case 2:
-//            
-//            view.backgroundColor = [UIColor redColor];
-//            
-//            break;
-//            
-//        case 3:
-//            
-//            view.backgroundColor = [UIColor greenColor];
-//
-//            break;
-//
-//        case 4:
-//
-//            view.backgroundColor = [UIColor grayColor];
-//
-//            break;
-//
-//
-//
-//        default:
-//
-//            break;
-//
-//    }
+  
     [self configureView:view index:index];
     
     return view;

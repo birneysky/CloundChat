@@ -7,6 +7,7 @@
 //
 
 #import "CCConversationSettingTableViewController.h"
+#import "CCActiveWheel.h"
 
 @interface CCConversationSettingTableViewController () <UIActionSheetDelegate>
 
@@ -34,6 +35,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  if (ConversationType_DISCUSSION ==  self.conversationType) {
+    NSMutableArray* array = [[NSMutableArray alloc] initWithArray:self.dataSource];
+    [array addObject:@"退出讨论组"];
+    self.dataSource = [array copy];
+  }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,7 +66,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationSettingCell" forIndexPath:indexPath];
     
     NSString* settingTitle = self.dataSource[indexPath.row];
-    if ([settingTitle isEqualToString:@"清除消息记录"]) {
+    if ([settingTitle isEqualToString:@"清除消息记录"] ||
+        [settingTitle isEqualToString:@"退出讨论组"]) {
         cell.accessoryView = nil;
         
     }
@@ -97,6 +104,21 @@
                                              destructiveButtonTitle:nil
                                                   otherButtonTitles:@"确定", nil ];
         [sheet showInView:self.view];
+    }
+    else if([settingTitle isEqualToString:@"退出讨论组"]){
+      [CCActiveWheel showHUDAddedTo:self.view].processString = @"正在退出";
+      [[RCIMClient sharedRCIMClient] quitDiscussion:self.targetId success:^(RCDiscussion *discussion) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+          [CCActiveWheel dismissForView:self.view];
+          [self.navigationController popToRootViewControllerAnimated:YES];
+          ///[self.navigationController popViewControllerAnimated:YES];
+        });
+      } error:^(RCErrorCode status) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+          [CCActiveWheel dismissViewDelay:3 forView:self.view warningText:@"退出失败"];
+          
+        });
+      }];
     }
 }
 
