@@ -2,26 +2,26 @@
 //  RCSightViewController.m
 //  CloudChat
 //
-//  Created by birneysky on 2017/4/24.
-//  Copyright © 2017年 birney. All rights reserved.
+//  Created by zhaobingdong on 2017/4/24.
+//  Copyright © 2017年 RongCloud. All rights reserved.
 //
 
 #import "RCSightViewController.h"
-#import "RCSightView.h"
+#import "RCSightView1.h"
 
 @interface RCSightViewController ()
 
-@property (nonatomic,strong) RCSightView * sightView;
+@property (nonatomic,strong) RCSightView1 * sightView;
 
 @end
 
 @implementation RCSightViewController
 
 #pragma mark - Properties
-- (RCSightView*)sightView
+- (RCSightView1*)sightView
 {
     if (!_sightView) {
-        _sightView = [[RCSightView alloc] initWithFrame:CGRectZero];
+        _sightView = [[RCSightView1 alloc] initWithFrame:CGRectZero];
     }
     return _sightView;
 }

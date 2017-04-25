@@ -22,9 +22,10 @@
 		B22BF56C1E95EC6A00CD355A /* CCEmojiNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = B22BF56A1E95EC6A00CD355A /* CCEmojiNames.plist */; };
 		B282A4241EA75D45007E6238 /* WLDMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B282A4231EA75D45007E6238 /* WLDMessageCell.m */; };
 		B28FE17B1E9C98BD007677C4 /* CCContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28FE17A1E9C98BD007677C4 /* CCContactTableViewController.m */; };
-		B29B5D561EAE161600BC7DE1 /* RCSightCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D511EAE161600BC7DE1 /* RCSightCapturer.m */; };
-		B29B5D571EAE161600BC7DE1 /* RCSightRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D531EAE161600BC7DE1 /* RCSightRecorder.m */; };
-		B29B5D581EAE161600BC7DE1 /* RCSightView.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D551EAE161600BC7DE1 /* RCSightView.m */; };
+		B29B5D561EAE161600BC7DE1 /* RCSightCapturer1.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D511EAE161600BC7DE1 /* RCSightCapturer1.m */; };
+		B29B5D571EAE161600BC7DE1 /* RCSightRecorder1.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D531EAE161600BC7DE1 /* RCSightRecorder1.m */; };
+		B29B5D581EAE161600BC7DE1 /* RCSightView1.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D551EAE161600BC7DE1 /* RCSightView1.m */; };
+		B29B5D5B1EAEE21000BC7DE1 /* RCSightActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D5A1EAEE21000BC7DE1 /* RCSightActionButton.m */; };
 		B2BC84771E8F4AB8001A89BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84761E8F4AB8001A89BE /* main.m */; };
 		B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84791E8F4AB8001A89BE /* AppDelegate.m */; };
 		B2BC847D1E8F4AB8001A89BE /* CCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC847C1E8F4AB8001A89BE /* CCLoginViewController.m */; };
@@ -100,12 +101,14 @@
 		B282A4231EA75D45007E6238 /* WLDMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLDMessageCell.m; sourceTree = "<group>"; };
 		B28FE1791E9C98BD007677C4 /* CCContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCContactTableViewController.h; sourceTree = "<group>"; };
 		B28FE17A1E9C98BD007677C4 /* CCContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCContactTableViewController.m; sourceTree = "<group>"; };
-		B29B5D501EAE161600BC7DE1 /* RCSightCapturer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSightCapturer.h; path = ../../GeneralView/RCSightCapturer.h; sourceTree = "<group>"; };
-		B29B5D511EAE161600BC7DE1 /* RCSightCapturer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSightCapturer.m; path = ../../GeneralView/RCSightCapturer.m; sourceTree = "<group>"; };
-		B29B5D521EAE161600BC7DE1 /* RCSightRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSightRecorder.h; path = ../../GeneralView/RCSightRecorder.h; sourceTree = "<group>"; };
-		B29B5D531EAE161600BC7DE1 /* RCSightRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSightRecorder.m; path = ../../GeneralView/RCSightRecorder.m; sourceTree = "<group>"; };
-		B29B5D541EAE161600BC7DE1 /* RCSightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSightView.h; path = ../../GeneralView/RCSightView.h; sourceTree = "<group>"; };
-		B29B5D551EAE161600BC7DE1 /* RCSightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSightView.m; path = ../../GeneralView/RCSightView.m; sourceTree = "<group>"; };
+		B29B5D501EAE161600BC7DE1 /* RCSightCapturer1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSightCapturer1.h; path = ../../GeneralView/RCSightCapturer1.h; sourceTree = "<group>"; };
+		B29B5D511EAE161600BC7DE1 /* RCSightCapturer1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSightCapturer1.m; path = ../../GeneralView/RCSightCapturer1.m; sourceTree = "<group>"; };
+		B29B5D521EAE161600BC7DE1 /* RCSightRecorder1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSightRecorder1.h; path = ../../GeneralView/RCSightRecorder1.h; sourceTree = "<group>"; };
+		B29B5D531EAE161600BC7DE1 /* RCSightRecorder1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSightRecorder1.m; path = ../../GeneralView/RCSightRecorder1.m; sourceTree = "<group>"; };
+		B29B5D541EAE161600BC7DE1 /* RCSightView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSightView1.h; path = ../../GeneralView/RCSightView1.h; sourceTree = "<group>"; };
+		B29B5D551EAE161600BC7DE1 /* RCSightView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSightView1.m; path = ../../GeneralView/RCSightView1.m; sourceTree = "<group>"; };
+		B29B5D591EAEE21000BC7DE1 /* RCSightActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSightActionButton.h; sourceTree = "<group>"; };
+		B29B5D5A1EAEE21000BC7DE1 /* RCSightActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightActionButton.m; sourceTree = "<group>"; };
 		B2BC84721E8F4AB8001A89BE /* CloudChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2BC84761E8F4AB8001A89BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B2BC84781E8F4AB8001A89BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -209,12 +212,14 @@
 		749AFD9F1E952C6B0090A2CF /* GeneralView */ = {
 			isa = PBXGroup;
 			children = (
-				B29B5D501EAE161600BC7DE1 /* RCSightCapturer.h */,
-				B29B5D511EAE161600BC7DE1 /* RCSightCapturer.m */,
-				B29B5D521EAE161600BC7DE1 /* RCSightRecorder.h */,
-				B29B5D531EAE161600BC7DE1 /* RCSightRecorder.m */,
-				B29B5D541EAE161600BC7DE1 /* RCSightView.h */,
-				B29B5D551EAE161600BC7DE1 /* RCSightView.m */,
+				B29B5D501EAE161600BC7DE1 /* RCSightCapturer1.h */,
+				B29B5D511EAE161600BC7DE1 /* RCSightCapturer1.m */,
+				B29B5D521EAE161600BC7DE1 /* RCSightRecorder1.h */,
+				B29B5D531EAE161600BC7DE1 /* RCSightRecorder1.m */,
+				B29B5D591EAEE21000BC7DE1 /* RCSightActionButton.h */,
+				B29B5D5A1EAEE21000BC7DE1 /* RCSightActionButton.m */,
+				B29B5D541EAE161600BC7DE1 /* RCSightView1.h */,
+				B29B5D551EAE161600BC7DE1 /* RCSightView1.m */,
 				749AFDA01E952CC70090A2CF /* CCActiveWheel.h */,
 				749AFDA11E952CC70090A2CF /* CCActiveWheel.m */,
 				748D57501EA3622100B3FF91 /* CCTextField.h */,
@@ -575,16 +580,17 @@
 				B213F9911E9CD34900553981 /* CCChatRoomTableViewController.m in Sources */,
 				B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */,
 				B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */,
-				B29B5D571EAE161600BC7DE1 /* RCSightRecorder.m in Sources */,
+				B29B5D571EAE161600BC7DE1 /* RCSightRecorder1.m in Sources */,
+				B29B5D5B1EAEE21000BC7DE1 /* RCSightActionButton.m in Sources */,
 				B28FE17B1E9C98BD007677C4 /* CCContactTableViewController.m in Sources */,
 				B2C3BF8B1E9500FF0044C181 /* CCNetwokKit.m in Sources */,
 				748D574C1EA3606500B3FF91 /* CALayer+Additions.m in Sources */,
 				B2BC84BF1E8F4B88001A89BE /* CCUserTableViewController.m in Sources */,
 				749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */,
 				B2BC84771E8F4AB8001A89BE /* main.m in Sources */,
-				B29B5D561EAE161600BC7DE1 /* RCSightCapturer.m in Sources */,
+				B29B5D561EAE161600BC7DE1 /* RCSightCapturer1.m in Sources */,
 				B2FF55071E95EE8A00ECFB51 /* CCEmojiNameManager.m in Sources */,
-				B29B5D581EAE161600BC7DE1 /* RCSightView.m in Sources */,
+				B29B5D581EAE161600BC7DE1 /* RCSightView1.m in Sources */,
 				B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */,
 				B2FF550D1E96078500ECFB51 /* UIScrollView+Touch.m in Sources */,
 				B2BC84BE1E8F4B88001A89BE /* CCUserCell.m in Sources */,

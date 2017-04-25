@@ -12,7 +12,7 @@
 /**
  视频，音频，图像采集者
  */
-@interface RCSightCapturer : NSObject
+@interface RCSightCapturer1 : NSObject
 
 - (instancetype) initWithVideoPreviewPlayer:(AVCaptureVideoPreviewLayer*)layer;
 

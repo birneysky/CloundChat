@@ -6,10 +6,10 @@
 //  Copyright © 2017年 RongCloud. All rights reserved.
 //
 
-#import "RCSightCapturer.h"
+#import "RCSightCapturer1.h"
 
 
-@interface RCSightCapturer () <AVCaptureVideoDataOutputSampleBufferDelegate>
+@interface RCSightCapturer1 () <AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @property (nonatomic,strong) AVCaptureSession *captureSession;
 
@@ -26,7 +26,7 @@
 @end
 
 
-@implementation RCSightCapturer
+@implementation RCSightCapturer1
 
 - (instancetype) initWithVideoPreviewPlayer:(AVCaptureVideoPreviewLayer*)layer
 {

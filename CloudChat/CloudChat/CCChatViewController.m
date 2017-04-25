@@ -89,7 +89,7 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
     [self registerClass:[CCBusinessCardCell class] forMessageClass:[CCBusinessCardMessage class]];
     
     ///修改输入工具条 布局
-    //[self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
+      ///[self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
     
     
     if (ConversationType_GROUP == self.conversationType) {

@@ -12,6 +12,6 @@
 /**
  视频录制器，负责视频文件的生成。
  */
-@interface RCSightRecorder : NSObject
+@interface RCSightRecorder1 : NSObject
 
 @end
