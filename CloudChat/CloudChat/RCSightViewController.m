@@ -8,10 +8,13 @@
 
 #import "RCSightViewController.h"
 #import "RCSightView1.h"
+#import "RCSightCapturer1.h"
 
-@interface RCSightViewController ()
+@interface RCSightViewController () <RCSightViewDelegate>
 
 @property (nonatomic,strong) RCSightView1 * sightView;
+
+@property (nonatomic,strong) RCSightCapturer1 *capturer;
 
 @end
 
@@ -26,14 +29,36 @@
     return _sightView;
 }
 
+- (RCSightCapturer1*)capturer
+{
+    if (!_capturer) {
+        _capturer = [[RCSightCapturer1 alloc] initWithVideoPreviewPlayer:self.sightView.previewLayer];
+    }
+    return _capturer;
+}
+
 #pragma mark - Init
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
+    self.sightView.delegate = self;
+    
     [self.view addSubview:self.sightView];
     [self strechToSuperview:self.sightView];
+    [self.capturer startRunning];
 }
+
+//- (void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    [UIApplication sharedApplication].statusBarHidden = YES;
+//}
+//
+//- (void)viewWillDisappear:(BOOL)animated
+//{
+//    [super viewWillDisappear:animated];
+//    [UIApplication sharedApplication].statusBarHidden = NO;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -56,6 +81,9 @@
     }
 }
 
+- (BOOL)prefersStatusBarHidden{
+    return YES;
+}
 /*
 #pragma mark - Navigation
 
@@ -65,5 +93,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - RCSightViewDelegate
+- (void)cancelVideoPreview
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

@@ -149,7 +149,7 @@
       else if(!self.isTimeOut){
         [self actionTrigger:RCSightActionStateEnd];
       }
-///      self.isTimeOut = YES;
+
     }
       break;
       
@@ -165,6 +165,7 @@
 
 - (void)tapGesture
 {
+  [self actionTrigger:RCSightActionStateBegin];
   [self actionTrigger:RCSightActionStateClick];
 }
 
@@ -173,7 +174,7 @@
 - (void)drawRect:(CGRect)rect {
   const CGFloat width = self.bounds.size.width;
 
-  CGFloat mainWith = width / 2.0f;
+  CGFloat mainWith = width / 2;
   
   CGRect mainFrame = CGRectMake(mainWith/2.0f, mainWith/2.0f, mainWith, mainWith);
   

@@ -8,18 +8,17 @@
 
 #import "RCSightView1.h"
 #import <AVFoundation/AVFoundation.h>
-#import "RCSightCapturer1.h"
 #import "RCSightActionButton.h"
 
 #define ActionBtnSize 104
-#define BottomSpace 20
+#define BottomSpace 10
 #define OKBtnSize 60
 #define AnimateDuration 0.2
 
 
 @interface RCSightView1 ()
 
-@property (nonatomic,strong) RCSightCapturer1 *capturer;
+
 
 @property (nonatomic,strong) RCSightActionButton *actionButton;
 
@@ -27,7 +26,9 @@
 
 @property (nonatomic,strong) UIButton *okBtn;
 
-@property (nonatomic,strong) UIButton * dismissBtn;
+@property (nonatomic,strong) UIButton *dismissBtn;
+
+@property (nonatomic,strong) UIButton *switchCameraBtn;
 
 @end
 
@@ -41,11 +42,16 @@
     return self;
 }
 
+- (AVCaptureVideoPreviewLayer*)previewLayer{
+    return (AVCaptureVideoPreviewLayer*)self.layer;
+}
+
 #pragma mark - override
 + (Class)layerClass
 {
   return [AVCaptureVideoPreviewLayer class];
 }
+
 
 - (void)layoutSubviews
 {
@@ -53,12 +59,14 @@
   self.actionButton.center = CGPointMake(screenSize.width / 2, screenSize.height - ActionBtnSize - BottomSpace);
   self.cancelBtn.center = self.actionButton.center; //CGPointMake(screenSize.width / 2 / 2 - ActionBtnSize  / 2, screenSize.height - ActionBtnSize - BottomSpace);
   self.okBtn.center = self.actionButton.center;//CGPointMake(screenSize.width / 2 + 100, screenSize.height - ActionBtnSize - BottomSpace);
+  self.dismissBtn.center = CGPointMake(self.actionButton.center.x - 100, self.actionButton.center.y);
+  self.switchCameraBtn.center = CGPointMake(screenSize.width - OKBtnSize / 2, 20 + OKBtnSize / 2);
 }
 
 #pragma mark - Helper
 - (void)setUp{
   self.backgroundColor = [UIColor blackColor];
-  
+  [self addSubview:self.switchCameraBtn];
   [self addSubview:self.dismissBtn];
   [self addSubview:self.cancelBtn];
   [self addSubview:self.okBtn];
@@ -72,13 +80,7 @@
   
 }
 #pragma mark - Properties
-- (RCSightCapturer1*)capturer
-{
-  if (!_capturer) {
-    _capturer = [[RCSightCapturer1 alloc] initWithVideoPreviewPlayer:self.previewLayer];
-  }
-  return _capturer;
-}
+
 
 - (RCSightActionButton*)actionButton
 {
@@ -130,9 +132,20 @@
   return _dismissBtn;
 }
 
-- (AVCaptureVideoPreviewLayer*)previewLayer{
-  return (AVCaptureVideoPreviewLayer*)self.layer;
+
+- (UIButton*)switchCameraBtn
+{
+    if (!_switchCameraBtn) {
+        _switchCameraBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, OKBtnSize, OKBtnSize)];
+        [_switchCameraBtn setTitle:@"⌘" forState:UIControlStateNormal];
+        [_switchCameraBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
+        [_switchCameraBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _switchCameraBtn.backgroundColor = [UIColor clearColor];
+        [_switchCameraBtn addTarget:self action:@selector(switchCameraAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _switchCameraBtn;
 }
+
 
 
 
@@ -140,8 +153,10 @@
 #pragma mark - helper
 - (void)handleActionState:(RCSightActionState) states
 {
-  NSLog(@"handleAction %d",states);
   switch (states) {
+    case RCSightActionStateBegin:
+        self.dismissBtn.hidden = YES;
+        break;
     case RCSightActionStateClick:
     case RCSightActionStateEnd:
       self.actionButton.hidden = YES;
@@ -176,6 +191,7 @@
     self.okBtn.center = CGPointMake(screenSize.width / 2, screenSize.height - ActionBtnSize - BottomSpace);
   } completion:^(BOOL finished) {
     self.actionButton.hidden = NO;
+    self.dismissBtn.hidden = NO;
   }];
 }
 
@@ -186,7 +202,14 @@
 
 - (void)dismissAction:(UIButton*)sender
 {
-  
+    if([self.delegate respondsToSelector:@selector(cancelVideoPreview)]){
+        [self.delegate cancelVideoPreview];
+    }
 }
 
+
+- (void)switchCameraAction:(UIButton*)sender
+{
+    
+}
 @end

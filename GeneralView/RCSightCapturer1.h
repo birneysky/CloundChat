@@ -42,4 +42,12 @@
  */
 - (void)stopRecording;
 
+
+/**
+ 切换摄像头
+
+ @return 成功返回YES，失败返回NO
+ */
+- (BOOL)switchCamera;
+
 @end
