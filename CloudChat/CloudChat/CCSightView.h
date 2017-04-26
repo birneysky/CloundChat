@@ -17,9 +17,9 @@
 @end
 
 
-#define ActionBtnSize 104
+#define ActionBtnSize 120
 #define BottomSpace 10
-#define OKBtnSize 60
+#define OKBtnSize 78
 #define AnimateDuration 0.2
 
 @interface CCSightView : UIView

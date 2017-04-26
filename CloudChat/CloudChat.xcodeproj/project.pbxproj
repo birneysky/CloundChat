@@ -220,12 +220,12 @@
 				B2B79E441EB0B59800274FBA /* CCSightView.m */,
 				B29B5D591EAEE21000BC7DE1 /* CCSightActionButton.h */,
 				B29B5D5A1EAEE21000BC7DE1 /* CCSightActionButton.m */,
+				74CC06F61EAE26B800BEE919 /* CCSightViewController.h */,
+				B265B3381EB09A2D000F7DD4 /* CCSightViewController.m */,
 				749AFDA01E952CC70090A2CF /* CCActiveWheel.h */,
 				749AFDA11E952CC70090A2CF /* CCActiveWheel.m */,
 				748D57501EA3622100B3FF91 /* CCTextField.h */,
 				748D57511EA3622100B3FF91 /* CCTextField.m */,
-				74CC06F61EAE26B800BEE919 /* CCSightViewController.h */,
-				B265B3381EB09A2D000F7DD4 /* CCSightViewController.m */,
 			);
 			name = GeneralView;
 			sourceTree = "<group>";

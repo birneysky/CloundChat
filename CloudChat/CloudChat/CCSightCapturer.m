@@ -121,7 +121,7 @@
     [self.captureSession addOutput:self.imageOutput];
   }
   
-  self.captureSession.sessionPreset = AVCaptureSessionPreset640x480;
+  self.captureSession.sessionPreset = AVCaptureSessionPreset1280x720;
   
   CMTime frameDuration = CMTimeMake( 1, 15 );
   
@@ -191,7 +191,7 @@
   
   AVCaptureVideoOrientation orientation;
   
-  switch ([UIDevice currentDevice].orientation) {                         // 3
+  switch ([UIDevice currentDevice].orientation) {
     case UIDeviceOrientationPortrait:
       orientation = AVCaptureVideoOrientationPortrait;
       break;

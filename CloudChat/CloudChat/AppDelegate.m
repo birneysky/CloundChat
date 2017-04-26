@@ -46,6 +46,10 @@
                                           categories:nil];
   [application registerUserNotificationSettings:settings];
   
+    CGRect rect = CGRectMake(0, 0, 100, 100);
+    CGRect inset =  CGRectInset(rect, -0.5*50, -0.5*50);
+    NSLog(@"inset %@",NSStringFromCGRect(inset));
+    
   
     return YES;
 }

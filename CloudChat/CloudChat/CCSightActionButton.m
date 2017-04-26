@@ -174,14 +174,14 @@
 - (void)drawRect:(CGRect)rect {
   const CGFloat width = self.bounds.size.width;
   
-  CGFloat mainWith = width / 2;
+  CGFloat mainWith = width / 2 ;
   
   CGRect mainFrame = CGRectMake(mainWith/2.0f, mainWith/2.0f, mainWith, mainWith);
   
   CGRect ringFrame = CGRectInset(mainFrame, -0.3*mainWith/ 2.0f, -0.3*mainWith / 2.0f );
   self.ringFrame = ringFrame;
   if(self.isPress){
-    ringFrame = CGRectInset(mainFrame, -0.4 * mainWith / 2.0f, -0.4 * mainWith / 2.0f);
+    ringFrame = CGRectInset(mainFrame, -mainWith / 2.0f, -mainWith / 2.0f);
   }
   
   UIBezierPath* ringPath = [UIBezierPath bezierPathWithRoundedRect:ringFrame cornerRadius:ringFrame.size.width / 2];
