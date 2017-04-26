@@ -6,10 +6,10 @@
 //  Copyright © 2017年 RongCloud. All rights reserved.
 //
 
-#import "RCSightActionButton.h"
+#import "CCSightActionButton.h"
 
 
-@interface RCSightActionButton ()
+@interface CCSightActionButton ()
 
 @property (nonatomic,strong) CAShapeLayer *ringLayer;
 
@@ -34,7 +34,7 @@
 @end
 
 
-@implementation RCSightActionButton
+@implementation CCSightActionButton
 
 
 #pragma mark - Properties
@@ -43,7 +43,7 @@
   if(!_ringLayer){
     _ringLayer = [[CAShapeLayer alloc] init];
     _ringLayer.frame = self.bounds;
-    _ringLayer.fillColor = [UIColor grayColor].CGColor; ///[UIColor colorWithRed:255 / 255.0f green:255 / 255.0f blue:255 /255.0f alpha:0.8].CGColor;
+    _ringLayer.fillColor = [UIColor lightGrayColor].CGColor;//[UIColor colorWithRed:255 / 255.0f green:255 / 255.0f blue:255 /255.0f alpha:0.8].CGColor;
   }
   return _ringLayer;
 }
@@ -103,7 +103,7 @@
 - (void)linkRun{
   const CGFloat interval = 25.0f;
   self.tempInterval += 1/interval;
-  self.progress = self.tempInterval /interval;  
+  self.progress = self.tempInterval /interval;
   if (self.tempInterval >= interval) {
     
     [self stop];
@@ -112,7 +112,7 @@
   }
   
   [self setNeedsDisplay];
-
+  
 }
 
 #pragma mark - Gesture Selector
@@ -149,7 +149,7 @@
       else if(!self.isTimeOut){
         [self actionTrigger:RCSightActionStateEnd];
       }
-
+      
     }
       break;
       
@@ -173,7 +173,7 @@
 
 - (void)drawRect:(CGRect)rect {
   const CGFloat width = self.bounds.size.width;
-
+  
   CGFloat mainWith = width / 2;
   
   CGRect mainFrame = CGRectMake(mainWith/2.0f, mainWith/2.0f, mainWith, mainWith);

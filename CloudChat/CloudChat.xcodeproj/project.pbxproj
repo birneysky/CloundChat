@@ -12,7 +12,6 @@
 		748D57521EA3622100B3FF91 /* CCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 748D57511EA3622100B3FF91 /* CCTextField.m */; };
 		749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */; };
 		749AFDA21E952CC70090A2CF /* CCActiveWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFDA11E952CC70090A2CF /* CCActiveWheel.m */; };
-		74CC06F81EAE26B800BEE919 /* RCSightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74CC06F71EAE26B800BEE919 /* RCSightViewController.m */; };
 		B20484621E9766EF0062C6B7 /* CCConversationSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20484611E9766EF0062C6B7 /* CCConversationSettingTableViewController.m */; };
 		B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */; };
 		B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */; };
@@ -20,12 +19,13 @@
 		B22BF5671E95C9F000CD355A /* CCUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22BF5661E95C9F000CD355A /* CCUserInfoViewController.m */; };
 		B22BF56B1E95EC6A00CD355A /* CCEmoji.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B22BF5691E95EC6A00CD355A /* CCEmoji.bundle */; };
 		B22BF56C1E95EC6A00CD355A /* CCEmojiNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = B22BF56A1E95EC6A00CD355A /* CCEmojiNames.plist */; };
+		B265B3391EB09A2D000F7DD4 /* CCSightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B265B3381EB09A2D000F7DD4 /* CCSightViewController.m */; };
 		B282A4241EA75D45007E6238 /* WLDMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B282A4231EA75D45007E6238 /* WLDMessageCell.m */; };
 		B28FE17B1E9C98BD007677C4 /* CCContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28FE17A1E9C98BD007677C4 /* CCContactTableViewController.m */; };
-		B29B5D561EAE161600BC7DE1 /* RCSightCapturer1.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D511EAE161600BC7DE1 /* RCSightCapturer1.m */; };
-		B29B5D571EAE161600BC7DE1 /* RCSightRecorder1.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D531EAE161600BC7DE1 /* RCSightRecorder1.m */; };
-		B29B5D581EAE161600BC7DE1 /* RCSightView1.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D551EAE161600BC7DE1 /* RCSightView1.m */; };
-		B29B5D5B1EAEE21000BC7DE1 /* RCSightActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D5A1EAEE21000BC7DE1 /* RCSightActionButton.m */; };
+		B29B5D5B1EAEE21000BC7DE1 /* CCSightActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B5D5A1EAEE21000BC7DE1 /* CCSightActionButton.m */; };
+		B2B79E451EB0B59800274FBA /* CCSightCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B79E401EB0B59800274FBA /* CCSightCapturer.m */; };
+		B2B79E461EB0B59800274FBA /* CCSightRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B79E421EB0B59800274FBA /* CCSightRecorder.m */; };
+		B2B79E471EB0B59800274FBA /* CCSightView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B79E441EB0B59800274FBA /* CCSightView.m */; };
 		B2BC84771E8F4AB8001A89BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84761E8F4AB8001A89BE /* main.m */; };
 		B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC84791E8F4AB8001A89BE /* AppDelegate.m */; };
 		B2BC847D1E8F4AB8001A89BE /* CCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BC847C1E8F4AB8001A89BE /* CCLoginViewController.m */; };
@@ -83,8 +83,7 @@
 		749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAccountSettingTableViewController.m; sourceTree = "<group>"; };
 		749AFDA01E952CC70090A2CF /* CCActiveWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCActiveWheel.h; path = ../../GeneralView/CCActiveWheel.h; sourceTree = "<group>"; };
 		749AFDA11E952CC70090A2CF /* CCActiveWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCActiveWheel.m; path = ../../GeneralView/CCActiveWheel.m; sourceTree = "<group>"; };
-		74CC06F61EAE26B800BEE919 /* RCSightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSightViewController.h; sourceTree = "<group>"; };
-		74CC06F71EAE26B800BEE919 /* RCSightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightViewController.m; sourceTree = "<group>"; };
+		74CC06F61EAE26B800BEE919 /* CCSightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSightViewController.h; sourceTree = "<group>"; };
 		B20484601E9766EF0062C6B7 /* CCConversationSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCConversationSettingTableViewController.h; sourceTree = "<group>"; };
 		B20484611E9766EF0062C6B7 /* CCConversationSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCConversationSettingTableViewController.m; sourceTree = "<group>"; };
 		B21310D41E8F730800C86822 /* CCBusinessCardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBusinessCardMessage.h; path = ../../Models/CCBusinessCardMessage.h; sourceTree = "<group>"; };
@@ -97,18 +96,19 @@
 		B22BF5661E95C9F000CD355A /* CCUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUserInfoViewController.m; sourceTree = "<group>"; };
 		B22BF5691E95EC6A00CD355A /* CCEmoji.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CCEmoji.bundle; sourceTree = "<group>"; };
 		B22BF56A1E95EC6A00CD355A /* CCEmojiNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCEmojiNames.plist; sourceTree = "<group>"; };
+		B265B3381EB09A2D000F7DD4 /* CCSightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSightViewController.m; sourceTree = "<group>"; };
 		B282A4221EA75D45007E6238 /* WLDMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLDMessageCell.h; sourceTree = "<group>"; };
 		B282A4231EA75D45007E6238 /* WLDMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLDMessageCell.m; sourceTree = "<group>"; };
 		B28FE1791E9C98BD007677C4 /* CCContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCContactTableViewController.h; sourceTree = "<group>"; };
 		B28FE17A1E9C98BD007677C4 /* CCContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCContactTableViewController.m; sourceTree = "<group>"; };
-		B29B5D501EAE161600BC7DE1 /* RCSightCapturer1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSightCapturer1.h; path = ../../GeneralView/RCSightCapturer1.h; sourceTree = "<group>"; };
-		B29B5D511EAE161600BC7DE1 /* RCSightCapturer1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSightCapturer1.m; path = ../../GeneralView/RCSightCapturer1.m; sourceTree = "<group>"; };
-		B29B5D521EAE161600BC7DE1 /* RCSightRecorder1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSightRecorder1.h; path = ../../GeneralView/RCSightRecorder1.h; sourceTree = "<group>"; };
-		B29B5D531EAE161600BC7DE1 /* RCSightRecorder1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSightRecorder1.m; path = ../../GeneralView/RCSightRecorder1.m; sourceTree = "<group>"; };
-		B29B5D541EAE161600BC7DE1 /* RCSightView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSightView1.h; path = ../../GeneralView/RCSightView1.h; sourceTree = "<group>"; };
-		B29B5D551EAE161600BC7DE1 /* RCSightView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSightView1.m; path = ../../GeneralView/RCSightView1.m; sourceTree = "<group>"; };
-		B29B5D591EAEE21000BC7DE1 /* RCSightActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSightActionButton.h; sourceTree = "<group>"; };
-		B29B5D5A1EAEE21000BC7DE1 /* RCSightActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightActionButton.m; sourceTree = "<group>"; };
+		B29B5D591EAEE21000BC7DE1 /* CCSightActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSightActionButton.h; sourceTree = "<group>"; };
+		B29B5D5A1EAEE21000BC7DE1 /* CCSightActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSightActionButton.m; sourceTree = "<group>"; };
+		B2B79E3F1EB0B59800274FBA /* CCSightCapturer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSightCapturer.h; sourceTree = "<group>"; };
+		B2B79E401EB0B59800274FBA /* CCSightCapturer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSightCapturer.m; sourceTree = "<group>"; };
+		B2B79E411EB0B59800274FBA /* CCSightRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSightRecorder.h; sourceTree = "<group>"; };
+		B2B79E421EB0B59800274FBA /* CCSightRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSightRecorder.m; sourceTree = "<group>"; };
+		B2B79E431EB0B59800274FBA /* CCSightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSightView.h; sourceTree = "<group>"; };
+		B2B79E441EB0B59800274FBA /* CCSightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSightView.m; sourceTree = "<group>"; };
 		B2BC84721E8F4AB8001A89BE /* CloudChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2BC84761E8F4AB8001A89BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B2BC84781E8F4AB8001A89BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -212,20 +212,20 @@
 		749AFD9F1E952C6B0090A2CF /* GeneralView */ = {
 			isa = PBXGroup;
 			children = (
-				B29B5D501EAE161600BC7DE1 /* RCSightCapturer1.h */,
-				B29B5D511EAE161600BC7DE1 /* RCSightCapturer1.m */,
-				B29B5D521EAE161600BC7DE1 /* RCSightRecorder1.h */,
-				B29B5D531EAE161600BC7DE1 /* RCSightRecorder1.m */,
-				B29B5D591EAEE21000BC7DE1 /* RCSightActionButton.h */,
-				B29B5D5A1EAEE21000BC7DE1 /* RCSightActionButton.m */,
-				B29B5D541EAE161600BC7DE1 /* RCSightView1.h */,
-				B29B5D551EAE161600BC7DE1 /* RCSightView1.m */,
+				B2B79E3F1EB0B59800274FBA /* CCSightCapturer.h */,
+				B2B79E401EB0B59800274FBA /* CCSightCapturer.m */,
+				B2B79E411EB0B59800274FBA /* CCSightRecorder.h */,
+				B2B79E421EB0B59800274FBA /* CCSightRecorder.m */,
+				B2B79E431EB0B59800274FBA /* CCSightView.h */,
+				B2B79E441EB0B59800274FBA /* CCSightView.m */,
+				B29B5D591EAEE21000BC7DE1 /* CCSightActionButton.h */,
+				B29B5D5A1EAEE21000BC7DE1 /* CCSightActionButton.m */,
 				749AFDA01E952CC70090A2CF /* CCActiveWheel.h */,
 				749AFDA11E952CC70090A2CF /* CCActiveWheel.m */,
 				748D57501EA3622100B3FF91 /* CCTextField.h */,
 				748D57511EA3622100B3FF91 /* CCTextField.m */,
-				74CC06F61EAE26B800BEE919 /* RCSightViewController.h */,
-				74CC06F71EAE26B800BEE919 /* RCSightViewController.m */,
+				74CC06F61EAE26B800BEE919 /* CCSightViewController.h */,
+				B265B3381EB09A2D000F7DD4 /* CCSightViewController.m */,
 			);
 			name = GeneralView;
 			sourceTree = "<group>";
@@ -565,13 +565,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2B79E471EB0B59800274FBA /* CCSightView.m in Sources */,
 				B2C3BF771E9484E20044C181 /* CCSettingSelfInfoCell.m in Sources */,
 				B282A4241EA75D45007E6238 /* WLDMessageCell.m in Sources */,
 				749AFDA21E952CC70090A2CF /* CCActiveWheel.m in Sources */,
 				B2FF55111E960BA200ECFB51 /* CCEmojiPreview.m in Sources */,
-				74CC06F81EAE26B800BEE919 /* RCSightViewController.m in Sources */,
 				B20484621E9766EF0062C6B7 /* CCConversationSettingTableViewController.m in Sources */,
 				B2BC84BA1E8F4B88001A89BE /* CCChatListViewController.m in Sources */,
+				B2B79E461EB0B59800274FBA /* CCSightRecorder.m in Sources */,
 				B2FF550A1E95F8F900ECFB51 /* CCEmojiButton.m in Sources */,
 				7483D2231E9D0D4A00E26FA2 /* CCTableViewCell.m in Sources */,
 				748D57521EA3622100B3FF91 /* CCTextField.m in Sources */,
@@ -580,17 +581,16 @@
 				B213F9911E9CD34900553981 /* CCChatRoomTableViewController.m in Sources */,
 				B2BC847A1E8F4AB8001A89BE /* AppDelegate.m in Sources */,
 				B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */,
-				B29B5D571EAE161600BC7DE1 /* RCSightRecorder1.m in Sources */,
-				B29B5D5B1EAEE21000BC7DE1 /* RCSightActionButton.m in Sources */,
+				B29B5D5B1EAEE21000BC7DE1 /* CCSightActionButton.m in Sources */,
 				B28FE17B1E9C98BD007677C4 /* CCContactTableViewController.m in Sources */,
 				B2C3BF8B1E9500FF0044C181 /* CCNetwokKit.m in Sources */,
 				748D574C1EA3606500B3FF91 /* CALayer+Additions.m in Sources */,
 				B2BC84BF1E8F4B88001A89BE /* CCUserTableViewController.m in Sources */,
 				749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */,
 				B2BC84771E8F4AB8001A89BE /* main.m in Sources */,
-				B29B5D561EAE161600BC7DE1 /* RCSightCapturer1.m in Sources */,
 				B2FF55071E95EE8A00ECFB51 /* CCEmojiNameManager.m in Sources */,
-				B29B5D581EAE161600BC7DE1 /* RCSightView1.m in Sources */,
+				B265B3391EB09A2D000F7DD4 /* CCSightViewController.m in Sources */,
+				B2B79E451EB0B59800274FBA /* CCSightCapturer.m in Sources */,
 				B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */,
 				B2FF550D1E96078500ECFB51 /* UIScrollView+Touch.m in Sources */,
 				B2BC84BE1E8F4B88001A89BE /* CCUserCell.m in Sources */,

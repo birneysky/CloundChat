@@ -6,10 +6,10 @@
 //  Copyright © 2017年 RongCloud. All rights reserved.
 //
 
-#import "RCSightCapturer1.h"
+#import "CCSightCapturer.h"
+#import <UIKit/UIKit.h>
 
-
-@interface RCSightCapturer1 () <AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate>
+@interface CCSightCapturer () <AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate>
 
 @property (nonatomic,strong) AVCaptureSession *captureSession;
 
@@ -28,7 +28,7 @@
 @end
 
 
-@implementation RCSightCapturer1
+@implementation CCSightCapturer
 
 - (instancetype) initWithVideoPreviewPlayer:(AVCaptureVideoPreviewLayer*)layer
 {
@@ -40,6 +40,9 @@
   return self;
 }
 
+- (void)dealloc{
+  
+}
 
 #pragma mark - Properties
 - (AVCaptureSession*)captureSession
@@ -61,24 +64,24 @@
 
 - (dispatch_queue_t)sessionQueue
 {
-    if (!_sessionQueue) {
-        _sessionQueue = dispatch_queue_create( "com.rongcloud.sightcapturer.session", DISPATCH_QUEUE_SERIAL );
-    }
-    return _sessionQueue;
+  if (!_sessionQueue) {
+    _sessionQueue = dispatch_queue_create( "com.rongcloud.sightcapturer.session", DISPATCH_QUEUE_SERIAL );
+  }
+  return _sessionQueue;
 }
 
 - (AVCaptureStillImageOutput*)imageOutput
 {
-    if (!_imageOutput) {
-        _imageOutput = [[AVCaptureStillImageOutput alloc] init];
-        _imageOutput.outputSettings = @{AVVideoCodecKey:AVVideoCodecJPEG};
-    }
-    return _imageOutput;
+  if (!_imageOutput) {
+    _imageOutput = [[AVCaptureStillImageOutput alloc] init];
+    _imageOutput.outputSettings = @{AVVideoCodecKey:AVVideoCodecJPEG};
+  }
+  return _imageOutput;
 }
 
 #pragma mark - Helper
 - (void)setupCaptureSession{
-
+  
   
   /*audio*/
   AVCaptureDeviceInput *audioDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:self.audioDevice error:nil];
@@ -100,7 +103,7 @@
   AVCaptureDeviceInput *videoDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:videoDevice error:nil];
   if ([self.captureSession canAddInput:videoDeviceInput]) {
     [self.captureSession addInput:videoDeviceInput];
-      self.activeVideoInput = videoDeviceInput;
+    self.activeVideoInput = videoDeviceInput;
   }
   
   AVCaptureVideoDataOutput *videoDeviceOutput = [[AVCaptureVideoDataOutput alloc] init];
@@ -114,10 +117,10 @@
     [self.captureSession addOutput:videoDeviceOutput];
   }
   
-    if([self.captureSession canAddOutput:self.imageOutput]){
-        [self.captureSession addOutput:self.imageOutput];
-    }
-    
+  if([self.captureSession canAddOutput:self.imageOutput]){
+    [self.captureSession addOutput:self.imageOutput];
+  }
+  
   self.captureSession.sessionPreset = AVCaptureSessionPreset640x480;
   
   CMTime frameDuration = CMTimeMake( 1, 15 );
@@ -128,14 +131,14 @@
     videoDevice.activeVideoMinFrameDuration = frameDuration;
     [videoDevice unlockForConfiguration];
   }
-
+  
 }
 
 - (void)teardownCaptureSession
 {
   if (self.captureSession )
   {
-   /// [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:self.captureSession];
+    /// [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:self.captureSession];
     
     
     
@@ -148,88 +151,83 @@
 
 - (BOOL)canSwitchCameras
 {
-    return self.cameraCount > 1;
+  return self.cameraCount > 1;
 }
 
 - (NSUInteger)cameraCount
 {
-    return [[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo] count];
+  return [[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo] count];
 }
 
 - (AVCaptureDevice*)cameraWithPosition:(AVCaptureDevicePosition)position{
-    NSArray* devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-    for (AVCaptureDevice* device in devices) {
-        if (device.position == position) {
-            return device;
-        }
+  NSArray* devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+  for (AVCaptureDevice* device in devices) {
+    if (device.position == position) {
+      return device;
     }
-    return nil;
+  }
+  return nil;
 }
 
 - (AVCaptureDevice*)activeCamera{
-    return self.activeVideoInput.device;
+  return self.activeVideoInput.device;
 }
 
 - (AVCaptureDevice*)inactiveCamera{
-    AVCaptureDevice* device = nil;
-    if (self.cameraCount > 1) {
-        if (AVCaptureDevicePositionBack == [self activeCamera].position) {
-            device = [self cameraWithPosition:AVCaptureDevicePositionFront];
-        }
-        else{
-            device = [self cameraWithPosition:AVCaptureDevicePositionBack];
-        }
-    }
-    return device;
-}
-
-- (BOOL)switchCamera{
-    if (![self canSwitchCameras]) {
-        return NO;
-    }
-    
-    NSError* error;
-    AVCaptureDevice* videoDevice = [self inactiveCamera];
-    
-    AVCaptureDeviceInput* videoInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
-    
-    if (videoInput) {
-        [self.captureSession beginConfiguration];
-        [self.captureSession removeInput:self.activeVideoInput];
-        if ([self.captureSession canAddInput:videoInput]) {
-            [self.captureSession addInput:videoInput];
-            self.activeVideoInput = videoInput;
-        }
-        else{
-            [self.captureSession addInput:self.activeVideoInput];
-        }
-        [self.captureSession commitConfiguration];
+  AVCaptureDevice* device = nil;
+  if (self.cameraCount > 1) {
+    if (AVCaptureDevicePositionBack == [self activeCamera].position) {
+      device = [self cameraWithPosition:AVCaptureDevicePositionFront];
     }
     else{
-        ////errror
-        return NO;
+      device = [self cameraWithPosition:AVCaptureDevicePositionBack];
     }
-    return YES;
+  }
+  return device;
 }
+
+
+- (AVCaptureVideoOrientation)currentVideoOrientation {
+  
+  AVCaptureVideoOrientation orientation;
+  
+  switch ([UIDevice currentDevice].orientation) {                         // 3
+    case UIDeviceOrientationPortrait:
+      orientation = AVCaptureVideoOrientationPortrait;
+      break;
+    case UIDeviceOrientationLandscapeRight:
+      orientation = AVCaptureVideoOrientationLandscapeLeft;
+      break;
+    case UIDeviceOrientationPortraitUpsideDown:
+      orientation = AVCaptureVideoOrientationPortraitUpsideDown;
+      break;
+    default:
+      orientation = AVCaptureVideoOrientationLandscapeRight;
+      break;
+  }
+  
+  return orientation;
+}
+
 
 #pragma mark - Api
 - (void)startRunning
 {
-    if (![self.captureSession isRunning]) {
-        dispatch_async(self.sessionQueue, ^{
-            [self.captureSession startRunning];
-        });
-    }
+  if (![self.captureSession isRunning]) {
+    dispatch_async(self.sessionQueue, ^{
+      [self.captureSession startRunning];
+    });
+  }
 }
 
 
 - (void)stopRunning
 {
-    if ([self.captureSession isRunning]) {
-        dispatch_async(self.sessionQueue, ^{
-            [self.captureSession stopRunning];
-        });
-    }
+  if ([self.captureSession isRunning]) {
+    dispatch_async(self.sessionQueue, ^{
+      [self.captureSession stopRunning];
+    });
+  }
 }
 
 
@@ -243,6 +241,67 @@
 - (void)stopRecording
 {
   
+}
+
+- (BOOL)switchCamera{
+  if (![self canSwitchCameras]) {
+    return NO;
+  }
+  
+  NSError* error;
+  AVCaptureDevice* videoDevice = [self inactiveCamera];
+  
+  AVCaptureDeviceInput* videoInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
+  
+  if (videoInput) {
+    [self.captureSession beginConfiguration];
+    [self.captureSession removeInput:self.activeVideoInput];
+    if ([self.captureSession canAddInput:videoInput]) {
+      [self.captureSession addInput:videoInput];
+      self.activeVideoInput = videoInput;
+    }
+    else{
+      [self.captureSession addInput:self.activeVideoInput];
+    }
+    [self.captureSession commitConfiguration];
+  }
+  else{
+    ////errror
+    return NO;
+  }
+  return YES;
+}
+
+- (void)captureStillImage
+{
+  AVCaptureConnection *connection =
+  [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
+  
+  if (connection.isVideoOrientationSupported) {
+    connection.videoOrientation = [self currentVideoOrientation];
+  }
+  
+  id handler = ^(CMSampleBufferRef sampleBuffer, NSError *error) {
+    if (sampleBuffer != NULL) {
+      
+      NSData *imageData =
+      [AVCaptureStillImageOutput
+       jpegStillImageNSDataRepresentation:sampleBuffer];
+      
+      UIImage *image = [[UIImage alloc] initWithData:imageData];
+      
+      if (self.captureStillImageCompletionHandler) {
+        self.captureStillImageCompletionHandler(image);
+      }
+      ///[self writeImageToAssetsLibrary:image];                         // 1
+      
+    } else {
+      NSLog(@"NULL sampleBuffer: %@", [error localizedDescription]);
+    }
+  };
+  // Capture still image
+  [self.imageOutput captureStillImageAsynchronouslyFromConnection:connection
+                                                completionHandler:handler];
 }
 
 #pragma mark - AVCaptureAudioDataOutputSampleBufferDelegate

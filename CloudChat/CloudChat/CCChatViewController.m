@@ -16,7 +16,7 @@
 #import "CCConversationSettingTableViewController.h"
 #import <RongCallKit/RongCallKit.h>
 #import "WLDMessageCell.h"
-#import "RCSightViewController.h"
+#import "CCSightViewController.h"
 
 ///#define PLUGIN_BOARD_ITEM_FILE_TAG 20001
 
@@ -261,7 +261,7 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
     }
     else if(PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG == tag){
       //[[RCCall sharedRCCall] startSingleCall:self.targetId mediaType:RCCallMediaVideo];
-        RCSightViewController* svc = [[RCSightViewController alloc] init];
+        CCSightViewController* svc = [[CCSightViewController alloc] init];
         [self presentViewController:svc animated:YES completion:nil];
     }
 //    else if(PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG == tag &&
@@ -269,8 +269,8 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
 //            [[RCCall sharedRCCall] isVideoCallEnabled:self.conversationType] ){
 //        [[RCCall sharedRCCall] startSingleCall:self.targetId mediaType:RCCallMediaVideo];
 //    }
-    else if(PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG == tag &&
-            [[RCCall sharedRCCall] isAudioCallEnabled:self.conversationType]){
+    else if(PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG == tag/* &&
+            [[RCCall sharedRCCall] isAudioCallEnabled:self.conversationType]*/){
         [[RCCall sharedRCCall] startSingleCall:self.targetId mediaType:RCCallMediaAudio];
     }
     else{

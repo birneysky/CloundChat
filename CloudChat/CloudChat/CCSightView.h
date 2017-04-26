@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@protocol RCSightViewDelegate <NSObject>
+@protocol CCSightViewDelegate <NSObject>
 
 - (void)cancelVideoPreview;
 
@@ -17,9 +17,14 @@
 @end
 
 
-@interface RCSightView1 : UIView
+#define ActionBtnSize 104
+#define BottomSpace 10
+#define OKBtnSize 60
+#define AnimateDuration 0.2
 
-@property (nonatomic,weak) id<RCSightViewDelegate> delegate;
+@interface CCSightView : UIView
+
+@property (nonatomic,weak) id<CCSightViewDelegate> delegate;
 
 
 @property (nonatomic,readonly) AVCaptureVideoPreviewLayer *previewLayer;

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RCSightViewController : UIViewController
+@interface CCSightViewController : UIViewController
 
 @end

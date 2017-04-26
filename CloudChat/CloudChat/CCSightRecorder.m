@@ -6,8 +6,8 @@
 //  Copyright © 2017年 RongCloud. All rights reserved.
 //
 
-#import "RCSightRecorder1.h"
+#import "CCSightRecorder.h"
 
-@implementation RCSightRecorder1
+@implementation CCSightRecorder
 
 @end

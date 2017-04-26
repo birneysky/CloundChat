@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger,RCSightActionState){
 
 
 
-@interface RCSightActionButton : UIView
+@interface CCSightActionButton : UIView
 
 @property (nonatomic,copy) void (^action)(RCSightActionState state);
 

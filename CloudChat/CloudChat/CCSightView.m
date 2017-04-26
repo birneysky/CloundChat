@@ -6,21 +6,19 @@
 //  Copyright © 2017年 RongCloud. All rights reserved.
 //
 
-#import "RCSightView1.h"
+#import "CCSightView.h"
 #import <AVFoundation/AVFoundation.h>
-#import "RCSightActionButton.h"
-
-#define ActionBtnSize 104
-#define BottomSpace 10
-#define OKBtnSize 60
-#define AnimateDuration 0.2
-
-
-@interface RCSightView1 ()
+#import "CCSightActionButton.h"
+///#import "RCExtensionCommon.h"
 
 
 
-@property (nonatomic,strong) RCSightActionButton *actionButton;
+
+@interface CCSightView ()
+
+
+
+@property (nonatomic,strong) CCSightActionButton *actionButton;
 
 @property (nonatomic,strong) UIButton *cancelBtn;
 
@@ -28,22 +26,20 @@
 
 @property (nonatomic,strong) UIButton *dismissBtn;
 
-@property (nonatomic,strong) UIButton *switchCameraBtn;
-
 @end
 
-@implementation RCSightView1
+@implementation CCSightView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    if (self = [super initWithFrame:frame]) {
-        [self setUp];
-    }
-    return self;
+  if (self = [super initWithFrame:frame]) {
+    [self setUp];
+  }
+  return self;
 }
 
 - (AVCaptureVideoPreviewLayer*)previewLayer{
-    return (AVCaptureVideoPreviewLayer*)self.layer;
+  return (AVCaptureVideoPreviewLayer*)self.layer;
 }
 
 #pragma mark - override
@@ -60,13 +56,13 @@
   self.cancelBtn.center = self.actionButton.center; //CGPointMake(screenSize.width / 2 / 2 - ActionBtnSize  / 2, screenSize.height - ActionBtnSize - BottomSpace);
   self.okBtn.center = self.actionButton.center;//CGPointMake(screenSize.width / 2 + 100, screenSize.height - ActionBtnSize - BottomSpace);
   self.dismissBtn.center = CGPointMake(self.actionButton.center.x - 100, self.actionButton.center.y);
-  self.switchCameraBtn.center = CGPointMake(screenSize.width - OKBtnSize / 2, 20 + OKBtnSize / 2);
+  
 }
 
 #pragma mark - Helper
 - (void)setUp{
   self.backgroundColor = [UIColor blackColor];
-  [self addSubview:self.switchCameraBtn];
+
   [self addSubview:self.dismissBtn];
   [self addSubview:self.cancelBtn];
   [self addSubview:self.okBtn];
@@ -82,10 +78,10 @@
 #pragma mark - Properties
 
 
-- (RCSightActionButton*)actionButton
+- (CCSightActionButton*)actionButton
 {
   if (!_actionButton) {
-    _actionButton = [[RCSightActionButton alloc] initWithFrame:CGRectMake(0, 0, ActionBtnSize, ActionBtnSize)];
+    _actionButton = [[CCSightActionButton alloc] initWithFrame:CGRectMake(0, 0, ActionBtnSize, ActionBtnSize)];
   }
   return _actionButton;
 }
@@ -95,6 +91,8 @@
   if (!_cancelBtn) {
     _cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, OKBtnSize, OKBtnSize)];
     [_cancelBtn setTitle:@"↩︎" forState:UIControlStateNormal];
+    //[_cancelBtn setImage:RCExtensionResourceImage(@"sight_preview_cancel") forState:UIControlStateNormal];
+
     [_cancelBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
     [_cancelBtn  setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _cancelBtn.layer.cornerRadius = OKBtnSize / 2;
@@ -109,11 +107,12 @@
   if (!_okBtn) {
     _okBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, OKBtnSize, OKBtnSize)];
     [_okBtn setTitle:@"✓" forState:UIControlStateNormal];
+    ///[_okBtn setImage:RCExtensionResourceImage(@"sight_preview_done") forState:UIControlStateNormal];
     [_okBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
     [_okBtn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     _okBtn.layer.cornerRadius = OKBtnSize / 2;
     _okBtn.backgroundColor =  [UIColor whiteColor];
-  [_okBtn addTarget:self action:@selector(okAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_okBtn addTarget:self action:@selector(okAction:) forControlEvents:UIControlEventTouchUpInside];
   }
   return _okBtn;
 }
@@ -124,6 +123,7 @@
   if (!_dismissBtn) {
     _dismissBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, OKBtnSize, OKBtnSize)];
     [_dismissBtn setTitle:@"⌵" forState:UIControlStateNormal];
+    ///[_dismissBtn setImage:RCExtensionResourceImage(@"icon_sight_close") forState:UIControlStateNormal];
     [_dismissBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
     [_dismissBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _dismissBtn.backgroundColor = [UIColor clearColor];
@@ -133,18 +133,6 @@
 }
 
 
-- (UIButton*)switchCameraBtn
-{
-    if (!_switchCameraBtn) {
-        _switchCameraBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, OKBtnSize, OKBtnSize)];
-        [_switchCameraBtn setTitle:@"⌘" forState:UIControlStateNormal];
-        [_switchCameraBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
-        [_switchCameraBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _switchCameraBtn.backgroundColor = [UIColor clearColor];
-        [_switchCameraBtn addTarget:self action:@selector(switchCameraAction:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _switchCameraBtn;
-}
 
 
 
@@ -155,8 +143,8 @@
 {
   switch (states) {
     case RCSightActionStateBegin:
-        self.dismissBtn.hidden = YES;
-        break;
+      self.dismissBtn.hidden = YES;
+      break;
     case RCSightActionStateClick:
     case RCSightActionStateEnd:
       self.actionButton.hidden = YES;
@@ -186,7 +174,7 @@
 - (void)cancelAction:(UIButton*)sender
 {
   [UIView animateWithDuration:AnimateDuration animations:^{
-     CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
     self.cancelBtn.center = CGPointMake(screenSize.width / 2, screenSize.height - ActionBtnSize - BottomSpace);
     self.okBtn.center = CGPointMake(screenSize.width / 2, screenSize.height - ActionBtnSize - BottomSpace);
   } completion:^(BOOL finished) {
@@ -202,14 +190,11 @@
 
 - (void)dismissAction:(UIButton*)sender
 {
-    if([self.delegate respondsToSelector:@selector(cancelVideoPreview)]){
-        [self.delegate cancelVideoPreview];
-    }
+  if([self.delegate respondsToSelector:@selector(cancelVideoPreview)]){
+    [self.delegate cancelVideoPreview];
+  }
 }
 
 
-- (void)switchCameraAction:(UIButton*)sender
-{
-    
-}
+
 @end
