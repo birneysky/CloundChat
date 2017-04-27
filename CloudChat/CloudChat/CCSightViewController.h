@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CCSightViewControllerDelegate <NSObject>
+
+- (void)sightViewController:(UIViewController*)sightVC didFinishCapturingStillImage:(UIImage*)image;
+
+@end
+
 @interface CCSightViewController : UIViewController
+
+@property (nonatomic,weak) id<CCSightViewControllerDelegate> delegate;
 
 @end
