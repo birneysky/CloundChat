@@ -79,24 +79,38 @@ typedef NS_ENUM( NSInteger, SightRecorderStatus ) {
   if (!_assetWriter) {
     NSError* error = nil;
     _assetWriter = [[AVAssetWriter alloc] initWithURL:self.url fileType:AVFileTypeMPEG4 error:&error];
-    NSAssert(error != nil, @"%@",error);
   }
   return _assetWriter;
+}
+
+- (dispatch_queue_t)delegateCallbackQueue{
+    if (!_delegateCallbackQueue) {
+        _delegateCallbackQueue = dispatch_queue_create("com.rongcloud.sightrecorder.callback",DISPATCH_QUEUE_SERIAL);
+    }
+    return _delegateCallbackQueue;
+}
+
+- (dispatch_queue_t)writingQueue
+{
+    if (!_writingQueue) {
+        _writingQueue  = dispatch_queue_create( "com.rongcloud.sightrecorder.writing", DISPATCH_QUEUE_SERIAL );
+    }
+    return _writingQueue;
 }
 
 #pragma mark - Api
 
 - (void)prepareToRecord
 {
-  @synchronized( self )
-  {
+//  @synchronized( self )
+//  {
     if ( self.status != SightRecorderStatusIdle ) {
       @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Already prepared, cannot prepare again" userInfo:nil];
       return;
     }
     
     [self transitionToStatus:SightRecorderStatusPreparingToRecord error:nil];
-  }
+//  }
   
   dispatch_async( dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0 ), ^{
     
@@ -124,15 +138,15 @@ typedef NS_ENUM( NSInteger, SightRecorderStatus ) {
         }
       }
       
-      @synchronized( self )
-      {
+//      @synchronized( self )
+//      {
         if ( error ) {
           [self transitionToStatus:SightRecorderStatusFailed error:error];
         }
         else {
           [self transitionToStatus:SightRecorderStatusRecording error:nil];
         }
-      }
+//      }
     }
   } );
 }
@@ -144,8 +158,8 @@ typedef NS_ENUM( NSInteger, SightRecorderStatus ) {
     return;
   }
   
-  @synchronized( self )
-  {
+//  @synchronized( self )
+//  {
     if ( self.status != SightRecorderStatusIdle ) {
       @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Cannot add tracks while not idle" userInfo:nil];
       return;
@@ -158,7 +172,7 @@ typedef NS_ENUM( NSInteger, SightRecorderStatus ) {
     
     _audioTrackSourceFormatDescription = (CMFormatDescriptionRef)CFRetain( formatDescription );
     _audioTrackSettings = [audioSettings copy];
-  }
+//  }
 }
 
 - (void)addVideoTrackWithSourceFormatDescription:(CMFormatDescriptionRef)formatDescription transform:(CGAffineTransform)transform settings:(NSDictionary *)videoSettings
@@ -168,8 +182,8 @@ typedef NS_ENUM( NSInteger, SightRecorderStatus ) {
     return;
   }
   
-  @synchronized( self )
-  {
+//  @synchronized( self )
+//  {
     if ( self.status != SightRecorderStatusIdle ) {
       @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Cannot add tracks while not idle" userInfo:nil];
       return;
@@ -183,7 +197,7 @@ typedef NS_ENUM( NSInteger, SightRecorderStatus ) {
     _videoTrackSourceFormatDescription = (CMFormatDescriptionRef)CFRetain( formatDescription );
     _videoTrackTransform = transform;
     _videoTrackSettings = [videoSettings copy];
-  }
+//  }
 }
 
 
@@ -203,8 +217,8 @@ typedef NS_ENUM( NSInteger, SightRecorderStatus ) {
 
 - (void)finishRecording
 {
-  @synchronized( self )
-  {
+//  @synchronized( self )
+//  {
     BOOL shouldFinishRecording = NO;
     switch ( self.status )
     {
@@ -231,9 +245,9 @@ typedef NS_ENUM( NSInteger, SightRecorderStatus ) {
     else {
       return;
     }
-  }
+//  }
   
-  dispatch_async( _writingQueue, ^{
+  dispatch_async( self.writingQueue, ^{
     
     @autoreleasepool
     {
@@ -483,15 +497,15 @@ typedef NS_ENUM( NSInteger, SightRecorderStatus ) {
     return;
   }
   
-  @synchronized( self ) {
+//  @synchronized( self ) {
     if ( self.status < SightRecorderStatusRecording ) {
       @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Not ready to record yet" userInfo:nil];
       return;
     }
-  }
+//  }
   
   CFRetain( sampleBuffer );
-  dispatch_async( _writingQueue, ^{
+  dispatch_async( self.writingQueue, ^{
     
     @autoreleasepool
     {

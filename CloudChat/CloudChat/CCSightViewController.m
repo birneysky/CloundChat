@@ -10,7 +10,7 @@
 #import "CCSightView.h"
 #import "CCSightCapturer.h"
 #import "CCSightActionButton.h"
-#import "RCExtensionCommon.h"
+///#import "RCExtensionCommon.h"
 
 @interface CCSightViewController () <CCSightViewDelegate>
 
@@ -90,8 +90,8 @@
 {
     if (!_dismissBtn) {
         _dismissBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, OKBtnSize, OKBtnSize)];
-        //[_dismissBtn setTitle:@"⌵" forState:UIControlStateNormal];
-        [_dismissBtn setImage:RCExtensionResourceImage(@"icon_sight_close") forState:UIControlStateNormal];
+        [_dismissBtn setTitle:@"⌵" forState:UIControlStateNormal];
+        ///[_dismissBtn setImage:RCExtensionResourceImage(@"icon_sight_close") forState:UIControlStateNormal];
         ///[_dismissBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
         [_dismissBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _dismissBtn.backgroundColor = [UIColor clearColor];
@@ -103,8 +103,8 @@
 - (UIButton*)cancelBtn{
     if (!_cancelBtn) {
         _cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, OKBtnSize, OKBtnSize)];
-        //[_cancelBtn setTitle:@"↩︎" forState:UIControlStateNormal];
-        [_cancelBtn setImage:RCExtensionResourceImage(@"sight_preview_cancel") forState:UIControlStateNormal];
+        [_cancelBtn setTitle:@"↩︎" forState:UIControlStateNormal];
+        ///[_cancelBtn setImage:RCExtensionResourceImage(@"sight_preview_cancel") forState:UIControlStateNormal];
         
         //[_cancelBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
         [_cancelBtn  setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -119,8 +119,8 @@
 - (UIButton*)okBtn{
     if (!_okBtn) {
         _okBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, OKBtnSize, OKBtnSize)];
-        ///[_okBtn setTitle:@"✓" forState:UIControlStateNormal];
-        [_okBtn setImage:RCExtensionResourceImage(@"sight_preview_done") forState:UIControlStateNormal];
+        [_okBtn setTitle:@"✓" forState:UIControlStateNormal];
+        ///[_okBtn setImage:RCExtensionResourceImage(@"sight_preview_done") forState:UIControlStateNormal];
         ///[_okBtn.titleLabel setFont:[UIFont systemFontOfSize:30]];
         [_okBtn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
         _okBtn.layer.cornerRadius = OKBtnSize / 2;
@@ -226,31 +226,50 @@
     switch (states) {
         case RCSightActionStateBegin:
             self.dismissBtn.hidden = YES;
+            [self startRecording];
             break;
         case RCSightActionStateClick:
+            self.dismissBtn.hidden = YES;
             [self.capturer captureStillImage];
+            [self showOkCancelBtnWithAnimation];
+            break;
+        case RCSightActionStateDidCancel:
         case RCSightActionStateEnd:
             self.actionButton.hidden = YES;
-            [self stopCapture];
+            [self stopRecording];
+            [self showOkCancelBtnWithAnimation];
             break;
-      case RCSightActionStateDidCancel:
+      
         break;
       case RCSightActionStateWillCancel:
         break;
       case RCSightActionStateMoving:
+        break;
         default:
-        self.isRecording = YES;
-        [self.capturer startRecording];
+        
+      
             break;
     }
 }
 
-- (void)stopCapture
+- (void)startRecording{
+    if (!self.isRecording) {
+        self.isRecording = YES;
+        [self.capturer startRecording];
+    }
+
+}
+
+- (void)stopRecording{
+    if (self.isRecording) {
+        self.isRecording = NO;
+        [self.capturer stopRecording];
+    }
+}
+
+- (void)showOkCancelBtnWithAnimation
 {
-  if (self.isRecording) {
-    self.isRecording = NO;
-    [self.capturer stopRecording];
-  }
+
     [UIView animateWithDuration:AnimateDuration animations:^{
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         CGFloat offset = screenSize.width / 2 / 2;

@@ -348,13 +348,13 @@ static CGFloat angleOffsetFromPortraitOrientationToOrientation(AVCaptureVideoOri
 
 - (void)startRecording
 {
-  @synchronized( self )
-  {
+//  @synchronized( self )
+//  {
     if ( self.recordingStatus != SightCapturerRecordingStatusIdle ) {
       @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Already recording" userInfo:nil];
       return;
     }
-  }
+//  }
   
   [self.recorder addAudioTrackWithSourceFormatDescription:self.outputAudioFormatDescription settings:self.audioCompressionSettings];
   
@@ -368,16 +368,17 @@ static CGFloat angleOffsetFromPortraitOrientationToOrientation(AVCaptureVideoOri
 
 - (void)stopRecording
 {
-  @synchronized( self )
-  {
+//  @synchronized( self )
+//  {
     if ( self.recordingStatus != SightCapturerRecordingStatusRecording ) {
       return;
     }
     
     
-  }
+//  }
+    self.recordingStatus = SightCapturerRecordingStatusStoppingRecording;
   
-  [_recorder finishRecording]; 
+  [self.recorder finishRecording];
 }
 
 
@@ -453,6 +454,10 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
       CMFormatDescriptionRef formatDescription = CMSampleBufferGetFormatDescription( sampleBuffer );
       self.outputVideoFormatDescription =  formatDescription;
     }
+      
+      if (self.recordingStatus == SightCapturerRecordingStatusRecording) {
+          [self.recorder appendVideoSampleBuffer:sampleBuffer];
+      }
     
   }
   else if(connection == self.audioConnection){
@@ -460,7 +465,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
       CMFormatDescriptionRef formatDescription = CMSampleBufferGetFormatDescription( sampleBuffer );
       self.outputAudioFormatDescription = formatDescription;
     }
-    
+      if (self.recordingStatus == SightCapturerRecordingStatusRecording) {
+          [self.recorder appendAudioSampleBuffer:sampleBuffer];
+      }
   }
   else{
     
@@ -471,7 +478,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (void)sightRecorderDidFinishPreparing:(CCSightRecorder *)recorder;
 {
-  
+    self.recordingStatus = SightCapturerRecordingStatusRecording;
 }
 
 - (void)sightRecorder:(CCSightRecorder *)recorder didFailWithError:(NSError *)error;

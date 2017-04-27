@@ -165,7 +165,7 @@
 
 - (void)tapGesture
 {
-  [self actionTrigger:RCSightActionStateBegin];
+  ///[self actionTrigger:RCSightActionStateBegin];
   [self actionTrigger:RCSightActionStateClick];
 }
 
