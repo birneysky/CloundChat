@@ -286,7 +286,7 @@ typedef NS_ENUM( NSInteger, SightRecorderStatus ) {
 {
   BOOL shouldNotifyDelegate = NO;
   
-  NSLog( @"MovieRecorder state transition: %@->%@", [self stringForStatus:_status], [self stringForStatus:newStatus] );
+  NSLog( @"SightRecorder state transition: %@->%@", [self stringForStatus:_status], [self stringForStatus:newStatus] );
   
   if ( newStatus != self.status )
   {

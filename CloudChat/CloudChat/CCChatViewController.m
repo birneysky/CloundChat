@@ -89,8 +89,10 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
     [self registerClass:[CCBusinessCardCell class] forMessageClass:[CCBusinessCardMessage class]];
     
     ///修改输入工具条 布局
-      ///[self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
-    
+      [self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
+  [self.chatSessionInputBarControl.emojiButton removeTarget:self.chatSessionInputBarControl action:nil forControlEvents:UIControlEventTouchUpInside];
+  [self.chatSessionInputBarControl.emojiButton addTarget:self action:@selector(emojiButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    ///[self.chatSessionInputBarControl setInputBarType:RCChatSessionInputBarControlDefaultType style:RC_CHAT_INPUT_BAR_STYLE_CONTAINER];
     
     if (ConversationType_GROUP == self.conversationType) {
         self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"creategroup_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClicked:)];
@@ -110,6 +112,10 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
   [RCIM sharedRCIM].receiveMessageDelegate = self;
 }
 
+- (void)emojiButtonClicked:(UIButton*)sender
+{
+  
+}
 
 - (void)onRCIMReceiveMessage:(RCMessage *)message
                         left:(int)left

@@ -503,7 +503,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
   ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
   [library writeVideoAtPathToSavedPhotosAlbum:self.recordUrl completionBlock:^(NSURL *assetURL, NSError *error) {
     
-    [[NSFileManager defaultManager] removeItemAtURL:self.recordUrl error:NULL];
+    ////[[NSFileManager defaultManager] removeItemAtURL:self.recordUrl error:NULL];
     
     @synchronized( self )
     {
@@ -511,6 +511,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Expected to be in StoppingRecording state" userInfo:nil];
         return;
       }
+      self.recordingStatus = SightCapturerRecordingStatusIdle;
       //[self transitionToRecordingStatus:RosyWriterRecordingStatusIdle error:error];
     }
   }];
