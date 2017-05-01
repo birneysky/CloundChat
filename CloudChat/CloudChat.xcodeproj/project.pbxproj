@@ -16,7 +16,6 @@
 		74977C871EB45BAE00FD7898 /* CCSightPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74977C861EB45BAE00FD7898 /* CCSightPlayerController.m */; };
 		749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFD9D1E9527390090A2CF /* CCAccountSettingTableViewController.m */; };
 		749AFDA21E952CC70090A2CF /* CCActiveWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749AFDA11E952CC70090A2CF /* CCActiveWheel.m */; };
-		74E7B1F51EB7478C0028AF54 /* RCImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E7B1F41EB7478C0028AF54 /* RCImageMessageCell.m */; };
 		B20484621E9766EF0062C6B7 /* CCConversationSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20484611E9766EF0062C6B7 /* CCConversationSettingTableViewController.m */; };
 		B21310D81E8F730800C86822 /* CCBusinessCardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D51E8F730800C86822 /* CCBusinessCardMessage.m */; };
 		B21310D91E8F730800C86822 /* CCGroupAndUserDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B21310D71E8F730800C86822 /* CCGroupAndUserDataSet.m */; };
@@ -98,8 +97,6 @@
 		749AFDA01E952CC70090A2CF /* CCActiveWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCActiveWheel.h; path = ../../GeneralView/CCActiveWheel.h; sourceTree = "<group>"; };
 		749AFDA11E952CC70090A2CF /* CCActiveWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCActiveWheel.m; path = ../../GeneralView/CCActiveWheel.m; sourceTree = "<group>"; };
 		74CC06F61EAE26B800BEE919 /* CCSightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSightViewController.h; sourceTree = "<group>"; };
-		74E7B1F31EB7478C0028AF54 /* RCImageMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCImageMessageCell.h; sourceTree = "<group>"; };
-		74E7B1F41EB7478C0028AF54 /* RCImageMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCImageMessageCell.m; sourceTree = "<group>"; };
 		B20484601E9766EF0062C6B7 /* CCConversationSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCConversationSettingTableViewController.h; sourceTree = "<group>"; };
 		B20484611E9766EF0062C6B7 /* CCConversationSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCConversationSettingTableViewController.m; sourceTree = "<group>"; };
 		B21310D41E8F730800C86822 /* CCBusinessCardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBusinessCardMessage.h; path = ../../Models/CCBusinessCardMessage.h; sourceTree = "<group>"; };
@@ -228,8 +225,6 @@
 		749AFD9F1E952C6B0090A2CF /* GeneralView */ = {
 			isa = PBXGroup;
 			children = (
-				74E7B1F31EB7478C0028AF54 /* RCImageMessageCell.h */,
-				74E7B1F41EB7478C0028AF54 /* RCImageMessageCell.m */,
 				7402D8531EB743E200FAC068 /* CCSightMessage.h */,
 				7402D8541EB743E200FAC068 /* CCSightMessage.m */,
 				B2B79E3F1EB0B59800274FBA /* CCSightCapturer.h */,
@@ -614,7 +609,6 @@
 				B28FE17B1E9C98BD007677C4 /* CCContactTableViewController.m in Sources */,
 				B2C3BF8B1E9500FF0044C181 /* CCNetwokKit.m in Sources */,
 				748D574C1EA3606500B3FF91 /* CALayer+Additions.m in Sources */,
-				74E7B1F51EB7478C0028AF54 /* RCImageMessageCell.m in Sources */,
 				B2BC84BF1E8F4B88001A89BE /* CCUserTableViewController.m in Sources */,
 				749AFD9E1E9527390090A2CF /* CCAccountSettingTableViewController.m in Sources */,
 				B2BC84771E8F4AB8001A89BE /* main.m in Sources */,
