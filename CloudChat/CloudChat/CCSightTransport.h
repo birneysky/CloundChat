@@ -30,6 +30,7 @@
 
 @property (weak, nonatomic) id <SightTransportDelegate> delegate;
 
+- (void)setControlBarHidden:(BOOL)hidden;
 - (void)setCurrentTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
 - (void)setScrubbingTime:(NSTimeInterval)time;
 - (void)playbackComplete;

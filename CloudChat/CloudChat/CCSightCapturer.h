@@ -13,9 +13,7 @@
 @protocol CCSightCapturerDelegate <NSObject>
 
 @required
-- (void)outputVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-
-- (void)outputAudioSampleBuffer:(CMSampleBufferRef)sampleBuffer;
+- (void)didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 
 @end
 
@@ -43,6 +41,11 @@
  */
 @property (nonatomic,copy) void (^captureStillImageCompletionHandler) (UIImage* image);
 
+@property (nonatomic,strong,readonly) dispatch_queue_t sessionQueue;
+
+@property (nonatomic,copy,readonly) NSDictionary *recommendedVideoCompressionSettings;
+@property (nonatomic,copy,readonly) NSDictionary *recommendedAudioCompressionSettings;
+
 /**
  开始采集
  */
@@ -53,18 +56,6 @@
  结束采集
  */
 - (void)stopRunning;
-
-
-/**
- 开始录制， 必须在startRunning 之后调用
- */
-- (void)startRecording;
-
-
-/**
- 结束录制
- */
-- (void)stopRecording;
 
 
 /**

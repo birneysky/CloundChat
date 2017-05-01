@@ -6,15 +6,15 @@
 //  Copyright © 2017年 RongCloud. All rights reserved.
 //
 
-#import "CCSightPlayer.h"
+#import "CCSightPlayerView.h"
 #import "CCSightOverlayView.h"
 
 
-@interface CCSightPlayer ()
+@interface CCSightPlayerView ()
 @property (strong, nonatomic) CCSightOverlayView *overlayView;
 @end
 
-@implementation CCSightPlayer
+@implementation CCSightPlayerView
 #pragma mark - Properties
 - (CCSightOverlayView*)overlayView
 {

@@ -9,12 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@protocol CCSightViewDelegate <NSObject>
-
-- (void)cancelVideoPreview;
-
-
-@end
 
 
 #define ActionBtnSize 120
@@ -23,9 +17,6 @@
 #define AnimateDuration 0.2
 
 @interface CCSightView : UIView
-
-@property (nonatomic,weak) id<CCSightViewDelegate> delegate;
-
 
 @property (nonatomic,readonly) AVCaptureVideoPreviewLayer *previewLayer;
 

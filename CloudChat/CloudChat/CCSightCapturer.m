@@ -44,14 +44,12 @@ typedef NS_ENUM( NSInteger, SightCapturerRecordingStatus )
 @property (nonatomic,copy) NSDictionary *videoCompressionSettings;
 @property (nonatomic,copy) NSDictionary *audioCompressionSettings;
 
-@property(nonatomic, strong) __attribute__((NSObject)) CMFormatDescriptionRef outputVideoFormatDescription;
-@property(nonatomic, strong) __attribute__((NSObject)) CMFormatDescriptionRef outputAudioFormatDescription;
+//@property(nonatomic, strong) __attribute__((NSObject)) CMFormatDescriptionRef outputVideoFormatDescription;
+//@property(nonatomic, strong) __attribute__((NSObject)) CMFormatDescriptionRef outputAudioFormatDescription;
 
 @property(nonatomic, assign)	SightCapturerRecordingStatus recordingStatus;
 
 @property(nonatomic,strong) NSURL *recordUrl;
-
-@property(nonatomic,strong) CCSightRecorder *recorder;
 
 @end
 
@@ -122,14 +120,16 @@ typedef NS_ENUM( NSInteger, SightCapturerRecordingStatus )
   }
   return _recordUrl;
 }
-
-- (CCSightRecorder*)recorder
-{
-  if (!_recorder) {
-    _recorder = [[CCSightRecorder alloc] initWithURL:self.recordUrl delegate:self];
-  }
-  return _recorder;
-}
+//
+//- (CCSightRecorder*)recorder
+//{
+//  if (!_recorder) {
+//    ///_recorder = [[CCSightRecorder alloc] initWithURL:self.recordUrl delegate:self];
+//      _recorder = [[CCSightRecorder alloc] initWithVideoSettings:self.videoCompressionSettings audioSettings:self.audioCompressionSettings dispatchQueue:self.sessionQueue];
+//      _recorder.delegate = self;
+//  }
+//  return _recorder;
+//}
 
 #pragma mark - Helper
 - (void)setupCaptureSession{
@@ -142,8 +142,8 @@ typedef NS_ENUM( NSInteger, SightCapturerRecordingStatus )
   }
   
   AVCaptureAudioDataOutput *audioDeviceOutput = [[AVCaptureAudioDataOutput alloc] init];
-  dispatch_queue_t audioCaptureQueue = dispatch_queue_create("com.rongcloud.sightcapturer.audio.output", DISPATCH_QUEUE_SERIAL );
-  [audioDeviceOutput setSampleBufferDelegate:self queue:audioCaptureQueue];
+  ///dispatch_queue_t audioCaptureQueue = dispatch_queue_create("com.rongcloud.sightcapturer.audio.output", DISPATCH_QUEUE_SERIAL );
+  [audioDeviceOutput setSampleBufferDelegate:self queue:self.sessionQueue];
   
   if ([self.captureSession canAddOutput:audioDeviceOutput]) {
     [self.captureSession addOutput:audioDeviceOutput];
@@ -161,14 +161,15 @@ typedef NS_ENUM( NSInteger, SightCapturerRecordingStatus )
   
   AVCaptureVideoDataOutput *videoDeviceOutput = [[AVCaptureVideoDataOutput alloc] init];
   ///videoDeviceOutput.videoSettings = @{ (id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32RGBA) };
-  dispatch_queue_t videoDataOutputQueue = dispatch_queue_create( "com.rongcloud.sightcapturer.video.output", DISPATCH_QUEUE_SERIAL );
-  [videoDeviceOutput setSampleBufferDelegate:self queue:videoDataOutputQueue];
+  //dispatch_queue_t videoDataOutputQueue = dispatch_queue_create( "com.rongcloud.sightcapturer.video.output", DISPATCH_QUEUE_SERIAL );
+  [videoDeviceOutput setSampleBufferDelegate:self queue:self.sessionQueue];
   videoDeviceOutput.alwaysDiscardsLateVideoFrames = NO;
   
   
   if ([self.captureSession canAddOutput:videoDeviceOutput]) {
     [self.captureSession addOutput:videoDeviceOutput];
   }
+    
   
   self.videoConnection = [videoDeviceOutput connectionWithMediaType:AVMediaTypeVideo];
   
@@ -198,14 +199,7 @@ typedef NS_ENUM( NSInteger, SightCapturerRecordingStatus )
 {
   if (self.captureSession )
   {
-    /// [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:self.captureSession];
-    
-    
-    
     self.captureSession = nil;
-    
-    ///_videoCompressionSettings = nil;
-    ///_audioCompressionSettings = nil;
   }
 }
 
@@ -270,59 +264,25 @@ typedef NS_ENUM( NSInteger, SightCapturerRecordingStatus )
 }
 
 
-- (CGAffineTransform)transformFromVideoBufferOrientationToOrientation:(AVCaptureVideoOrientation)orientation withAutoMirroring:(BOOL)mirror
-{
-  CGAffineTransform transform = CGAffineTransformIdentity;
-		
-  // Calculate offsets from an arbitrary reference orientation (portrait)
-  CGFloat orientationAngleOffset = angleOffsetFromPortraitOrientationToOrientation( orientation );
-  CGFloat videoOrientationAngleOffset = angleOffsetFromPortraitOrientationToOrientation( self.videoBufferOrientation );
-  
-  // Find the difference in angle between the desired orientation and the video orientation
-  CGFloat angleOffset = orientationAngleOffset - videoOrientationAngleOffset;
-  transform = CGAffineTransformMakeRotation( angleOffset );
-  
-  if ( _videoDevice.position == AVCaptureDevicePositionFront )
-  {
-    if ( mirror ) {
-      transform = CGAffineTransformScale( transform, -1, 1 );
-    }
-    else {
-      if ( UIInterfaceOrientationIsPortrait( (UIInterfaceOrientation)orientation ) ) {
-        transform = CGAffineTransformRotate( transform, M_PI );
-      }
-    }
-  }
-  
-  return transform;
-}
-
-static CGFloat angleOffsetFromPortraitOrientationToOrientation(AVCaptureVideoOrientation orientation)
-{
-  CGFloat angle = 0.0;
-  
-  switch ( orientation )
-  {
-    case AVCaptureVideoOrientationPortrait:
-      angle = 0.0;
-      break;
-    case AVCaptureVideoOrientationPortraitUpsideDown:
-      angle = M_PI;
-      break;
-    case AVCaptureVideoOrientationLandscapeRight:
-      angle = -M_PI_2;
-      break;
-    case AVCaptureVideoOrientationLandscapeLeft:
-      angle = M_PI_2;
-      break;
-    default:
-      break;
-  }
-  
-  return angle;
-}
 
 #pragma mark - Api
+
+
+- (NSDictionary *)recommendedVideoCompressionSettings
+{
+    NSMutableDictionary* settings = [[NSMutableDictionary alloc] initWithDictionary:self.videoCompressionSettings];
+    settings[@"AVVideoHeightKey"]  =  @([settings[@"AVVideoHeightKey"] integerValue] / 2);
+    settings[@"AVVideoWidthKey"]  = @([settings[@"AVVideoWidthKey"] integerValue] / 2);
+    settings[@"AVVideoCompressionPropertiesKey"][@"MaxKeyFrameIntervalDuration"] = @(5);
+    settings[@"AVVideoCompressionPropertiesKey"][@"AverageBitRate"] = @(1024*1024);
+    return [settings copy];//[self.videoCompressionSettings copy];
+}
+
+- (NSDictionary *)recommendedAudioCompressionSettings
+{
+    return [self.audioCompressionSettings copy];
+}
+
 - (void)startRunning
 {
   if (![self.captureSession isRunning]) {
@@ -344,42 +304,6 @@ static CGFloat angleOffsetFromPortraitOrientationToOrientation(AVCaptureVideoOri
   }
 }
 
-
-
-- (void)startRecording
-{
-//  @synchronized( self )
-//  {
-    if ( self.recordingStatus != SightCapturerRecordingStatusIdle ) {
-      @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Already recording" userInfo:nil];
-      return;
-    }
-//  }
-  
-  [self.recorder addAudioTrackWithSourceFormatDescription:self.outputAudioFormatDescription settings:self.audioCompressionSettings];
-  
-  CGAffineTransform videoTransform = [self transformFromVideoBufferOrientationToOrientation:AVCaptureVideoOrientationPortrait withAutoMirroring:NO]; // Front camera recording
-  
-  [self.recorder addVideoTrackWithSourceFormatDescription:self.outputVideoFormatDescription transform:videoTransform settings:self.videoCompressionSettings];
-
-  [self.recorder prepareToRecord];
-}
-
-
-- (void)stopRecording
-{
-//  @synchronized( self )
-//  {
-    if ( self.recordingStatus != SightCapturerRecordingStatusRecording ) {
-      return;
-    }
-    
-    
-//  }
-    self.recordingStatus = SightCapturerRecordingStatusStoppingRecording;
-  
-  [self.recorder finishRecording];
-}
 
 
 - (BOOL)switchCamera{
@@ -413,6 +337,7 @@ static CGFloat angleOffsetFromPortraitOrientationToOrientation(AVCaptureVideoOri
 
 - (void)captureStillImage
 {
+    
   AVCaptureConnection *connection =
   [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
   
@@ -448,72 +373,16 @@ static CGFloat angleOffsetFromPortraitOrientationToOrientation(AVCaptureVideoOri
 didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
        fromConnection:(AVCaptureConnection *)connection
 {
-  
-  if (connection == self.videoConnection) {
-    if (!self.outputVideoFormatDescription) {
-      CMFormatDescriptionRef formatDescription = CMSampleBufferGetFormatDescription( sampleBuffer );
-      self.outputVideoFormatDescription =  formatDescription;
-    }
-      
-      if (self.recordingStatus == SightCapturerRecordingStatusRecording) {
-          [self.recorder appendVideoSampleBuffer:sampleBuffer];
-      }
-    
-  }
-  else if(connection == self.audioConnection){
-    if (!self.outputAudioFormatDescription) {
-      CMFormatDescriptionRef formatDescription = CMSampleBufferGetFormatDescription( sampleBuffer );
-      self.outputAudioFormatDescription = formatDescription;
-    }
-      if (self.recordingStatus == SightCapturerRecordingStatusRecording) {
-          [self.recorder appendAudioSampleBuffer:sampleBuffer];
-      }
-  }
-  else{
-    
-  }
+    ///[self.recorder processSampleBuffer:sampleBuffer];
+    [self.delegate didOutputSampleBuffer:sampleBuffer];
 }
 
 #pragma mark - CCSightRecorderDelegate
-
-- (void)sightRecorderDidFinishPreparing:(CCSightRecorder *)recorder;
+- (void)didWriteMovieAtURL:(NSURL *)outputURL
 {
-    self.recordingStatus = SightCapturerRecordingStatusRecording;
-}
-
-- (void)sightRecorder:(CCSightRecorder *)recorder didFailWithError:(NSError *)error;
-{
-  
-}
-- (void)sightRecorderDidFinishRecording:(CCSightRecorder *)recorder;
-{
-  @synchronized( self )
-  {
-    if ( _recordingStatus != SightCapturerRecordingStatusStoppingRecording ) {
-      @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Expected to be in StoppingRecording state" userInfo:nil];
-      return;
-    }
-    
-    // No state transition, we are still in the process of stopping.
-    // We will be stopped once we save to the assets library.
-  }
-  
-  _recorder = nil;
-  
   ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-  [library writeVideoAtPathToSavedPhotosAlbum:self.recordUrl completionBlock:^(NSURL *assetURL, NSError *error) {
+  [library writeVideoAtPathToSavedPhotosAlbum:outputURL completionBlock:^(NSURL *assetURL, NSError *error) {
     
-    ////[[NSFileManager defaultManager] removeItemAtURL:self.recordUrl error:NULL];
-    
-    @synchronized( self )
-    {
-      if ( self.recordingStatus != SightCapturerRecordingStatusStoppingRecording ) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Expected to be in StoppingRecording state" userInfo:nil];
-        return;
-      }
-      self.recordingStatus = SightCapturerRecordingStatusIdle;
-      //[self transitionToRecordingStatus:RosyWriterRecordingStatusIdle error:error];
-    }
   }];
 }
 

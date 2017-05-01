@@ -12,6 +12,8 @@
 
 - (void)sightViewController:(UIViewController*)sightVC didFinishCapturingStillImage:(UIImage*)image;
 
+- (void)sightViewController:(UIViewController *)sightVC didWriteSightAtURL:(NSURL *)url thumbnail:(UIImage*)thumnail;
+
 @end
 
 @interface CCSightViewController : UIViewController

@@ -6,49 +6,22 @@
 //  Copyright © 2016年 RongCloud. All rights reserved.
 //
 
-#import "RCSightMessage.h"
-#import "RCLocalConfiguration.h"
-#import "RCUtilities.h"
-#import "RCDictionary.h"
+#import "CCSightMessage.h"
+
 #import <objc/runtime.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface RCSightMessage ()
+@interface CCSightMessage ()
 @property (nonatomic, strong) NSString *thumbnailBase64String;
 
 @end
 
-@implementation RCSightMessage
+@implementation CCSightMessage
 
-+ (instancetype)messageWithLocalPath:(NSURL *)path {
-  RCSightMessage *sightMessage = [[RCSightMessage alloc] init];
-  if (sightMessage) {
-    sightMessage.localPath = [path absoluteString];
-    
-    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:path options:nil];
-    AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
-    gen.appliesPreferredTrackTransform = YES;
-    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
-    NSError *error = nil;
-    CMTime actualTime;
-    CGImageRef imageRef = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
-    UIImage *image = nil;
-    if (error) {
-      RCLogE(@"ERROR: RCSightMessage get thumbnail error: %@", [error localizedDescription]);
-    } else {
-      image = [[UIImage alloc] initWithCGImage:imageRef];
-    }
-    CGImageRelease(imageRef);
-    if (image) {
-      sightMessage.thumbnailImage = [RCUtilities
-                                     generateThumbnail:image
-                                     targetSize:CGSizeMake([RCLocalConfiguration sharedInstance]
-                                                           .thumbnailWidth,
-                                                           [RCLocalConfiguration sharedInstance]
-                                                           .thumbnailHeight)];
-    }
-  }
-  return sightMessage;
+
++ (instancetype)messageWithLocalPath:(NSString *)path thumbnail:(UIImage*)image;
+{
+    return [[CCSightMessage alloc] initWithUrl:path thumbnail:image];
 }
 
 + (RCMessagePersistent)persistentFlag {
@@ -63,6 +36,16 @@
 #define KEY_SIGHTMSG_LOCALPATH @"localPath"
 #define KEY_SIGHTMSG_REMOTEURL @"remoteUrl"
 #define KEY_SIGHTMSG_THUMBNAILIMAGE @"thumbnailImage"
+
+- (instancetype)initWithUrl:(NSString*)path thumbnail:(UIImage*)image
+{
+    if (self = [super init]) {
+        self.localPath = path;
+        self.thumbnailImage = image;
+    }
+    return self;
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
   self = [super init];
   if (self) {
@@ -81,19 +64,9 @@
 
 #pragma mark - RCMessageCoding delegate methods
 - (NSData *)encode {
-  NSData *imageData = UIImageJPEGRepresentation(self.thumbnailImage, [RCLocalConfiguration sharedInstance].thumbnailQuality);
-  NSString *thumbnailBase64String = nil;
-  if ([imageData
-       respondsToSelector:@selector(base64EncodedStringWithOptions:)]) {
-    thumbnailBase64String =
-    [imageData base64EncodedStringWithOptions:kNilOptions];
-  } else {
-    thumbnailBase64String = [RCUtilities base64EncodedStringFrom:imageData];
-  }
-  RCLogV(@"thumbnailBase64String = %ld",
-         (unsigned long)thumbnailBase64String.length);
   
-  NSMutableDictionary *dataDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:thumbnailBase64String, @"content", nil];
+
+  NSMutableDictionary *dataDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"", @"content", nil];
   if (self.localPath.length > 0) {
     [dataDict setValue:self.localPath forKey:@"localPath"];
   }
@@ -144,17 +117,17 @@
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                        options:kNilOptions
                                                          error:&__error];
-  RCDictionary *jsonDictionary = [[RCDictionary alloc] initWithDictionary:json];
+  NSDictionary *jsonDictionary = [[NSDictionary alloc] initWithDictionary:json];
   if (jsonDictionary) {
-    self.localPath = [jsonDictionary stringObjectForKey:@"localPath"];
-    self.remoteUrl = [jsonDictionary stringObjectForKey:@"remoteUrl"];
-    self.thumbnailBase64String = [jsonDictionary stringObjectForKey:@"content"];
+    self.localPath = [jsonDictionary objectForKey:@"localPath"];
+    self.remoteUrl = [jsonDictionary objectForKey:@"remoteUrl"];
+    self.thumbnailBase64String = [jsonDictionary objectForKey:@"content"];
     NSDictionary *userinfoDic = [jsonDictionary objectForKey:@"user"];
     [super decodeUserInfo:userinfoDic];
     NSDictionary *mentionedInfoDic = [json objectForKey:@"mentionedInfo"];
     [self decodeMentionedInfo:mentionedInfoDic];
   } else {
-    RCLogE(@"ERROR: RCSightMessage JSON is nil!!");
+    
   }
 }
 
@@ -175,7 +148,6 @@
       }
       _thumbnailImage = [UIImage imageWithData:imageData];
     } else {
-      RCLogI(@">>>>>>>> Error!!!!!!!! thumbnail is missing...");
     }
   }
   return _thumbnailImage;

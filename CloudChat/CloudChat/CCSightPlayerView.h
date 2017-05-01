@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CCSightTransport.h"
 
-@interface CCSightPlayer : UIView
+@interface CCSightPlayerView : UIView
 
 
 - (id)initWithPlayer:(AVPlayer *)player;

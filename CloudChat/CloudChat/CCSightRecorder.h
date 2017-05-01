@@ -17,41 +17,44 @@
  */
 @interface CCSightRecorder : NSObject
 
-
 /**
  初始化recorder
 
- @param URL 录制文件存储路径
- @param delegate recorder代理
+ @param videoSettings 视频设置
+ @param audioSettings 音频设置
+ @param dispatchQueue 队列
  @return 返回recorder对象
  */
-- (instancetype)initWithURL:(NSURL *)URL delegate:(id<CCSightRecorderDelegate>)delegate;
+- (instancetype)initWithVideoSettings:(NSDictionary *)videoSettings
+              audioSettings:(NSDictionary *)audioSettings
+              dispatchQueue:(dispatch_queue_t)dispatchQueue;
 
+
+/**
+ 视频文件本地路径
+ */
+@property (nonatomic,readonly,strong) NSURL* url;
+
+
+/**
+ 录制对象代理
+ */
+@property (nonatomic,readwrite,weak) id<CCSightRecorderDelegate> delegate;
 
 /**
  准备录制
  
- @discussion  异步调用，准备完成会调用sightRecorderDidFinishPreparing： 失败调用sightRecorder:didFailWithError:
+ @discussion  异步调用
  */
 - (void)prepareToRecord;
 
 
 /**
- 向recorder中追加视频帧
+ 向recorder中处理 媒体样本 （视频帧,音频样本）
 
- @param sampleBuffer 未编码视频帧对象
+ @param sampleBuffer 未编码的视频样本
  */
-- (void)appendVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-
-
-/**
- 向recorder中追加音频样本
-
- @param sampleBuffer 为编码音频样本
- */
-- (void)appendAudioSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-
-
+- (void)processSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 
 /**
  结束录制
@@ -60,38 +63,16 @@
  */
 - (void)finishRecording;
 
-
-- (void)addAudioTrackWithSourceFormatDescription:(CMFormatDescriptionRef)formatDescription settings:(NSDictionary *)audioSettings;
-
-- (void)addVideoTrackWithSourceFormatDescription:(CMFormatDescriptionRef)formatDescription transform:(CGAffineTransform)transform settings:(NSDictionary *)videoSettings;
-
-
 @end
 
 
 @protocol CCSightRecorderDelegate <NSObject>
 @required
-
-/**
- 录制视频准备工作完成时是会调用
-
- @param recorder 录制对象
- */
-- (void)sightRecorderDidFinishPreparing:(CCSightRecorder *)recorder;
-
-/**
- 准备录制或者开始录制过程出现错误
-
- @param recorder 录制对象
- @param error 错误信息
- */
-- (void)sightRecorder:(CCSightRecorder *)recorder didFailWithError:(NSError *)error;
-
 /**
  完成视频录制时会被调用
-
- @param recorder 录制对象
+ 
+ @param outputURL 文件存储路径
  */
-- (void)sightRecorderDidFinishRecording:(CCSightRecorder *)recorder;
+- (void)didWriteMovieAtURL:(NSURL *)outputURL;
 
 @end

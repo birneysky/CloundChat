@@ -10,9 +10,12 @@
 #import "CCSightView.h"
 #import "CCSightCapturer.h"
 #import "CCSightActionButton.h"
+#import "CCSightPlayerController.h"
+#import "CCSightRecorder.h"
+#import <TargetConditionals.h>
 ///#import "RCExtensionCommon.h"
 
-@interface CCSightViewController () <CCSightViewDelegate>
+@interface CCSightViewController ()<CCSightRecorderDelegate,CCSightCapturerDelegate>
 
 @property (nonatomic,strong) CCSightView *sightView;
 
@@ -32,6 +35,18 @@
 
 @property (nonatomic,assign) BOOL isRecording;
 
+@property (nonatomic,strong) CCSightRecorder *recorder;
+
+@property (nonatomic,strong) CCSightPlayerController *playerController;
+
+@property (nonatomic,strong) NSURL *outputUrl;
+
+@property (nonatomic,strong) UIImage *sightThumbnail;
+
+@property (nonatomic,strong) UILabel *tipsLable;
+
+@property (nonatomic,strong) NSTimer *timer;
+
 @end
 
 @implementation CCSightViewController
@@ -49,6 +64,7 @@
 {
   if (!_capturer) {
     _capturer = [[CCSightCapturer alloc] initWithVideoPreviewPlayer:self.sightView.previewLayer];
+      _capturer.delegate = self;
   }
   return _capturer;
 }
@@ -130,12 +146,35 @@
      return _okBtn;
 }
 
+
+- (CCSightRecorder*)recorder
+{
+  if (!_recorder) {
+      _recorder = [[CCSightRecorder alloc] initWithVideoSettings:self.capturer.recommendedVideoCompressionSettings
+                                                   audioSettings:self.capturer.recommendedAudioCompressionSettings
+                                                   dispatchQueue:self.capturer.sessionQueue];
+      _recorder.delegate = self;
+  }
+  return _recorder;
+}
+
+- (UILabel*)tipsLable
+{
+    if (!_tipsLable) {
+        _tipsLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 21)];
+        _tipsLable.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"sight_label_shadow"]];
+        _tipsLable.font = [UIFont systemFontOfSize:14.0f];
+        _tipsLable.textAlignment = NSTextAlignmentCenter;
+        _tipsLable.text = @"轻触拍照，按住摄像";
+        _tipsLable.textColor = [UIColor whiteColor];
+    }
+    return _tipsLable;
+}
+
 #pragma mark - Init
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
-  
-  self.sightView.delegate = self;
   
   [self.view addSubview:self.sightView];
   [self strechToSuperview:self.sightView];
@@ -163,12 +202,13 @@
     [self.view addSubview:self.okBtn];
     
     [self.view addSubview:self.actionButton];
+    [self.view addSubview:self.tipsLable];
     
     self.actionButton.center = CGPointMake(screenSize.width / 2, screenSize.height - ActionBtnSize - BottomSpace);
     self.cancelBtn.center = self.actionButton.center; //CGPointMake(screenSize.width / 2 / 2 - ActionBtnSize  / 2, screenSize.height - ActionBtnSize - BottomSpace);
     self.okBtn.center = self.actionButton.center;//CGPointMake(screenSize.width / 2 + 100, screenSize.height - ActionBtnSize - BottomSpace);
     self.dismissBtn.center = CGPointMake(self.actionButton.center.x - 100, self.actionButton.center.y);
-    
+    self.tipsLable.center = CGPointMake(screenSize.width / 2, self.actionButton.frame.origin.y);
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -176,10 +216,18 @@
     [UIApplication sharedApplication].statusBarHidden = YES;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self hideTipsLabel];
+    
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].statusBarHidden = NO;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -189,7 +237,7 @@
 
 #pragma mark - override
 - (BOOL)prefersStatusBarHidden{
-    return NO;
+    return YES;
 }
 
 - (BOOL)shouldAutorotate
@@ -230,7 +278,11 @@
             break;
         case RCSightActionStateClick:
             self.dismissBtn.hidden = YES;
+#if !(TARGET_OS_SIMULATOR)
             [self.capturer captureStillImage];
+#else
+            [self showStillImage:nil];
+#endif
             [self showOkCancelBtnWithAnimation];
             break;
         case RCSightActionStateDidCancel:
@@ -255,7 +307,9 @@
 - (void)startRecording{
     if (!self.isRecording) {
         self.isRecording = YES;
-        [self.capturer startRecording];
+#if !(TARGET_OS_SIMULATOR)
+        [self.recorder prepareToRecord];
+#endif
     }
 
 }
@@ -263,7 +317,11 @@
 - (void)stopRecording{
     if (self.isRecording) {
         self.isRecording = NO;
-        [self.capturer stopRecording];
+#if !(TARGET_OS_SIMULATOR)
+        [self.recorder finishRecording];
+#else
+        [self didWriteMovieAtURL:nil];
+#endif
     }
 }
 
@@ -277,6 +335,16 @@
         self.okBtn.center = CGPointMake(screenSize.width / 2 + offset, screenSize.height - ActionBtnSize - BottomSpace);
     } completion:^(BOOL finished) {
         
+    }];
+}
+
+- (void)hideTipsLabel
+{
+    __weak typeof(self) weakSelf = self;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0f repeats:NO block:^(NSTimer * _Nonnull timer) {
+        [UIView animateWithDuration:0.5 animations:^{
+            weakSelf.tipsLable.hidden = YES;
+        }];
     }];
 }
 
@@ -307,6 +375,8 @@
 
 - (void)cancelAction:(UIButton*)sender
 {
+    self.tipsLable.hidden = NO;
+    [self hideTipsLabel];
     [UIView animateWithDuration:AnimateDuration animations:^{
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         self.cancelBtn.center = CGPointMake(screenSize.width / 2, screenSize.height - ActionBtnSize - BottomSpace);
@@ -315,6 +385,8 @@
         self.actionButton.hidden = NO;
         self.dismissBtn.hidden = NO;
         self.stillImageView.hidden = YES;
+        [self.playerController.view removeFromSuperview];
+        self.playerController = nil;
     }];
 }
 
@@ -326,7 +398,31 @@
       [self.delegate sightViewController:self didFinishCapturingStillImage:self.stillImageView.image];
     }
   }
+  else{
+      [self.capturer stopRunning];
+      if ([self.delegate respondsToSelector:@selector(sightViewController:didWriteSightAtURL:thumbnail:)]) {
+          [self.delegate sightViewController:self didWriteSightAtURL:self.outputUrl thumbnail:self.sightThumbnail];
+      }
+  }
 }
 
+
+#pragma mark - CCSightRecorderDelegate
+
+- (void)didWriteMovieAtURL:(NSURL *)outputURL
+{
+    
+    self.playerController = [[CCSightPlayerController alloc] initWithURL:outputURL];
+    [self.view insertSubview:self.playerController.view aboveSubview:self.stillImageView];
+    [self strechToSuperview:self.playerController.view];
+    self.outputUrl = outputURL;
+    self.sightThumbnail = [self.playerController generateThumbnail];
+}
+
+#pragma mark - CCSightCapturerDelegate
+- (void)didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
+{
+    [self.recorder processSampleBuffer:sampleBuffer];
+}
 
 @end

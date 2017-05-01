@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CloudChat/CloudChat/CCSightRecorder.m"
-            timestampString = "514996810.147125"
+            filePath = "CloudChat/CloudChat/CCSightCapturer.m"
+            timestampString = "515178823.399299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
-            landmarkName = "-finishRecording"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-teardownCaptureSession"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
