@@ -16,7 +16,6 @@
 #import "CCConversationSettingTableViewController.h"
 #import <RongCallKit/RongCallKit.h>
 #import "WLDMessageCell.h"
-#import "CCSightViewController.h"
 
 ///#define PLUGIN_BOARD_ITEM_FILE_TAG 20001
 
@@ -267,8 +266,6 @@ static const NSInteger PLUGIN_BOARD_ITEM_AUDIO_CALL_TAG = 30002;
     }
     else if(PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG == tag){
       //[[RCCall sharedRCCall] startSingleCall:self.targetId mediaType:RCCallMediaVideo];
-        CCSightViewController* svc = [[CCSightViewController alloc] init];
-        [self presentViewController:svc animated:YES completion:nil];
     }
 //    else if(PLUGIN_BOARD_ITEM_VIDEO_CALL_TAG == tag &&
 //            [[RCCall sharedRCCall] isAudioCallEnabled:self.conversationType] &&
